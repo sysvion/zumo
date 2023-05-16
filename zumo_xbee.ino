@@ -24,10 +24,9 @@ int count = 0;
 
 void setup()
 {
-  Serial.begin(9600);         //start serial connection with the Arduino serial
-  Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
-   // test;
-  volume += 6;                //6 is added to convert value to min/max of the sound. The volume range that the user sees ranges from 0 to 7 but in reality this ranges from 6 t 13
+// serial1 is the xbee
+  Serial1.begin(9600);       
+  volume += 6;              
 
   while (!Serial) {}          //waits for serial connection to establish
 
