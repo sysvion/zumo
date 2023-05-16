@@ -9,10 +9,10 @@ Zumo32U4ButtonC buttonC;
 char inputChar;
 int volume = 2;               //set the default volume. volume min = 0, max = 7
 double speed = 1;             //starting speed (no movement)
-double speedRight;  
-double speedLeft; 
+double speedRight;
+double speedLeft;
 double steerRight = 1;        //default steer value. Value is later on multiplied with so the default is 1
-double steerLeft = 1; 
+double steerLeft = 1;
 double steerIntensity = 1.3;  //intensity of steering changes
 bool drive = true;            //determines if the robot should move or pause
 const int MIN_VOLUME = 6;     //minimum volume of the buzzer (6 is quiet)
@@ -26,7 +26,7 @@ void setup()
 {
   Serial.begin(9600);         //start serial connection with the Arduino serial
   Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
-  
+
   volume += 6;                //6 is added to convert value to min/max of the sound. The volume range that the user sees ranges from 0 to 7 but in reality this ranges from 6 t 13
 
   while (!Serial) {}          //waits for serial connection to establish
