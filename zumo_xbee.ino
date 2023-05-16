@@ -22,7 +22,7 @@ const int MAX_SPEED = 400;    //maximum motor speed
 int count = 0;
 
 
-void setup() 
+void setup()
 {
   Serial.begin(9600);         //start serial connection with the Arduino serial
   Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
