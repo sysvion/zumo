@@ -61,7 +61,7 @@ void stopContinue()
   }
   else
   {
-    allowDrive = true;              //starts the robot
+    allowDrive = true;              //allows the robot to move
     play(280, 80);
     delay(120);
     play(300, 80);
@@ -238,10 +238,6 @@ void loop()
       sendManualToPc();
   }
 
-  /*if (Serial.available())         //this prints Serial input into Serial1
-  { 
-    Serial1.write(Serial.read());
-  }*/
   if (Serial1.available())          //if character is received form Serial1
   { 
     inputChar = Serial1.read();     //stores received character into a char varible
@@ -302,8 +298,7 @@ void loop()
         wait();
         break;
 
-      default:              //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
-        //stop/continue moving
+      default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
         if (inputChar == ' ') stopContinue(); 
         break;
     }
