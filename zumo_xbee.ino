@@ -8,20 +8,20 @@ Zumo32U4ButtonC buttonC;
 
 char inputChar;
 
-double speed = 1;             //starting speed (no movement)
+double speed = 1;                                 //starting speed (no movement)
 double speedRight;
 double speedLeft;
 const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
 // the minimum is 1 because we are going to multiplied 
-const int minimumTuriningSpeed = 1;
-const int maximumTurningSpeed = 6;
-double steerRight = minimumTuriningSpeed;        //default steer value. Value is later on multiplied with so the default is 1
-double steerLeft = minimumTuriningSpeed;
-double steerIntensity = 1.3;  //intensity of steering changes
+const int minimumTuriningValue = 1;
+const int maximumTurningValue = 6;
+double steerRight = minimumTuriningValue;         //default steer value. Value is later on multiplied with so the default is 1
+double steerLeft = minimumTuriningValue;
+double steerIntensity = 1.3;                      //intensity of steering changes
 
-bool isDriving = true;            //determines if the robot should move or pause
+bool allowDrive = true;                           //determines if the robot should move or pause
 
 const int MIN_VOLUME = 6;
 const int MAX_VOLUME = 13;
@@ -30,7 +30,6 @@ int volume = MIN_VOLUME;
 int count = 0;
 
 void sendManualToPc() {
-  tester::test();
   Serial1.println("\n\nZUMO MANUAL MODE\n  WASD to move\n  SPACE to stop/continue\n  Q to mote at max speed\n  E to reset rotational movement\n  R to reset movement\n -/+ keys to change volume\n");
 }
 
@@ -46,78 +45,72 @@ void setup()
 }
 
 //function to simplify/shorten the use of buzzer in the main loop
-void playFrequency(int frequency, int durationMilliseconds)
+void play(int frequency, int durationMilliseconds)
 {
-  buzzer.playFrequency(frequency, durationMilliseconds, volume);
+  buzzer.play(frequency, durationMilliseconds, volume);
 }
 
 void stopContinue()
 {
-  if (isDriving)
+  if (allowDrive)
   {
-    isDriving = false;
-    playFrequency(300, 80);
+    allowDrive = false;
+    play(300, 80);
     delay(120);
-    playFrequency(280, 80);
-    return;
+    play(280, 80);
   }
   else
   {
-    isDriving = true;           //starts the robot
-    playFrequency(280, 80);
+    allowDrive = true;              //starts the robot
+    play(280, 80);
     delay(120);
-    playFrequency(300, 80);
+    play(300, 80);
   }
 }
 
 void lowerVolume()
 {
-                                    // is this true? if it is already at the maximum i can't lower the volume
-  if (volume > MIN_VOLUME)          //checks if volume is already at maximum
+  if (volume > MIN_VOLUME)          //checks if volume is already at minimum
   {
     volume -= 1;
     Serial1.println((String)"Volume: " + (volume-6));
-    playFrequency(460, 300);
+    play(460, 300);
   }
 }
 
 void increaseVolume()
 {
-  if (volume < MAX_VOLUME)          //checks if volume is already at minimum
+  if (volume < MAX_VOLUME)          //checks if volume is already at maximum
   {
     volume += 1;
     Serial1.println((String)"Volume: " + (volume-6));
-    playFrequency(460, 300);
+    play(460, 300);
   }
 }
 
 void moveLeft()
 {
-    if (steerRight < maximumTurningSpeed)
-    {
-        return;
-    }
-
-    if  (steerLeft < minimumTuriningSpeed)
-    {
-        steerRight *= steerIntensity; //increase right wheel speed
-    }
-    else
-    {
-        steerLeft /= steerIntensity;  //reduce left wheel speed if condition not met
-    }
-
-    playFrequency(400, 200);
+  if (!(steerRight < maximumTurningValue))
+  {
+    return;
+  }
+  if  (steerLeft < minimumTuriningValue)
+  {
+    steerRight *= steerIntensity;   //increase right wheel speed
+  }
+  else
+  {
+    steerLeft /= steerIntensity;    //reduce left wheel speed if condition not met
+  }
+  
+  play(400, 200);
 }
 
 void moveRight()
 {
-    playFrequency(420, 200);
-    if (steerLeft < maximumTurningSpeed)
-    {
-        return;
-    }
-    if (steerRight < minimumTuriningSpeed)
+  if (steerLeft < maximumTurningValue)
+  {
+    if (steerRight < minimumTuriningValue)
     {
         steerLeft *= steerIntensity;  //increase left wheel speed
     }
@@ -125,6 +118,8 @@ void moveRight()
     {
         steerRight /= steerIntensity; //decrease right wheel speed if condition not met
     }
+  }
+  play(420, 200);
 }
 
 void moveSlower()
@@ -133,9 +128,9 @@ void moveSlower()
   {                                 //The actual speeds for the motors are calculated at the end using a formula)
     speed -= 1;
     Serial1.println((String)"Speed: " + speed + " --");
-    playFrequency(400, 100);
+    play(400, 100);
     delay(140);
-    playFrequency(400, 100);
+    play(400, 100);
   }
 }
 
@@ -145,9 +140,9 @@ void moveFaster()                   //does the opposite as moveSlower(), to move
   {
     speed += 1;
     Serial1.println((String)"Speed: " + speed + " ++");
-    playFrequency(540, 80);
+    play(540, 80);
     delay(120);
-    playFrequency(540, 80);
+    play(540, 80);
   }
 }
 
@@ -155,9 +150,9 @@ void moveToMaxSpeed()
 {
   speed = 8;                        //set speed to the max
   Serial1.println((String)"Speed: " + speed + " ++");
-  playFrequency(600, 80);
+  play(600, 80);
   delay(120);
-  playFrequency(600, 100);
+  play(600, 100);
 }
 
 void resetSpeed()
@@ -168,21 +163,21 @@ void resetSpeed()
   steerRight = 1;                         
 
   //sets drive t true so robot can immediately start to drive again when input it given in case the robot was paused before reset was pressed
-  isDriving = true;                     
+  allowDrive = true;                     
   Serial1.println("RESET SPEED");
 
   //blinks the yellow led 3 times
   ledYellow(1);
 
-  playFrequency(280, 80);
+  play(280, 80);
   delay(50);
   ledYellow(0);
   delay(50);
   ledYellow(1);
-  playFrequency(280, 80);
+  play(280, 80);
   delay(100);
   ledYellow(0);
-  playFrequency(280, 80);
+  play(280, 80);
 }
 
 void resetRotationalMovement()
@@ -191,21 +186,21 @@ void resetRotationalMovement()
   steerLeft = 1;
   steerRight = 1;
   Serial1.println("RESET ROTATION");
-  ledYellow(1);                     //blinks the yellow led 3 times
-  playFrequency(280, 80);
+  ledYellow(1);                         //blinks the yellow led 3 times
+  play(280, 80);
   delay(50);
   ledYellow(0);
   delay(50);
   ledYellow(1);
-  playFrequency(300, 80);
+  play(300, 80);
   delay(100);
   ledYellow(0);
-  playFrequency(280, 80);
+  play(280, 80);
 }
 
 void rotateDeg(int deg)
 {
-  double rotateSpeed = speed * 40;            //set rotateSpeed to motor speed
+  double rotateSpeed = speed * 40;      //set rotateSpeed to motor speed
 
   if (speed <= 2) 
   {
@@ -216,7 +211,7 @@ void rotateDeg(int deg)
   //To account for more resistance at lower speeds
   //1st num in pow: smaller = shorter turn.
   //2nd num in pow: higher = longer turn for lower speeds
-  deg /= pow(rotateSpeed/600, 1.7);            
+  deg /= pow(rotateSpeed/600, 1.7);
 
   if (rotateSpeed > 400) rotateSpeed = 400;   //speed cant exceed 400
   if (deg < 0) rotateSpeed *= -1;
@@ -233,7 +228,7 @@ void rotateDeg(int deg)
 
 void wait()
 {
-  playFrequency(200, 250);
+  play(200, 250);
   delay(250);
 }
 
@@ -326,7 +321,7 @@ void loop()
     //prints the left/right motor speed and the two steer values
     Serial1.println((String)"\nLEFT: " + speedLeft + "  steerLeft: " + steerLeft + "\nRIGHT: " + speedRight + "  steerRight: " + steerRight);
 
-    if (!isDriving)
+    if (!allowDrive)
     {
       speedLeft = 0;      //sets the motor speeds to 0 to stop them. When robot is allowed to drive again, it will continue at the last set speed instead of resetting its speed.
       speedRight = 0;
@@ -337,12 +332,12 @@ void loop()
     motors.setRightSpeed(speedRight);
   }
 
-  if (!isDriving)
+  if (!allowDrive)
   {
     count++;
     if (count > 5)
     {
-      playFrequency(200, 40);
+      play(200, 40);
       count = 0;
     }
 

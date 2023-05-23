@@ -1,7 +1,6 @@
 #include "inertial.h"
 #include <Zumo32U4.h>
 #include <Arduino.h>
-#include <Array.h>
 
 inertial::inertial() {
 
