@@ -102,7 +102,6 @@ void printCorrectionValues()
 void sendManualToPc() {
   Serial1.println("\n\nZUMO MANUAL MODE\n  WASD to move\n  SPACE to stop/continue\n  Q to mote at max speed\n  E to reset rotational movement\n  R to reset movement\n -/+ keys to change volume\n");
 }
-<<<<<<< Updated upstream
 
 inertial inu = inertial();
 void setup()
@@ -116,9 +115,6 @@ void setup()
 
   sendManualToPc();
 }
-
-=======
->>>>>>> Stashed changes
 //function to simplify/shorten the use of buzzer in the main loop
 void play(int frequency, int durationMilliseconds)
 {
