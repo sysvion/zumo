@@ -110,9 +110,7 @@ void setup()
   Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
 
   inu.setup();
-  // why not !Serial1
-  while (!Serial/*isReady()*/) {}
-
+  while (!Serial1) {}
   sendManualToPc();
 }
 //function to simplify/shorten the use of buzzer in the main loop
@@ -298,14 +296,6 @@ void wait()
   delay(250);
 }
 
-void setup()
-{
-  Serial.begin(9600);         //start serial connection with the Arduino serial
-  Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
-  while (!Serial1) {}
-  sendManualToPc();
-}
-
 void loop()
 {   //when button C is pressed, message how to use the control keys is printed into Serial1 again
   if (buttonC.isPressed())
@@ -429,8 +419,11 @@ void loop()
     delay(50);
     ledRed(0);
     delay(100);
-  if (isDebuging) {
-    if (whatToDebug == 0) {
+  }
+  if (isDebuging)
+  {
+    if (whatToDebug == 0)
+    {
       int gyroinfo[3];
       int *test(gyroinfo);
       inu.getGyroPoss(test);
@@ -441,7 +434,8 @@ void loop()
       Serial1.print( test[2] );
       Serial1.println();
     }
-    if (whatToDebug == 1) {
+    if (whatToDebug == 1)
+    {
       int gyroinfo[3];
       int *test(gyroinfo);
       inu.getMegData(test);
@@ -453,7 +447,8 @@ void loop()
       Serial1.println();
     }
 
-    if (whatToDebug == 2) {
+    if (whatToDebug == 2)
+    {
       int gyroinfo[3];
       int *test(gyroinfo);
       inu.getaccData(test);
@@ -464,12 +459,10 @@ void loop()
       Serial1.print( test[2] );
       Serial1.println();
     }
-    
   }
   
 
   if (speedLeft == 0 && speedRight == 0)  //checks if both motors are not moving
-    
   {
     ledGreen(0);
   }
