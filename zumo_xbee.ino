@@ -52,7 +52,7 @@ void setup()
 //function to simplify/shorten the use of buzzer in the main loop
 void play(int frequency, int durationMilliseconds)
 {
-  buzzer.play(frequency, durationMilliseconds, volume);
+  buzzer.playFrequency(frequency, durationMilliseconds, volume);
 }
 
 void stopContinue()
@@ -312,7 +312,10 @@ void loop()
         break;
 
       default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
-        if (inputChar == ' ') stopContinue(); 
+        if (inputChar == ' ')
+        {
+          stopContinue();
+        } 
         break;
     }
 
