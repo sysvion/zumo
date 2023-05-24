@@ -1,6 +1,7 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include <math.h>
+#include "inertial.h"
 
 Zumo32U4Buzzer buzzer;
 Zumo32U4Motors motors;
@@ -27,17 +28,21 @@ const int MIN_VOLUME = 6;
 const int MAX_VOLUME = 13;
 int volume = MIN_VOLUME;
 
+bool isDebuging = false;
+uint8_t whatToDebug = 0;
 int count = 0;
 
 void sendManualToPc() {
   Serial1.println("\n\nZUMO MANUAL MODE\n  WASD to move\n  SPACE to stop/continue\n  Q to mote at max speed\n  E to reset rotational movement\n  R to reset movement\n -/+ keys to change volume\n");
 }
 
+inertial inu = inertial();
 void setup()
 {
   Serial.begin(9600);         //start serial connection with the Arduino serial
   Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
 
+  inu.setup();
   // why not !Serial1
   while (!Serial/*isReady()*/) {}
 
@@ -253,6 +258,14 @@ void loop()
         increaseVolume();
         break;
 
+      case 'k':
+        isDebuging = !isDebuging;
+        break;
+
+      case 'j':
+        whatToDebug = whatToDebug + 1 % 4;
+        break;                 
+
       case 'a':
         moveLeft();
         break;
@@ -340,9 +353,47 @@ void loop()
     delay(50);
     ledRed(0);
     delay(100);
+  if (isDebuging) {
+    if (whatToDebug == 0) {
+      int gyroinfo[3];
+      int *test(gyroinfo);
+      inu.getGyroPoss(test);
+      Serial1.print( test[0] );
+      Serial1.print("\t");
+      Serial1.print( test[1] );
+      Serial1.print("\t");
+      Serial1.print( test[2] );
+      Serial1.println();
+    }
+    if (whatToDebug == 1) {
+      int gyroinfo[3];
+      int *test(gyroinfo);
+      inu.getMegData(test);
+      Serial1.print( test[0] );
+      Serial1.print("\t");
+      Serial1.print( test[1] );
+      Serial1.print("\t");
+      Serial1.print( test[2] );
+      Serial1.println();
+    }
+
+    if (whatToDebug == 2) {
+      int gyroinfo[3];
+      int *test(gyroinfo);
+      inu.getaccData(test);
+      Serial1.print( test[0] );
+      Serial1.print("\t");
+      Serial1.print( test[1] );
+      Serial1.print("\t");
+      Serial1.print( test[2] );
+      Serial1.println();
+    }
+    
   }
+  
 
   if (speedLeft == 0 && speedRight == 0)  //checks if both motors are not moving
+    
   {
     ledGreen(0);
   }
