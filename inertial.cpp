@@ -1,49 +1,100 @@
 #include "inertial.h"
 #include <Zumo32U4.h>
 #include <Arduino.h>
+#include <Wire.h>
 
-inertial::inertial() {
+inertial::inertial() {}
 
-}
+void inertial::setup()
+{
+  Wire.begin();
 
-class inertial::position {
-  public:
-  uint16_t x = NULL;
-  uint16_t y = NULL;
-  uint16_t z = NULL;
-  position(uint16_t xi, uint16_t yi, uint16_t zi)
-  :x(xi),y(yi),z(zi) {}
-};
-
-void inertial::setup(){
   if (!sensors.init())
   {
-    // Failed to detect the compass.
+    // check if wire is started
+    DebugRegTest(String("LSM303D"),  0b0011101, 0x0F, 0x49);
+    DebugRegTest(String("L3GD20H"),  0b1101011, 0x0F, 0xD7);
+    DebugRegTest(String("LSM6DS33"), 0b1101011, 0x0F, 0x69);
+    DebugRegTest(String("L3GD20H"),  0b0011110, 0x0F, 0x3D);
+    // make sure wire is started.
+
     ledRed(1);
     while(1)
     {
-      Serial.println(F("Failed to initialize IMU sensors."));
-      delay(100);
+      Serial.println("failed to initulize inertial");
+      for (int i=1; i > 10; i++ ){
+        Serial.print(".");
+        delay(300);
+      }
+      delay(500);
     }
   }
-  sensors.enableDefault();
-  
-  calabrateGyro();
+   // calabrateGyro();
+
+
 }
 
-
-uint16_t *inertial::getGyroPoss() {
-  sensors.readGyro();
-  uint16_t res[3] = {sensors.g.x - gyroOffset[0] , sensors.g.y - gyroOffset[1] , sensors.g.z - gyroOffset[2] };
-    //Serial.print(res[0]);
-    //Serial.print("\t");
-    //Serial.print(res[1]);
-    //Serial.print("\t");
-    Serial.println(res[2]); // left right
-  return res;
+int8_t inertial::DebugRegTest(String identifierString, uint8_t addr, uint8_t reg, int16_t whoAmI) const
+{
+  Serial.println("debuging " + identifierString);
+  Wire.beginTransmission(addr);
+  Wire.write(reg);
+  if (Wire.endTransmission() != 0)
+  {
+    Serial.println("failed endTransmission test");
+    return 1; 
+  }
+ 
+  uint8_t byteCount = Wire.requestFrom(addr, (uint8_t)1);
+  if (byteCount != 1)
+  {
+    Serial.println("failed byteCount test");
+    return 2;
+  }
+  int out = Wire.read();
+  Serial.println("got " + String(out) + " from wire.read" );
   
+  if (Wire.read() == whoAmI) {
+      Serial.println("failed whoami test");
+      return 3;    
+  }
+
+  return 0;
 }
 
+// array is of size 3
+// [0] roll left/right
+// [1] pich front/back
+// [2] yaw left/right
+void inertial::getGyroPoss(int *array) {
+  if (sensors.gyroDataReady()) {
+    sensors.readGyro();
+
+    array[0] = sensors.g.x - gyroOffset[0];
+    array[1] = sensors.g.y - gyroOffset[1];
+    array[2] = sensors.g.z - gyroOffset[2];
+  }
+}
+
+void inertial::getMegData(int *array) {
+      if (sensors.magDataReady()) {
+    sensors.readMag();
+
+    array[0] = sensors.m.x;
+    array[1] = sensors.m.y;
+    array[2] = sensors.m.z;
+  }
+}
+void inertial::getaccData(int *array) {
+  if (sensors.accDataReady()) {
+    sensors.readAcc();
+
+    array[0] = sensors.a.x;
+    array[1] = sensors.a.y;
+    array[2] = sensors.a.z;
+  }
+}
+ 
 
 // source: example->zumo32u3->RotationResist->Turnsensor.h:turnSensorSetup()
 void inertial::calabrateGyro() {
@@ -68,33 +119,6 @@ void inertial::calabrateGyro() {
   gyroOffset[1] = totaly / samplePoints;
   gyroOffset[2] = totalz / samplePoints;
 }
-
-/*class inertial::poss {
-public:
-  uint16_t x;
-  uint16_t y;
-  uint16_t z;
-
-  poss(uint16_t xi, uint16_t yi, uint16_t zi)
-  :x(xi),
-  y(yi),
-  z(zi) {}
-};
-
-class inertial::all {
-  poss a;
-  poss m;
-  poss g;
-
-  all(poss ai, poss mi, poss gi)
-    :a(ai),
-    m(mi),
-    g(gi) {}
-};*/
-
-//void inertial::getAll(uint16_t[2][2]&) {
- 
-//}
 
 void inertial::print() {
   char report[120];

@@ -1,4 +1,4 @@
-#pragma one
+#pragma once
 #include <Zumo32U4.h>
 class inertial {
   private:
@@ -9,11 +9,14 @@ class inertial {
   public:
     inertial();
     inertial ( const inertial & ); 
-    class position;
     void setup();
     void calabrateGyro();
-    uint16_t * getGyroPoss();
-    //void inertial::getAll(uint16_t[2][2] a);
+    void getGyroPoss(int *);
+    void getMegData(int *);
+    void getaccData(int *);
+
+    int8_t DebugRegTest(String,uint8_t, uint8_t, int16_t) const;
+
     void print();
 
     int check();
