@@ -20,7 +20,7 @@ const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
 double steerRight = minimumTuriningValue;         //default steer value. Value is later on multiplied with so the default is 1
 double steerLeft = minimumTuriningValue;
-double steerIntensity = 1.3;                      //intensity of steering changes
+const double steerIntensity = 1.3;                      //intensity of steering changes
 
 bool allowDrive = true;                           //determines if the robot should move or pause
 
@@ -264,7 +264,7 @@ void loop()
 
       case 'j':
         whatToDebug = whatToDebug + 1 % 4;
-        break;                 
+        break;
 
       case 'a':
         moveLeft();
@@ -356,39 +356,41 @@ void loop()
     delay(50);
     ledRed(0);
     delay(100);
+
+    
   if (isDebuging) {
     if (whatToDebug == 0) {
       int gyroinfo[3];
-      int *test(gyroinfo);
-      inu.getGyroPoss(test);
-      Serial1.print( test[0] );
+      int *value(gyroinfo);
+      inu.getGyroPoss(value);
+      Serial1.print( value[0] );
       Serial1.print("\t");
-      Serial1.print( test[1] );
+      Serial1.print( value[1] );
       Serial1.print("\t");
-      Serial1.print( test[2] );
+      Serial1.print( value[2] );
       Serial1.println();
     }
     if (whatToDebug == 1) {
       int gyroinfo[3];
-      int *test(gyroinfo);
-      inu.getMegData(test);
-      Serial1.print( test[0] );
+      int *value(gyroinfo);
+      inu.getMegData(value);
+      Serial1.print( value[0] );
       Serial1.print("\t");
-      Serial1.print( test[1] );
+      Serial1.print( value[1] );
       Serial1.print("\t");
-      Serial1.print( test[2] );
+      Serial1.print( value[2] );
       Serial1.println();
     }
 
     if (whatToDebug == 2) {
       int gyroinfo[3];
-      int *test(gyroinfo);
-      inu.getaccData(test);
-      Serial1.print( test[0] );
+      int *value(gyroinfo);
+      inu.getaccData(value);
+      Serial1.print( value[0] );
       Serial1.print("\t");
-      Serial1.print( test[1] );
+      Serial1.print( value[1] );
       Serial1.print("\t");
-      Serial1.print( test[2] );
+      Serial1.print( value[2] );
       Serial1.println();
     }
     
@@ -404,4 +406,5 @@ void loop()
   {
     ledGreen(1);
   }
+}
 }
