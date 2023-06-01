@@ -33,6 +33,7 @@ bool isDebuging = false;
 uint8_t whatToDebug = 0;
 int count = 0;
 
+inertial inu = inertial();
 
 //CORRECT SPEED VARIABLES:
 char correctionValues[100];
@@ -58,14 +59,18 @@ void resetEncoderCounts()
   encoders.getCountsAndResetRight();
   expectedLeftEncoderCount = 0;
   expectedRightEncoderCount = 0;
+  correctLeft = 0;
+  correctRight = 0;
+  offsetLeftEncoderCount = 0;
+  offsetRightEncoderCount = 0;
 }
 
 int calculateCorrectionStrength(int32_t x)
 {
   if (x >= 0)
-    return sqrt(x * 40) + 0;
+    return sqrt(x * 40);
   else
-    return -sqrt(-x * 40) - 0;
+    return -sqrt(-x * 40);
 }
 
 void correctLeftFaster()
@@ -94,7 +99,6 @@ void printCorrectionValues()
   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
       );
 }
-
 //END CORRECT SPEED FUNCTIONS
 
 
@@ -103,7 +107,6 @@ void sendManualToPc() {
   Serial1.println("\n\nZUMO MANUAL MODE\n  WASD to move\n  SPACE to stop/continue\n  Q to mote at max speed\n  E to reset rotational movement\n  R to reset movement\n -/+ keys to change volume\n");
 }
 
-inertial inu = inertial();
 void setup()
 {
   Serial.begin(9600);         //start serial connection with the Arduino serial
@@ -234,7 +237,6 @@ void resetSpeed()
 
   //blinks the yellow led 3 times
   ledYellow(1);
-
   play(280, 80);
   delay(50);
   ledYellow(0);
@@ -289,11 +291,6 @@ void rotateDeg(int deg)
   motors.setRightSpeed(0);
   steerLeft = 1;
   steerRight = 1;
-}
-void wait()
-{
-  play(200, 250);
-  delay(250);
 }
 
 void loop()
@@ -371,19 +368,13 @@ void loop()
         rotateDeg(360);
         break;
 
-      case '0':
-        wait();
-        break;
-
       default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
         if (inputChar == ' ')
         {
           stopContinue();
-        } 
+        }
         break;
     }
-
-    
 
     //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
     if (speedLeft  > MAX_SPEED) speedLeft = MAX_SPEED;
@@ -403,7 +394,6 @@ void loop()
       speedRight = 0;
       Serial1.println("STOPPED");
     }
-
   }
 
   if (!allowDrive)
@@ -462,7 +452,6 @@ void loop()
     }
   }
   
-
   if (speedLeft == 0 && speedRight == 0)  //checks if both motors are not moving
   {
     ledGreen(0);
@@ -490,6 +479,7 @@ void loop()
     if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET)
     {
       correctLeftFaster();
+      Serial.println("F");
     }
     if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET)
     {
@@ -499,6 +489,7 @@ void loop()
     if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET)
     {
       correctLeftSlower();
+      Serial.println("S");
     }
     if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET)
     {

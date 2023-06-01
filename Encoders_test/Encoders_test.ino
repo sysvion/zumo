@@ -20,6 +20,9 @@ double expectedOffsetRightEncoderCount = 1;
 double offsetLeftEncoderCount = 1;
 double offsetRightEncoderCount = 1;
 
+int countsLeft;
+int countsRight;
+
 
 int correctLeft = 0;
 int correctRight = 0;
@@ -69,10 +72,10 @@ void correctRightSlower()
 
 void printCorrectionValues()
 {
-  snprintf_P(report, sizeof(report), PSTR("%6d %6d exp L: %6d exp R: %6d"), 
+  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %6d exp R: %6d"), 
           countsLeft, countsRight, 
           expectedLeftEncoderCount, expectedRightEncoderCount);
-  Serial.println((String)report + "   " + offsetLeftEncoderCount + "  " + offsetRightEncoderCount 
+  Serial.println((String)correctionValues + "   " + offsetLeftEncoderCount + "  " + offsetRightEncoderCount 
   + "   " + correctLeft + "  " + correctRight
       );
   Serial.println((String)"correctLeft " + correctLeft);
@@ -87,8 +90,8 @@ void loop()
   {
     lastEncodersCheckTime = millis();
 
-    int countsLeft = encoders.getCountsLeft();
-    int countsRight = encoders.getCountsRight();
+    countsLeft = encoders.getCountsLeft();
+    countsRight = encoders.getCountsRight();
 
     printCorrectionValues();
 
@@ -159,5 +162,4 @@ void loop()
         break;
     }
   }
-
 }
