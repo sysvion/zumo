@@ -170,7 +170,10 @@ void stopContinue()
 void rotateDeg(int deg)
 {
   resetEncoderCounts();
-  double rotateSpeed = speed * 40;      //set rotateSpeed to motor speed
+  deg *= 13;
+  expectedLeftEncoderCount = -deg;
+  expectedRightEncoderCount = deg;
+  /*double rotateSpeed = speed * 40;      //set rotateSpeed to motor speed
 
   if (speed <= 2) 
   {
@@ -192,7 +195,7 @@ void rotateDeg(int deg)
   motors.setLeftSpeed(0);
   motors.setRightSpeed(0);
   steerLeft = 1;
-  steerRight = 1;
+  steerRight = 1;*/
 }
 
 void setAndNormalizeMotorValues() {

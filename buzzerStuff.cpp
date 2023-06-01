@@ -1,6 +1,5 @@
-#include "notify.h"
+#include "buzzerStuff.h"
 Zumo32U4Buzzer buzzer;
-
 
 const int MIN_VOLUME = 6;
 const int MAX_VOLUME = 13;
@@ -10,20 +9,6 @@ void play(int frequency, int durationMilliseconds)
 {
   buzzer.playFrequency(frequency, durationMilliseconds, volume);
 }
-
-void makeSomeNoice(int frequency)
-{
-  ledRed(1);
-  delay(100);
-  ledRed(0);
-  play(frequency, 80);
-  ledRed(1);
-  delay(20);
-  ledRed(0);
-  play(frequency+20, 30);
-}
-
-
 
 void lowerVolume()
 {
