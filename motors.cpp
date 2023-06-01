@@ -1,8 +1,8 @@
 #include "motors.h"
+#include "encoderStuff.h"
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
-Zumo32U4Encoders encoders;
 
 double speed = 1;                                 //starting speed (no movement)
 double speedRight;
@@ -11,22 +11,7 @@ const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
 bool allowDrive = true;                           //determines if the robot should move or pause
-//
-//CORRECT SPEED VARIABLES:
-char correctionValues[100];
 
-int expectedLeftEncoderCount = 0;
-int expectedRightEncoderCount = 0;
-double expectedOffsetLeftEncoderCount = 1;
-double expectedOffsetRightEncoderCount = 1;
-double offsetLeftEncoderCount = 1;
-double offsetRightEncoderCount = 1;
-int correctLeft = 0;
-int correctRight = 0;
-int countsLeft;
-int countsRight;
-int lastEncodersCheckTime;
-const int ALLOWED_SPEED_OFFSET = 20;
 
 // the minimum is 1 because we are going to multiplied 
 const int minimumTuriningValue = 1;
@@ -35,55 +20,17 @@ double steerRight = minimumTuriningValue;         //default steer value. Value i
 double steerLeft = minimumTuriningValue;
 const double steerIntensity = 1.3;                      //intensity of steering changes
 
-//CORRECT SPEED FUNCTIONS:
-void resetEncoderCounts()
-{
-  encoders.getCountsAndResetLeft();
-  encoders.getCountsAndResetRight();
-  expectedLeftEncoderCount = 0;
-  expectedRightEncoderCount = 0;
-  correctLeft = 0;
-  correctRight = 0;
-  offsetLeftEncoderCount = 0;
-  offsetRightEncoderCount = 0;
-}
 
-int calculateCorrectionStrength(int32_t x)
-{
-  if (x >= 0)
-    return sqrt(x * 40);
-  else
-    return -sqrt(-x * 40);
-}
+// void printCorrectionValues()
+// {
+//   snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"), 
+//           countsLeft, countsRight, 
+//           expectedLeftEncoderCount, expectedRightEncoderCount);
+//   Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount 
+//   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
+//       );
+// }
 
-void correctLeftFaster()
-{
-  correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-}
-void correctRightFaster()
-{
-  correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
-}
-void correctLeftSlower()
-{
-  correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-}
-void correctRightSlower()
-{
-  correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
-}
-
-
-void printCorrectionValues()
-{
-  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"), 
-          countsLeft, countsRight, 
-          expectedLeftEncoderCount, expectedRightEncoderCount);
-  Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount 
-  + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
-      );
-}
-//END CORRECT SPEED FUNCTIONS
 
 void moveLeft()
 {
@@ -170,32 +117,9 @@ void stopContinue()
 void rotateDeg(int deg)
 {
   resetEncoderCounts();
-  deg *= 13;
-  expectedLeftEncoderCount = -deg;
-  expectedRightEncoderCount = deg;
-  /*double rotateSpeed = speed * 40;      //set rotateSpeed to motor speed
-
-  if (speed <= 2) 
-  {
-      rotateSpeed = 120;
-  }
-  //the robot will make a longer turn if it is moving slower.
-  //To account for more resistance at lower speeds
-  //1st num in pow: smaller = shorter turn.
-  //2nd num in pow: higher = longer turn for lower speeds
-  deg /= pow(rotateSpeed/600, 1.7);
-
-  if (rotateSpeed > 400) rotateSpeed = 400;   //speed cant exceed 400
-  if (deg < 0) rotateSpeed *= -1;
-
-  motors.setLeftSpeed(-rotateSpeed);
-  motors.setRightSpeed(rotateSpeed);
-  if (deg < 0) deg *= -1;                     //if deg is negative, make sure that the delay isn't a negative number
-  delay(deg);
-  motors.setLeftSpeed(0);
-  motors.setRightSpeed(0);
-  steerLeft = 1;
-  steerRight = 1;*/
+  deg *= 10.5;
+  setExpectedLeftEncoderCount(-deg);
+  setExpectedRightEncoderCount(deg);
 }
 
 void setAndNormalizeMotorValues() {
@@ -221,44 +145,10 @@ void setAndNormalizeMotorValues() {
 
 void correctOffsetAndApplyMotorValues() 
 {
-    if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50)
-    {
-        lastEncodersCheckTime = millis();
+    correct();
 
-        countsLeft = encoders.getCountsLeft();
-        countsRight = encoders.getCountsRight();
-
-        printCorrectionValues();
-
-        expectedLeftEncoderCount  += 0.6 * speedLeft;
-        expectedRightEncoderCount += 0.6 * speedRight;
-
-        offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
-        offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
-
-        if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET)
-        {
-            correctLeftFaster();
-            Serial.println("correctFaster");
-        }
-        if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET)
-        {
-            correctRightFaster();
-        }
-
-        if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET)
-        {
-            correctLeftSlower();
-            Serial.println("correctSlower");
-        }
-        if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET)
-        {
-            correctRightSlower();
-        }
-    }
-
-    motors.setLeftSpeed(speedLeft + correctLeft);
-    motors.setRightSpeed(speedRight + correctRight);
+    motors.setLeftSpeed(speedLeft + getCorrectLeft());
+    motors.setRightSpeed(speedRight + getCorrectRight());
 }
 
 bool isStandingStill() {
@@ -267,4 +157,12 @@ bool isStandingStill() {
 
 bool isAllowDrive() {
   return (allowDrive);
+}
+
+double getSpeedLeft() {
+  return speedLeft;
+}
+
+double getSpeedRight() {
+  return speedRight;
 }

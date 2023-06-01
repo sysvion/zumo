@@ -1,5 +1,6 @@
 #pragma once
 #include <Zumo32U4.h>
+
 class inertial {
   private:
     Zumo32U4IMU sensors;

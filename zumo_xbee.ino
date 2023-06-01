@@ -4,6 +4,7 @@
 #include "inertial.h"
 #include "motors.h"
 #include "buzzerStuff.h"
+#include "encoderStuff.h"
 
 Zumo32U4ButtonC buttonC;
 char inputChar;
