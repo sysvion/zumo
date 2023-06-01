@@ -19,7 +19,6 @@ int count = 0;
 
 inertial inu = inertial();
 
-
 //input keys manual
 void sendManualToPc() {
   Serial1.println("\n\nZUMO MANUAL MODE\n  WASD to move\n  SPACE to stop/continue\n  Q to mote at max speed\n  E to reset rotational movement\n  R to reset movement\n -/+ keys to change volume\n");
@@ -74,6 +73,7 @@ void loop()
 
             case '-':                     //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
                 lowerVolume();
+                
                 break;                      //break out of switch
 
             case '=':
@@ -143,10 +143,10 @@ void loop()
 
 
         //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
-       normalizeMotorValues();
+       setAndNormalizeMotorValues();
     }
 
-    if (isStandingStill())
+    if (!isAllowDrive())
     {
         count++;
         if (count > 5)
@@ -154,13 +154,21 @@ void loop()
             play(200, 40);
             count = 0;
         }
-
         ledRed(1);
         delay(50);
         ledRed(0);
         delay(100);
-
     }
+
+    if (isStandingStill())
+    {
+      ledGreen(0);
+    }
+    else
+    {
+      ledGreen(1);
+    }
+
 
     if (isDebuging) {
         if (whatToDebug == 0) {
@@ -204,7 +212,7 @@ void loop()
         }
     }
 
-    applyMotorValues();
+    correctOffsetAndApplyMotorValues();
 }
 
 
