@@ -12,10 +12,12 @@ class inertial {
     void setup();
     void calabrateGyro();
     void getGyroPoss(int *);
+    bool checkDownwardSpeed();
     void getMegData(int *);
     void getaccData(int *);
+    
 
-    int8_t DebugRegTest(String,uint8_t, uint8_t, int16_t) const;
+    int8_t DebugRegTest(String, uint8_t, uint8_t, int16_t) const;
 
     void print();
 

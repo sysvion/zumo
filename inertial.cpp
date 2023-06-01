@@ -9,8 +9,8 @@ void inertial::setup()
 {
   Wire.begin();
 
-  if (!sensors.init())
   {
+  if (!sensors.init())
     // check if wire is started
     DebugRegTest(String("LSM303D"),  0b0011101, 0x0F, 0x49);
     DebugRegTest(String("L3GD20H"),  0b1101011, 0x0F, 0xD7);
@@ -29,7 +29,7 @@ void inertial::setup()
       delay(500);
     }
   }
-   // calabrateGyro();
+  calabrateGyro();
 
 
 }
@@ -118,6 +118,13 @@ void inertial::calabrateGyro() {
   gyroOffset[0] = totalx / samplePoints;
   gyroOffset[1] = totaly / samplePoints;
   gyroOffset[2] = totalz / samplePoints;
+}
+
+bool inertial::checkDownwardSpeed() {
+  int gyroinfo[3];
+  int *value(gyroinfo);
+  getGyroPoss(value);  
+  return value[1] > -300;
 }
 
 void inertial::print() {
