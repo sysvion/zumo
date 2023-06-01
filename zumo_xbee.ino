@@ -3,22 +3,16 @@
 #include <math.h>
 #include "inertial.h"
 #include "motors.h"
+#include "notify.h"
 
-Zumo32U4Buzzer buzzer;
 Zumo32U4ButtonC buttonC;
-
 char inputChar;
-
-const int MIN_VOLUME = 6;
-const int MAX_VOLUME = 13;
-int volume = MIN_VOLUME + 1;
 
 bool isDebuging = false;
 uint8_t whatToDebug = 0;
 int count = 0;
 
 inertial inu = inertial();
-
 
 //input keys manual
 void sendManualToPc() {
@@ -35,28 +29,8 @@ void setup()
   sendManualToPc();
 }
 //function to simplify/shorten the use of buzzer in the main loop
-void play(int frequency, int durationMilliseconds)
-{
-  buzzer.playFrequency(frequency, durationMilliseconds, volume);
-}
-void lowerVolume()
-{
-  if (volume > MIN_VOLUME)          //checks if volume is already at minimum
-  {
-    volume -= 1;
-    Serial1.println((String)"Volume: " + (volume-6));
-    play(460, 300);
-  }
-}
-void increaseVolume()
-{
-  if (volume < MAX_VOLUME)          //checks if volume is already at maximum
-  {
-    volume += 1;
-    Serial1.println((String)"Volume: " + (volume-6));
-    play(460, 300);
-  }
-}
+
+
 
 void loop()
 {   //when button C is pressed, message how to use the control keys is printed into Serial1 again
@@ -71,7 +45,6 @@ void loop()
 
         switch (inputChar)              //a switch is used instead of multiple if-else statements to make code more readable and optimized
         {
-
             case '-':                     //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
                 lowerVolume();
                 break;                      //break out of switch
@@ -137,6 +110,7 @@ void loop()
                 if (inputChar == ' ')
                 {
                     stopContinue();
+                    makeSomeNoice(100);
                 }
                 break;
         }
