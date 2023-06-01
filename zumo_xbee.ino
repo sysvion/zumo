@@ -51,15 +51,16 @@ int countsRight;
 uint8_t lastEncodersCheckTime;
 const int ALLOWED_SPEED_OFFSET = 20;
 
+
 //CORRECT SPEED FUNCTIONS:
 void resetEncoderCounts()
 {
   encoders.getCountsAndResetLeft();
   encoders.getCountsAndResetRight();
-  correctLeft = 0;
-  correctRight = 0;
   expectedLeftEncoderCount = 0;
   expectedRightEncoderCount = 0;
+  correctLeft = 0;
+  correctRight = 0;
   offsetLeftEncoderCount = 0;
   offsetRightEncoderCount = 0;
 }
@@ -375,10 +376,6 @@ void loop()
         break;
     }
 
-    //these two formulas determine the final speeds for the left and right motor
-    speedLeft  = (speed * steerLeft - steerRight) * 50;
-    speedRight = (speed * steerRight - steerLeft) * 50;
-
     //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
     if (speedLeft  > MAX_SPEED) speedLeft = MAX_SPEED;
     if (speedRight > MAX_SPEED) speedRight = MAX_SPEED;
@@ -388,6 +385,9 @@ void loop()
     //prints the left/right motor speed and the two steer values
     Serial1.println((String)"\nLEFT: " + speedLeft + "  steerLeft: " + steerLeft + "\nRIGHT: " + speedRight + "  steerRight: " + steerRight);
 
+    //these two formulas determine the final speeds for the left and right motor
+    speedLeft  = (speed * steerLeft - steerRight) * 50;
+    speedRight = (speed * steerRight - steerLeft) * 50;
     if (!allowDrive)
     {
       speedLeft = 0;      //sets the motor speeds to 0 to stop them. When robot is allowed to drive again, it will continue at the last set speed instead of resetting its speed.
@@ -478,7 +478,7 @@ void loop()
     if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET)
     {
       correctLeftFaster();
-      Serial.println("correctFaster");
+      Serial.println("F");
     }
     if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET)
     {
@@ -488,7 +488,7 @@ void loop()
     if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET)
     {
       correctLeftSlower();
-      Serial.println("correctSlower");
+      Serial.println("S");
     }
     if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET)
     {
