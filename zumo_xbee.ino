@@ -24,7 +24,8 @@ void setup()
   Serial.begin(9600);         //start serial connection with the Arduino serial
   Serial1.begin(9600);        //start serial connection with the XCTU application (Xbee serial)
 
- // inu.setup();
+  //inu.setup();
+
   while (!Serial1) {}
   sendManualToPc();
 }
@@ -47,7 +48,7 @@ void loop()
         {
             case '-':                     //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
                 lowerVolume();
-                
+
                 break;                      //break out of switch
 
             case '=':
