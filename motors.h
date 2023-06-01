@@ -12,6 +12,7 @@ void rotateDeg(int);
 
 void stopContinue();
 
-void normalizeMotorValues();
-void applyMotorValues();
+void setAndNormalizeMotorValues();
+void correctOffsetAndApplyMotorValues();
 bool isStandingStill();
+bool isAllowDrive();

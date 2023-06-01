@@ -166,7 +166,6 @@ void stopContinue()
 {
   resetEncoderCounts();
   allowDrive = !allowDrive;
-
 }
 void rotateDeg(int deg)
 {
@@ -196,15 +195,19 @@ void rotateDeg(int deg)
   steerRight = 1;
 }
 
-void normalizeMotorValues() {
+void setAndNormalizeMotorValues() {
+    speedLeft  = (speed * steerLeft - steerRight) * 50;
+    speedRight = (speed * steerRight - steerLeft) * 50;
+
     if (speedLeft  > MAX_SPEED) speedLeft = MAX_SPEED;
     if (speedRight > MAX_SPEED) speedRight = MAX_SPEED;
     if (speedLeft  < MIN_SPEED) speedLeft = MIN_SPEED;
     if (speedRight < MIN_SPEED) speedRight = MIN_SPEED;
 
+    //prints the left/right motor speed and the two steer values
+    Serial1.println((String)"\nLEFT: " + speedLeft + "  steerLeft: " + steerLeft + "\nRIGHT: " + speedRight + "  steerRight: " + steerRight);
     //these two formulas determine the final speeds for the left and right motor
-    speedLeft  = (speed * steerLeft - steerRight) * 50;
-    speedRight = (speed * steerRight - steerLeft) * 50;
+    
     if (!allowDrive)
     {
         speedLeft = 0;      //sets the motor speeds to 0 to stop them. When robot is allowed to drive again, it will continue at the last set speed instead of resetting its speed.
@@ -213,7 +216,7 @@ void normalizeMotorValues() {
     }
 }
 
-void applyMotorValues() 
+void correctOffsetAndApplyMotorValues() 
 {
     if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50)
     {
@@ -233,7 +236,7 @@ void applyMotorValues()
         if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET)
         {
             correctLeftFaster();
-            Serial.println("F");
+            Serial.println("correctFaster");
         }
         if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET)
         {
@@ -243,13 +246,12 @@ void applyMotorValues()
         if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET)
         {
             correctLeftSlower();
-            Serial.println("S");
+            Serial.println("correctSlower");
         }
         if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET)
         {
             correctRightSlower();
         }
-
     }
 
     motors.setLeftSpeed(speedLeft + correctLeft);
@@ -257,9 +259,9 @@ void applyMotorValues()
 }
 
 bool isStandingStill() {
-  return (
-    (speedLeft == 0 && speedRight == 0) 
-    ||
-    !allowDrive
-  );
+  return (speedLeft == 0 && speedRight == 0);
+}
+
+bool isAllowDrive() {
+  return (allowDrive);
 }
