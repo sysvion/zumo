@@ -5,13 +5,17 @@
 #include "motors.h"
 #include "buzzerStuff.h"
 #include "encoderStuff.h"
+#include "lineFollower.h"
+#include "extern.h"
 
+Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC;
 char inputChar;
 
 bool isDebuging = false;
 uint8_t whatToDebug = 0;
 int count = 0;
+bool drivingMode = 0;
 
 int playSoundId = 0;
 
@@ -30,6 +34,10 @@ void setup() {
 
   while (!Serial1) {}
   sendManualToPc();
+
+  lineSensorsInitFiveSensors();
+
+  startupSound();
 }
 //function to simplify/shorten the use of buzzer in the main loop
 
@@ -94,8 +102,8 @@ int playSoundById(int id) {
   return 0;
 }
 
-void loop() {  //when button C is pressed, message how to use the control keys is printed into Serial1 again
-  if (buttonC.isPressed()) {
+void manualMode() {  //when button C is pressed, message how to use the control keys is printed into Serial1 again
+  if (buttonC.getSingleDebouncedPress()) {
     sendManualToPc();
   }
 
@@ -208,7 +216,6 @@ void loop() {  //when button C is pressed, message how to use the control keys i
     ledGreen(1);
   }
 
-
   if (isDebuging) {
     if (whatToDebug == 0) {
       if (whatToDebug == 0) {
@@ -248,9 +255,41 @@ void loop() {  //when button C is pressed, message how to use the control keys i
     }
   }
 
-  correctOffsetAndApplyMotorValues();
+  correctOffset();
+  applyMotorValues();
+}
+
+void autonomousMode() {
+  lineFollow();
+  if (getCalibratedCount() < 2) {
+    resetSpeed();
+  }
+  applyMotorValues();
+
+}
+
+void loop() {
+
+  if (buttonA.getSingleDebouncedPress()) {
+    drivingMode = !drivingMode;
+    if (drivingMode) {
+      autonomousModeSound();
+    }
+    else {
+      manualModeSound();
+    }
+    resetSpeed();
+  }
+
+  if (drivingMode) {
+    autonomousMode();
+  }
+  else {
+    manualMode();
+  }
+
   if (playSoundId > 0) {
-    //play a different sound for each input
+    //play a different sound for each id
     playSoundId = playSoundById(playSoundId);
   }
 }

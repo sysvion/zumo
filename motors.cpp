@@ -1,5 +1,6 @@
 #include "motors.h"
 #include "encoderStuff.h"
+#include "extern.h"
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
@@ -95,7 +96,9 @@ void resetSpeed()
   speed = 1;
   //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motors (1-1=0)
   steerLeft = 1;
-  steerRight = 1;                         
+  steerRight = 1;
+  speedLeft = 0;
+  speedRight = 0;
 
   //sets drive t true so robot can immediately start to drive again when input it given in case the robot was paused before reset was pressed
   allowDrive = true;                     
@@ -117,7 +120,7 @@ void stopContinue()
 void rotateDeg(int deg)
 {
   resetEncoderCounts();
-  deg *= 10.5;
+  deg *= 10.6;
   setExpectedLeftEncoderCount(-deg);
   setExpectedRightEncoderCount(deg);
 }
@@ -143,11 +146,9 @@ void setAndNormalizeMotorValues() {
     }
 }
 
-void correctOffsetAndApplyMotorValues() 
+void applyMotorValues() 
 {
-    correct();
-
-    motors.setLeftSpeed(speedLeft + getCorrectLeft());
+    motors.setLeftSpeed(speedLeft + getCorrectLeft());///////////////////////////////////////////////////////////
     motors.setRightSpeed(speedRight + getCorrectRight());
 }
 

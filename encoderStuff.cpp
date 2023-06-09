@@ -53,7 +53,7 @@ void correctRightSlower()
   correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
 }
 
-void correct()
+void correctOffset()
 {
   if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) {
     lastEncodersCheckTime = millis();

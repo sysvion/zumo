@@ -13,7 +13,7 @@ void correctLeftSlower();
 
 void correctRightSlower();
 
-void correct();
+void correctOffset();
 
 void setExpectedLeftEncoderCount(int);
 
