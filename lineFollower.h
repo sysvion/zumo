@@ -3,10 +3,14 @@
 
 void lineSensorsInitFiveSensors();
 
-int CalibrateSensors();
+void CalibrateSensors();
 
 int getCalibratedCount();
 
 int readLine(unsigned int *);
 
 void lineFollow();
+
+void storeCollor(int);
+int *getStoredColors(int index);
+void readCalibrated(int *sensor_values);
