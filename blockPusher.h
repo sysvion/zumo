@@ -2,7 +2,7 @@
 #include <Zumo32U4.h>
 #pragma once
 
-class ProximZumo {
+class blockPusher {
   public:
   void turnRight();
   void turnLeft();
@@ -10,8 +10,8 @@ class ProximZumo {
   void twin();
   void attack();
   void duwBlok();
-
+  
   private:
-  bool ibne;
-  bool himar;
-}
+  bool ibne = true;
+  bool himar = false;
+};
