@@ -1,6 +1,5 @@
 #include "motors.h"
 #include "encoderStuff.h"
-#include "extern.h"
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
@@ -19,7 +18,6 @@ const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
 double steerRight = minimumTuriningValue;         //default steer value. Value is later on multiplied with so the default is 1
 double steerLeft = minimumTuriningValue;
-const double steerIntensity = 1.3;                      //intensity of steering changes
 
 
 // void printCorrectionValues()
@@ -33,7 +31,7 @@ const double steerIntensity = 1.3;                      //intensity of steering 
 // }
 
 
-void moveLeft()
+void moveLeft(const int &steerIntensity)
 {
   resetEncoderCounts();
   if (!(steerRight < maximumTurningValue))
@@ -49,30 +47,32 @@ void moveLeft()
     steerLeft /= steerIntensity;    //reduce left wheel speed if condition not met
   }
 }
-void moveRight()
+void moveRight(const int &steerIntensity)
 {
   resetEncoderCounts();
-  if (steerLeft < maximumTurningValue)
+  if (!(steerLeft < maximumTurningValue)) { return ; }
+
+  if (steerRight < minimumTuriningValue)
   {
-    if (steerRight < minimumTuriningValue)
-    {
-        steerLeft *= steerIntensity;  //increase left wheel speed
-    }
-    else
-    {
-        steerRight /= steerIntensity; //decrease right wheel speed if condition not met
-    }
+      steerLeft *= steerIntensity;  //increase left wheel speed
   }
+  else
+  {
+      steerRight /= steerIntensity; //decrease right wheel speed if condition not met
+  }
+  
 }
 void moveSlower()
 {
   resetEncoderCounts();
   if (speed > -10)                  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
   {                                 //The actual speeds for the motors are calculated at the end using a formula)
-    speed -= 1;
-    Serial1.println((String)"Speed: " + speed + " --");
-
+    return;
   }
+  
+  speed -= 1;
+  Serial1.println((String)"Speed: " + speed + " --");
+  
 }
 void moveFaster()                   //does the opposite as moveSlower(), to move faster
 {
@@ -148,22 +148,22 @@ void setAndNormalizeMotorValues() {
 
 void applyMotorValues() 
 {
-    motors.setLeftSpeed(speedLeft + getCorrectLeft());///////////////////////////////////////////////////////////
+    motors.setLeftSpeed(speedLeft + getCorrectLeft());
     motors.setRightSpeed(speedRight + getCorrectRight());
 }
 
-bool isStandingStill() {
+const bool isStandingStill() {
   return (speedLeft == 0 && speedRight == 0);
 }
 
-bool isAllowDrive() {
-  return (allowDrive);
+const bool isAllowDrive() {
+  return allowDrive;
 }
 
-double getSpeedLeft() {
+const double getSpeedLeft() {
   return speedLeft;
 }
 
-double getSpeedRight() {
+const double getSpeedRight() {
   return speedRight;
 }

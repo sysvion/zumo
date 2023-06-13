@@ -6,7 +6,6 @@ has been tested with Zumos using 75:1 HP motors.*/
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include "lineFollower.h"
-#include "extern.h"
 #include "buzzerStuff.h"
 #include "motors.h"
 

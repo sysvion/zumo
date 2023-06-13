@@ -6,7 +6,6 @@
 #include "buzzerStuff.h"
 #include "encoderStuff.h"
 #include "lineFollower.h"
-#include "extern.h"
 
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC;
