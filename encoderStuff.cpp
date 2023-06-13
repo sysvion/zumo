@@ -4,20 +4,12 @@
 
 Zumo32U4Encoders encoders;
 
-//CORRECT SPEED VARIABLES:
-char correctionValues[100];
 
 int expectedLeftEncoderCount = 0;
 int expectedRightEncoderCount = 0;
-double expectedOffsetLeftEncoderCount = 1;
-double expectedOffsetRightEncoderCount = 1;
-double offsetLeftEncoderCount = 1;
-double offsetRightEncoderCount = 1;
 int correctLeft = 0;
 int correctRight = 0;
-int countsLeft;
-int countsRight;
-int lastEncodersCheckTime;
+int lastEncodersCheckTime = 0;
 const int ALLOWED_SPEED_OFFSET = 20;
 
 void resetEncoderCounts()
@@ -36,62 +28,52 @@ int calculateCorrectionStrength(int32_t x)
     return -sqrt(-x * 40);
 }
 
-void correctRightSlower()
-{
-}
-
 void correctOffset()
 {
-  if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) {
-    lastEncodersCheckTime = millis();
+  if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) { return; }
+  lastEncodersCheckTime = millis();
 
-    countsLeft = encoders.getCountsLeft();
-    countsRight = encoders.getCountsRight();
+  const int countsLeft = encoders.getCountsLeft();
+  const int countsRight = encoders.getCountsRight();
 
-    expectedLeftEncoderCount += 0.6 * speedLeft;
-    expectedRightEncoderCount += 0.6 * speedRight;
+  expectedLeftEncoderCount  += 0.6 * /*motor::*/speedLeft;
+  expectedRightEncoderCount += 0.6 * /*motor::*/speedRight;
 
-    offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
-    offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
+  const int offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
+  const int offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
 
-    if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET) {
-      correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-      #ifdef debugEncoder
-      Serial.println("correctFaster");
-      #endif
-    }
-    if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET) {
-      correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
-    }
+  if (offsetLeftEncoderCount >  ALLOWED_SPEED_OFFSET ||
+      offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET) 
+  {
+    correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
+    #ifdef debugEncoder
+    Serial.println("correctFaster");
+    #endif
+  }
 
-    if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET) {
-      correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-        #ifdef debugEncoder
-        Serial.println("correctLeftSlower 1");
-        #endif
-    }
-    if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET) {
-        correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
-        #ifdef debugEncoder
-        Serial.println("correctLeftSlower 1");
-        #endif
-    }
+  if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET ||
+      offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET)
+  {
+    correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
+    #ifdef debugEncoder
+    Serial.println("correctLeft");
+    #endif
   }
 }
 
 
-void setExpectedLeftEncoderCount(int x) {
+void setExpectedLeftEncoderCount(const int x) {
   expectedLeftEncoderCount = x;
 }
 
-void setExpectedRightEncoderCount(int x) {
+void setExpectedRightEncoderCount(const int x) {
   expectedRightEncoderCount = x;
 }
 
-int getCorrectLeft() {
+const int getCorrectLeft() {
   return correctLeft;
 }
 
-int getCorrectRight() {
+const int getCorrectRight() {
   return correctRight;
 }

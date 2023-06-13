@@ -5,20 +5,10 @@ void resetEncoderCounts();
 
 int calculateCorrectionStrength(int32_t);
 
-void correctLeftFaster();
-
-void correctRightFaster();
-
-void correctLeftSlower();
-
-void correctRightSlower();
-
 void correctOffset();
 
 void setExpectedLeftEncoderCount(int);
-
 void setExpectedRightEncoderCount(int);
 
-int getCorrectLeft();
-
-int getCorrectRight();
+const int getCorrectLeft();
+const int getCorrectRight();
