@@ -3,7 +3,7 @@ Zumo32U4Buzzer buzzer;
 
 const int MIN_VOLUME = 6;
 const int MAX_VOLUME = 13;
-int volume = MIN_VOLUME + 2;
+int volume = MIN_VOLUME + 4;
 
 void play(int frequency, int durationMilliseconds)
 {

@@ -16,14 +16,20 @@ uint16_t speedLineFollower = 150;
 int count_;
 int calibratedCount;
 int lastSensorDetectedLine = 0;
+int colors = 0;
+const int COLOR_MARGIN = 25;
 
 Zumo32U4LineSensors lineSensors;
 Zumo32U4ButtonB buttonB;
+Zumo32U4ButtonC buttonC;
 
 int16_t lastError = 0;
 
 #define NUM_SENSORS 5
 unsigned int lineSensorValues[NUM_SENSORS];  // creates an array with length 5
+unsigned int lineSensorGreen[NUM_SENSORS] = {5000,5000,5000,5000,5000};
+unsigned int lineSensorGray[NUM_SENSORS] = {5000,5000,5000,5000,5000};
+unsigned int lineSensorBrown[NUM_SENSORS] = {5000,5000,5000,5000,5000};
 
 void lineSensorsInitFiveSensors() {
   lineSensors.initFiveSensors();
@@ -33,6 +39,32 @@ int CalibrateSensors() {
   lineSensors.calibrate();
   scanColorSound();
   calibratedCount++;
+}
+
+void CalibrateGreen() {
+  if (buttonC.getSingleDebouncedPress()) {
+    scanColorSound();
+    calibratedCount = 3;
+    Serial.println(colors);
+    for (int i = 0; i<NUM_SENSORS; i++)
+      lineSensorGreen[i] = lineSensorValues[i];
+  }
+}
+void CalibrateGray() {
+  if (buttonC.getSingleDebouncedPress()) {
+    scanColorSound();
+    calibratedCount = 4;
+    for (int i = 0; i<NUM_SENSORS; i++)
+      lineSensorGray[i] = lineSensorValues[i];
+  }
+}
+void CalibrateBrown() {
+  if (buttonC.getSingleDebouncedPress()) {
+    scanColorSound();
+    calibratedCount = 5;
+    for (int i = 0; i<NUM_SENSORS; i++)
+      lineSensorBrown[i] = lineSensorValues[i];
+  }
 }
 
 int getCalibratedCount() {
@@ -84,12 +116,40 @@ int readLine(unsigned int *sensor_values) {
   return lastValue;
 }
 
+////////////////////////COLOR CHECK FUNCTIONS
+
+bool lineSensorIsGreen(int i) {
+  return lineSensorValues[i] > lineSensorGreen[i] - COLOR_MARGIN && lineSensorValues[i] < lineSensorGreen[i] + COLOR_MARGIN;
+}
+
+bool lineSensorIsGray(int i) {
+  return lineSensorValues[i] > lineSensorGray[i] - COLOR_MARGIN && lineSensorValues[i] < lineSensorGray[i] + COLOR_MARGIN;
+}
+
+bool lineSensorIsBrown(int i) {
+  return lineSensorValues[i] > lineSensorBrown[i] - COLOR_MARGIN && lineSensorValues[i] < lineSensorBrown[i] + COLOR_MARGIN + 15;
+}
+
+bool lineSensorIsBlack(int i) {
+  return lineSensorValues[i] > 800;
+}
+
+////////////////////////
+
 void lineFollow() {
 
   int16_t position = readLine(lineSensorValues);
 
-  if (buttonB.getSingleDebouncedPress()) {
+  if (buttonB.getSingleDebouncedPress() && calibratedCount < 2) {
     CalibrateSensors();
+  }
+
+  if (calibratedCount == 2) {
+      CalibrateGreen();
+  } else if (calibratedCount == 3) {
+    CalibrateGray();
+  } else if (calibratedCount == 4) {
+    CalibrateBrown();
   }
 
   // "error" is how far we are away from the center of the line, which corresponds to position 2000.
@@ -117,7 +177,7 @@ void lineFollow() {
   speedRight = constrain((int)speedRight, 0, MAX_SPEED);
 
 
-  if (lineSensorValues[0] > 800) {
+  if (lineSensorIsBlack(0)) {
     speedLeft = -100;
     speedRight = 200;
     lastSensorDetectedLine = 0;
@@ -141,9 +201,23 @@ void lineFollow() {
     speedRight = 150;
   }
 
+  if (lineSensorIsGreen(2)) { // If the color is green
+    scanColorSound();
+  }
+
+  if (lineSensorIsGray(0) || lineSensorIsGray(4)) { // If the color is gray.
+    play(500, 50);
+  }
+
+   if (lineSensorIsBrown(0) || lineSensorIsBrown(4)) { // If the color is brown.
+      // Ga naar modus: blok duwen.
+      speedLeft = 0;
+      speedRight = 0;
+      play(600, 50);
+  }
 
   char buffer[80];
-  sprintf(buffer, "%5d %5d %5d %5d %5d error: %5d %5d %5d %5d\n", lineSensorValues[0], lineSensorValues[1], lineSensorValues[2], lineSensorValues[3], lineSensorValues[4], error, speedDifference, (int)speedLeft, (int)speedRight);
+  sprintf(buffer, "%5d %5d %5d %5d %5d error: %5d %5d %5d %5d green %5d %5d %5d %5d %5d\n", lineSensorValues[0], lineSensorValues[1], lineSensorValues[2], lineSensorValues[3], lineSensorValues[4], error, speedDifference, (int)speedLeft, (int)speedRight, lineSensorGreen[0], lineSensorGreen[1], lineSensorGreen[2], lineSensorGreen[3], lineSensorGreen[4]);
   if (count_ == 40) {
     Serial.print(buffer);
     count_ = 0;

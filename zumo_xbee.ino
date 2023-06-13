@@ -9,7 +9,7 @@
 #include "extern.h"
 
 Zumo32U4ButtonA buttonA;
-Zumo32U4ButtonC buttonC;
+Zumo32U4ButtonC buttonC_2;
 char inputChar;
 
 bool isDebuging = false;
@@ -103,7 +103,7 @@ int playSoundById(int id) {
 }
 
 void manualMode() {  //when button C is pressed, message how to use the control keys is printed into Serial1 again
-  if (buttonC.getSingleDebouncedPress()) {
+  if (buttonC_2.getSingleDebouncedPress()) {
     sendManualToPc();
   }
 
@@ -261,7 +261,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
 
 void autonomousMode() {
   lineFollow();
-  if (getCalibratedCount() < 2) {
+  if (getCalibratedCount() != 5) {
     resetSpeed();
   }
   applyMotorValues();
