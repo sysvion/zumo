@@ -1,7 +1,9 @@
 #pragma once
+extern double speedLeft;
+extern double speedRight;
 
-void moveLeft();
-void moveRight();
+void moveLeft(const int &steerIntensity = 1.3);
+void moveRight(const int &steerIntensity = 1.3);
 void moveSlower();
 void moveFaster();
 
@@ -15,8 +17,9 @@ void stopContinue();
 
 void setAndNormalizeMotorValues();
 void applyMotorValues();
-bool isStandingStill();
-bool isAllowDrive();
 
-double getSpeedLeft();
-double getSpeedRight();
+const bool isStandingStill();
+const bool isAllowDrive();
+
+const double getSpeedLeft();
+const double getSpeedRight();

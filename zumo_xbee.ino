@@ -6,7 +6,7 @@
 #include "buzzerStuff.h"
 #include "encoderStuff.h"
 #include "lineFollower.h"
-#include "extern.h"
+#include "blockPusher.h"
 
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC_2;
@@ -267,13 +267,19 @@ void autonomousMode() {
   applyMotorValues();
 
 }
+blockPusher blockPusher;
+bool blockPusherMode;
 
 void loop() {
 
   if (buttonA.getSingleDebouncedPress()) {
-    drivingMode = !drivingMode;
-    if (drivingMode) {
+    drivingMode = drivingMode + 1 % 3;
+    if (drivingMode == 1) {
       autonomousModeSound();
+    }
+    else if (blockPusherMode == 2) 
+    {
+     autonomousModeSound(); 
     }
     else {
       manualModeSound();
@@ -281,10 +287,15 @@ void loop() {
     resetSpeed();
   }
 
-  if (drivingMode) {
+  if (drivingMode == 1) {
     autonomousMode();
   }
-  else {
+  else if (drivingMode == 2) 
+  {
+    blockPusher.duwBlok();
+  }
+  else
+  {
     manualMode();
   }
 

@@ -24,3 +24,7 @@ bool isBrown(int);
 bool isBlack(int);
 
 void lineFollow();
+
+void storeCollor(int);
+int *getStoredColors(int index);
+void readCalibrated(int *sensor_values);

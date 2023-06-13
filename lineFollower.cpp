@@ -6,7 +6,6 @@ has been tested with Zumos using 75:1 HP motors.*/
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include "lineFollower.h"
-#include "extern.h"
 #include "buzzerStuff.h"
 #include "motors.h"
 
@@ -35,7 +34,7 @@ void lineSensorsInitFiveSensors() {
   lineSensors.initFiveSensors();
 }
 
-int CalibrateSensors() {
+void CalibrateSensors() {
   lineSensors.calibrate();
   scanColorSound();
   calibratedCount++;
@@ -223,4 +222,40 @@ void lineFollow() {
     count_ = 0;
   }
   count_++;
+}
+
+
+
+const int colorsStoreLenght = 3;
+int colorsStore[colorsStoreLenght][5] = {
+  {250,250,250,250,250},
+  {250,250,250,250,250},
+  {250,250,250,250,250},
+};
+
+void storeCollor(int index) {
+  lineSensors.readCalibrated(colorsStore[index], 1);
+}
+void readCalibrated(int *sensor_values) {
+  lineSensors.readCalibrated(sensor_values, 1);
+}
+
+
+int checkIfStandingOnColor(int const *current, int index) {  
+    for (int i = 0; i < colorsStoreLenght; i++) {
+      const int offset = 10;
+      if (
+        colorsStore[i][index] <= current[index] + offset &&
+        colorsStore[i][index] >= current[index] - offset
+        ) {
+          return i;
+        }
+    }
+    return 254;
+}
+
+int *getStoredColors(int index) {
+  //int *value(gyroinfo);
+  int *ret(colorsStore[index]);
+  return ret;
 }
