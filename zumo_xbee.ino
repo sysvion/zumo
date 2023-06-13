@@ -188,7 +188,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
       default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
         if (inputChar == ' ') {
           stopContinue();
-          if (isAllowDrive()) {
+          if (isAllowedToDrive) {
             playSoundId = 8;
           } else {
             playSoundId = 9;
@@ -202,7 +202,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
   }
 
   // do we want to keep this?
-  if (!isAllowDrive()) {
+  if (!isAllowedToDrive) {
     count++;
     if (count > 5) {
       play(300, 40);
@@ -352,7 +352,7 @@ void autonomousMode() {
        setAndNormalizeMotorValues();
     }
 
-    if (!isAllowDrive())
+    if (!isAllowedToDrive)
     {
         count++;
         if (count > 5)

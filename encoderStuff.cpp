@@ -48,8 +48,8 @@ void correctOffset()
     countsLeft = encoders.getCountsLeft();
     countsRight = encoders.getCountsRight();
 
-    expectedLeftEncoderCount += 0.6 * getSpeedLeft();
-    expectedRightEncoderCount += 0.6 * getSpeedRight();
+    expectedLeftEncoderCount += 0.6 * speedLeft;
+    expectedRightEncoderCount += 0.6 * speedRight;
 
     offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
     offsetRightEncoderCount = expectedRightEncoderCount - countsRight;

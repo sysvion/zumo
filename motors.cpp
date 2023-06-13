@@ -3,14 +3,19 @@
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
+//starting speed (no movement)
 
-double speed = 1;                                 //starting speed (no movement)
+const double USER_STANDSTILL = 1;                                 
+const double MIN_USER_SPEED = -10; //?
+const double MAX_USER_SPEED = 10;
+double userSpeed = USER_STANDSTILL;
+
 double speedRight;
 double speedLeft;
 const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
-bool allowDrive = true;                           //determines if the robot should move or pause
+bool isAllowedToDrive = true;                           //determines if the robot should move or pause
 
 
 // the minimum is 1 because we are going to multiplied 
@@ -34,10 +39,8 @@ double steerLeft = minimumTuriningValue;
 void moveLeft(const int &steerIntensity)
 {
   resetEncoderCounts();
-  if (!(steerRight < maximumTurningValue))
-  {
-    return;
-  }
+  if (!(steerRight < maximumTurningValue)) {return; }
+
   if  (steerLeft < minimumTuriningValue)
   {
     steerRight *= steerIntensity;   //increase right wheel speed
@@ -47,10 +50,11 @@ void moveLeft(const int &steerIntensity)
     steerLeft /= steerIntensity;    //reduce left wheel speed if condition not met
   }
 }
+
 void moveRight(const int &steerIntensity)
 {
   resetEncoderCounts();
-  if (!(steerLeft < maximumTurningValue)) { return ; }
+  if (!(steerLeft < maximumTurningValue)) { return; }
 
   if (steerRight < minimumTuriningValue)
   {
@@ -62,38 +66,39 @@ void moveRight(const int &steerIntensity)
   }
   
 }
+
 void moveSlower()
 {
   resetEncoderCounts();
-  if (speed > -10)                  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
-  {                                 //The actual speeds for the motors are calculated at the end using a formula)
-    return;
-  }
+  if (userSpeed > MIN_USER_SPEED) {return;}
   
-  speed -= 1;
-  Serial1.println((String)"Speed: " + speed + " --");
-  
+  userSpeed -= 1;
+  Serial1.println((String)"Speed: " + userSpeed + " --");
 }
-void moveFaster()                   //does the opposite as moveSlower(), to move faster
+
+//does the opposite as moveSlower(), to move faster
+void moveFaster()
 {
   resetEncoderCounts();
-  if (speed < 10)                   //checks if speed is below maximum allowed value
+  if (userSpeed < MAX_USER_SPEED)
   {
-    speed += 1;
-    Serial1.println((String)"Speed: " + speed + " ++");
+    userSpeed += 1;
+    Serial1.println((String)"Speed: " + userSpeed + " ++");
   }
 }
+
 void moveToMaxSpeed()
 {
   resetEncoderCounts();
-  speed = 8;                        //set speed to the max
-  Serial1.println((String)"Speed: " + speed + " ++");
+  userSpeed = MAX_USER_SPEED;
+  Serial1.println((String)"Speed: " + userSpeed + " ++");
 
 }
+
 void resetSpeed()
 {
   resetEncoderCounts();
-  speed = 1;
+  userSpeed = 1;
   //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motors (1-1=0)
   steerLeft = 1;
   steerRight = 1;
@@ -101,9 +106,10 @@ void resetSpeed()
   speedRight = 0;
 
   //sets drive t true so robot can immediately start to drive again when input it given in case the robot was paused before reset was pressed
-  allowDrive = true;                     
+  isAllowedToDrive = true;                     
 
 }
+
 void resetRotationalMovement()
 { 
   resetEncoderCounts();
@@ -115,7 +121,7 @@ void resetRotationalMovement()
 void stopContinue()
 {
   resetEncoderCounts();
-  allowDrive = !allowDrive;
+  isAllowedToDrive = !isAllowedToDrive;
 }
 void rotateDeg(int deg)
 {
@@ -126,9 +132,10 @@ void rotateDeg(int deg)
 }
 
 void setAndNormalizeMotorValues() {
-    speedLeft  = (speed * steerLeft - steerRight) * 50;
-    speedRight = (speed * steerRight - steerLeft) * 50;
+    speedLeft  = (userSpeed * steerLeft - steerRight) * 50;
+    speedRight = (userSpeed * steerRight - steerLeft) * 50;
 
+    // note: is this allready done in the lib?
     if (speedLeft  > MAX_SPEED) speedLeft = MAX_SPEED;
     if (speedRight > MAX_SPEED) speedRight = MAX_SPEED;
     if (speedLeft  < MIN_SPEED) speedLeft = MIN_SPEED;
@@ -138,7 +145,7 @@ void setAndNormalizeMotorValues() {
     Serial1.println((String)"\nLEFT: " + speedLeft + "  steerLeft: " + steerLeft + "\nRIGHT: " + speedRight + "  steerRight: " + steerRight);
     //these two formulas determine the final speeds for the left and right motor
     
-    if (!allowDrive)
+    if (!isAllowedToDrive)
     {
         speedLeft = 0;      //sets the motor speeds to 0 to stop them. When robot is allowed to drive again, it will continue at the last set speed instead of resetting its speed.
         speedRight = 0;
@@ -154,16 +161,4 @@ void applyMotorValues()
 
 const bool isStandingStill() {
   return (speedLeft == 0 && speedRight == 0);
-}
-
-const bool isAllowDrive() {
-  return allowDrive;
-}
-
-const double getSpeedLeft() {
-  return speedLeft;
-}
-
-const double getSpeedRight() {
-  return speedRight;
 }
