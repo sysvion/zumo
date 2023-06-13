@@ -1,5 +1,5 @@
-#pragma once
 #include <Zumo32U4.h>
+#pragma once
 
 class inertial {
   private:
@@ -18,11 +18,11 @@ class inertial {
     void getaccData(int *);
     
 
+
+#ifdef debugInertial
     int8_t DebugRegTest(String, uint8_t, uint8_t, int16_t) const;
 
-    void print();
-
-    int check();
-    
+    void print();   
+#endif 
     
 };

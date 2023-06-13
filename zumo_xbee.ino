@@ -15,7 +15,7 @@ char inputChar;
 bool isDebuging = false;
 uint8_t whatToDebug = 0;
 int count = 0;
-bool drivingMode = 0;
+int drivingMode = 0;
 
 int playSoundId = 0;
 
@@ -166,6 +166,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         playSoundId = 7;
         break;
 
+#ifdef priciseSteeringXbee
       case 'A':
         rotateDeg(90);
         break;
@@ -181,6 +182,8 @@ void manualMode() {  //when button C is pressed, message how to use the control 
       case 'X':
         rotateDeg(360);
         break;
+
+#endif
 
       default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
         if (inputChar == ' ') {
@@ -198,6 +201,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
     setAndNormalizeMotorValues();
   }
 
+  // do we want to keep this?
   if (!isAllowDrive()) {
     count++;
     if (count > 5) {
@@ -374,6 +378,7 @@ void autonomousMode() {
 
     if (isDebuging) {
         if (whatToDebug == 0) {
+          #ifdef debugInertial
             if (whatToDebug == 0)
             {
                 int gyroinfo[3];
@@ -411,6 +416,7 @@ void autonomousMode() {
                 Serial1.print( value[2] );
                 Serial1.println();
             }
+            #endif
         }
     }
 
@@ -418,7 +424,6 @@ void autonomousMode() {
 }
 
 blockPusher blockPusher;
-bool blockPusherMode;
 
 void loop() {
 
@@ -427,7 +432,7 @@ void loop() {
     if (drivingMode == 1) {
       autonomousModeSound();
     }
-    else if (blockPusherMode == 2) 
+    else if (drivingMode == 2) 
     {
      autonomousModeSound(); 
     }
