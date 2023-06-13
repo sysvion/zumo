@@ -32,11 +32,6 @@ void setup() {
 
   //inu.setup();
 
-<<<<<<< Updated upstream
-=======
-  //inu.setup();
-
->>>>>>> Stashed changes
   while (!Serial1) {}
   sendManualToPc();
 
@@ -271,8 +266,6 @@ void autonomousMode() {
   }
   applyMotorValues();
 
-<<<<<<< Updated upstream
-=======
     if (Serial1.available())          //if character is received form Serial1
     { 
         inputChar = Serial1.read();     //stores received character into a char varible
@@ -421,9 +414,9 @@ void autonomousMode() {
         }
     }
 
-    correctOffsetAndApplyMotorValues();
->>>>>>> Stashed changes
+    applyMotorValues();
 }
+
 blockPusher blockPusher;
 bool blockPusherMode;
 
