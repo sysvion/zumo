@@ -1,3 +1,4 @@
+#include "featureFlags.h"
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include <math.h>
@@ -166,7 +167,6 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         playSoundId = 7;
         break;
 
-#ifdef priciseSteeringXbee
       case 'A':
         rotateDeg(90);
         break;
@@ -182,8 +182,6 @@ void manualMode() {  //when button C is pressed, message how to use the control 
       case 'X':
         rotateDeg(360);
         break;
-
-#endif
 
       default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
         if (inputChar == ' ') {
@@ -221,6 +219,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
   }
 
   if (isDebuging) {
+    #ifdef debugInertial
     if (whatToDebug == 0) {
       if (whatToDebug == 0) {
         int gyroinfo[3];
@@ -257,6 +256,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         Serial1.println();
       }
     }
+    #endif
   }
 
   correctOffset();
@@ -270,6 +270,7 @@ void autonomousMode() {
   }
   applyMotorValues();
 
+    // do we need this?
     if (Serial1.available())          //if character is received form Serial1
     { 
         inputChar = Serial1.read();     //stores received character into a char varible
@@ -377,47 +378,45 @@ void autonomousMode() {
 
 
     if (isDebuging) {
-        if (whatToDebug == 0) {
-          #ifdef debugInertial
-            if (whatToDebug == 0)
-            {
-                int gyroinfo[3];
-                int *value(gyroinfo);
-                inu.getGyroPoss(value);
-                Serial1.print( value[0] );
-                Serial1.print("\t");
-                Serial1.print( value[1] );
-                Serial1.print("\t");
-                Serial1.print( value[2] );
-                Serial1.println();
-            }
-            if (whatToDebug == 1)
-            {
-                int gyroinfo[3];
-                int *value(gyroinfo);
-                inu.getMegData(value);
-                Serial1.print( value[0] );
-                Serial1.print("\t");
-                Serial1.print( value[1] );
-                Serial1.print("\t");
-                Serial1.print( value[2] );
-                Serial1.println();
-            }
+      #ifdef debugInertial
+      if (whatToDebug == 0)
+      {
+            int gyroinfo[3];
+            int *value(gyroinfo);
+            inu.getGyroPoss(value);
+            Serial1.print(value[0]);
+            Serial1.print("\t");
+            Serial1.print(value[1]);
+            Serial1.print("\t");
+            Serial1.print(value[2]);
+            Serial1.println();
+      }
+      if (whatToDebug == 1)
+      {
+            int gyroinfo[3];
+            int *value(gyroinfo);
+            inu.getMegData(value);
+            Serial1.print(value[0]);
+            Serial1.print("\t");
+            Serial1.print(value[1]);
+            Serial1.print("\t");
+            Serial1.print(value[2]);
+            Serial1.println();
+      }
 
-            if (whatToDebug == 2)
-            {
-                int gyroinfo[3];
-                int *value(gyroinfo);
-                inu.getaccData(value);
-                Serial1.print( value[0] );
-                Serial1.print("\t");
-                Serial1.print( value[1] );
-                Serial1.print("\t");
-                Serial1.print( value[2] );
-                Serial1.println();
-            }
-            #endif
-        }
+      if (whatToDebug == 2)
+      {
+            int gyroinfo[3];
+            int *value(gyroinfo);
+            inu.getaccData(value);
+            Serial1.print(value[0]);
+            Serial1.print("\t");
+            Serial1.print(value[1]);
+            Serial1.print("\t");
+            Serial1.print(value[2]);
+            Serial1.println();
+      }
+      #endif
     }
 
     applyMotorValues();
