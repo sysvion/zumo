@@ -54,7 +54,7 @@ void moveLeft(const int &steerIntensity)
 void moveRight(const int &steerIntensity)
 {
   resetEncoderCounts();
-  if (!(steerLeft < maximumTurningValue)) { return; }
+  if (steerLeft < maximumTurningValue) { return; }
 
   if (steerRight < minimumTuriningValue)
   {
@@ -70,7 +70,7 @@ void moveRight(const int &steerIntensity)
 void moveSlower()
 {
   resetEncoderCounts();
-  if (userSpeed > MIN_USER_SPEED) {return;}
+  if (!(userSpeed > MIN_USER_SPEED)) {return;}
   
   userSpeed -= 1;
   Serial1.println((String)"Speed: " + userSpeed + " --");

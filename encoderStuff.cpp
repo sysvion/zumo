@@ -1,6 +1,7 @@
 #include "motors.h"
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
+#define debugEncoder
 
 Zumo32U4Encoders encoders;
 
@@ -30,7 +31,7 @@ int calculateCorrectionStrength(int32_t x)
 
 void correctOffset()
 {
-  if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) { return; }
+  if (!((uint8_t)(millis() - lastEncodersCheckTime) >= 50)) { return; }
   lastEncodersCheckTime = millis();
 
   const int countsLeft = encoders.getCountsLeft();
