@@ -44,6 +44,7 @@ void correctLeftFaster()
 
 void correctRightFaster()
 {
+  correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
 }
 
 void correctLeftSlower()

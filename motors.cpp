@@ -18,6 +18,7 @@ const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
 double steerRight = minimumTuriningValue;         //default steer value. Value is later on multiplied with so the default is 1
 double steerLeft = minimumTuriningValue;
+const double steerIntensity = 1.3;                //intensity of steering changes
 
 
 // void printCorrectionValues()
@@ -31,7 +32,7 @@ double steerLeft = minimumTuriningValue;
 // }
 
 
-void moveLeft(const int &steerIntensity)
+void moveLeft()
 {
   resetEncoderCounts();
   if (!(steerRight < maximumTurningValue))
@@ -47,32 +48,29 @@ void moveLeft(const int &steerIntensity)
     steerLeft /= steerIntensity;    //reduce left wheel speed if condition not met
   }
 }
-void moveRight(const int &steerIntensity)
+void moveRight()
 {
   resetEncoderCounts();
-  if (!(steerLeft < maximumTurningValue)) { return ; }
-
-  if (steerRight < minimumTuriningValue)
+  if (steerLeft < maximumTurningValue)
   {
-      steerLeft *= steerIntensity;  //increase left wheel speed
+    if (steerRight < minimumTuriningValue)
+    {
+        steerLeft *= steerIntensity;  //increase left wheel speed
+    }
+    else
+    {
+        steerRight /= steerIntensity; //decrease right wheel speed if condition not met
+    }
   }
-  else
-  {
-      steerRight /= steerIntensity; //decrease right wheel speed if condition not met
-  }
-  
 }
 void moveSlower()
 {
   resetEncoderCounts();
   if (speed > -10)                  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
   {                                 //The actual speeds for the motors are calculated at the end using a formula)
-    return;
+    speed -= 1;
+    Serial1.println((String)"Speed: " + speed + " --");
   }
-  
-  speed -= 1;
-  Serial1.println((String)"Speed: " + speed + " --");
-  
 }
 void moveFaster()                   //does the opposite as moveSlower(), to move faster
 {
@@ -129,11 +127,6 @@ void setAndNormalizeMotorValues() {
     speedLeft  = (speed * steerLeft - steerRight) * 50;
     speedRight = (speed * steerRight - steerLeft) * 50;
 
-    if (speedLeft  > MAX_SPEED) speedLeft = MAX_SPEED;
-    if (speedRight > MAX_SPEED) speedRight = MAX_SPEED;
-    if (speedLeft  < MIN_SPEED) speedLeft = MIN_SPEED;
-    if (speedRight < MIN_SPEED) speedRight = MIN_SPEED;
-
     //prints the left/right motor speed and the two steer values
     Serial1.println((String)"\nLEFT: " + speedLeft + "  steerLeft: " + steerLeft + "\nRIGHT: " + speedRight + "  steerRight: " + steerRight);
     //these two formulas determine the final speeds for the left and right motor
@@ -158,7 +151,7 @@ const bool isStandingStill() {
 
 const bool isAllowDrive() {
   return allowDrive;
-}
+} 
 
 const double getSpeedLeft() {
   return speedLeft;

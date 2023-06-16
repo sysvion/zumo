@@ -15,14 +15,6 @@ int getCalibratedCount();
 
 int readLine(unsigned int *);
 
-bool isGreen(int);
-
-bool isGray(int);
-
-bool isBrown(int);
-
-bool isBlack(int);
-
 void lineFollow();
 
 void storeCollor(int);

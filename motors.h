@@ -1,9 +1,10 @@
 #pragma once
 extern double speedLeft;
 extern double speedRight;
+extern int drivingMode;
 
-void moveLeft(const int &steerIntensity = 1.3);
-void moveRight(const int &steerIntensity = 1.3);
+void moveLeft();
+void moveRight();
 void moveSlower();
 void moveFaster();
 
