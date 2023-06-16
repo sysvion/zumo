@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>zumo: motors.cpp Bestand Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">zumo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Zoeken');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functies</a> &#124;
+<a href="#var-members">Variabelen</a>  </div>
+  <div class="headertitle"><div class="title">motors.cpp Bestand Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="encoderStuff_8h_source.html">encoderStuff.h</a>&quot;</code><br />
+<code>#include &lt;Zumo32U4.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functies</h2></td></tr>
+<tr class="memitem:a7a5379770a3d9a90ee4d827046d26eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a7a5379770a3d9a90ee4d827046d26eb0">moveLeft</a> ()</td></tr>
+<tr class="separator:a7a5379770a3d9a90ee4d827046d26eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1aff0fabeb87f42932d5ce436f4d5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a8f1aff0fabeb87f42932d5ce436f4d5c">moveRight</a> ()</td></tr>
+<tr class="separator:a8f1aff0fabeb87f42932d5ce436f4d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11849f63c36842804c92d5c5ea3dd2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#ad11849f63c36842804c92d5c5ea3dd2e">moveSlower</a> ()</td></tr>
+<tr class="separator:ad11849f63c36842804c92d5c5ea3dd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e1e28cf80278b769da016fdba075c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a2e1e28cf80278b769da016fdba075c59">moveFaster</a> ()</td></tr>
+<tr class="separator:a2e1e28cf80278b769da016fdba075c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fb9ca2c980f3770c0dd7390e1024d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#ae8fb9ca2c980f3770c0dd7390e1024d6">moveToMaxSpeed</a> ()</td></tr>
+<tr class="separator:ae8fb9ca2c980f3770c0dd7390e1024d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28070464477761b8b738560768549f4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a28070464477761b8b738560768549f4a">resetSpeed</a> ()</td></tr>
+<tr class="separator:a28070464477761b8b738560768549f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9ec204606b2c90d5babbeab46888a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#ace9ec204606b2c90d5babbeab46888a5">resetRotationalMovement</a> ()</td></tr>
+<tr class="separator:ace9ec204606b2c90d5babbeab46888a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93398ea0c3c86bf4474cbbd398bfba03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a93398ea0c3c86bf4474cbbd398bfba03">stopContinue</a> ()</td></tr>
+<tr class="separator:a93398ea0c3c86bf4474cbbd398bfba03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c7017a10945f601b2185cb3a3fc9b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a94c7017a10945f601b2185cb3a3fc9b2">rotateDeg</a> (int deg)</td></tr>
+<tr class="separator:a94c7017a10945f601b2185cb3a3fc9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a0576a78164a0e83f1d3cee040e133"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a96a0576a78164a0e83f1d3cee040e133">setAndNormalizeMotorValues</a> ()</td></tr>
+<tr class="separator:a96a0576a78164a0e83f1d3cee040e133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51465d32f71939e249b9c1a1528a7cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#af51465d32f71939e249b9c1a1528a7cc">applyMotorValues</a> ()</td></tr>
+<tr class="separator:af51465d32f71939e249b9c1a1528a7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab919cf03a59bd46418c5401ddb7b3283"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#ab919cf03a59bd46418c5401ddb7b3283">isStandingStill</a> ()</td></tr>
+<tr class="separator:ab919cf03a59bd46418c5401ddb7b3283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943e21fd9004fa13c0d24f2e0bea3ac9"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a943e21fd9004fa13c0d24f2e0bea3ac9">isAllowDrive</a> ()</td></tr>
+<tr class="separator:a943e21fd9004fa13c0d24f2e0bea3ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0baa804ad7a5baebc895c3dd55c7adc5"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a0baa804ad7a5baebc895c3dd55c7adc5">getSpeedLeft</a> ()</td></tr>
+<tr class="separator:a0baa804ad7a5baebc895c3dd55c7adc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d015b90aa5681698c91290247fec78e"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a6d015b90aa5681698c91290247fec78e">getSpeedRight</a> ()</td></tr>
+<tr class="separator:a6d015b90aa5681698c91290247fec78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variabelen</h2></td></tr>
+<tr class="memitem:a452935ce40125d44a8db6f3470ef8742"><td class="memItemLeft" align="right" valign="top">Zumo32U4Motors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a452935ce40125d44a8db6f3470ef8742">motors</a></td></tr>
+<tr class="separator:a452935ce40125d44a8db6f3470ef8742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc6e6f3c75c509ce943163afb5dade7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a6dc6e6f3c75c509ce943163afb5dade7">speed</a> = 1</td></tr>
+<tr class="separator:a6dc6e6f3c75c509ce943163afb5dade7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7479dd47ebaa7c30094da89d04d1b609"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a7479dd47ebaa7c30094da89d04d1b609">speedRight</a></td></tr>
+<tr class="separator:a7479dd47ebaa7c30094da89d04d1b609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228c32b93ea823b89ed78d3d532a523b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a228c32b93ea823b89ed78d3d532a523b">speedLeft</a></td></tr>
+<tr class="separator:a228c32b93ea823b89ed78d3d532a523b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7dc52880b41eb022f995991d2815519"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#aa7dc52880b41eb022f995991d2815519">MIN_SPEED</a> = -400</td></tr>
+<tr class="separator:aa7dc52880b41eb022f995991d2815519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac325e333efe4ffd6691636f4f58405fc"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#ac325e333efe4ffd6691636f4f58405fc">MAX_SPEED</a> = 400</td></tr>
+<tr class="separator:ac325e333efe4ffd6691636f4f58405fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd353c8e60bf209124a118b2c3d8be5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a7bd353c8e60bf209124a118b2c3d8be5">allowDrive</a> = true</td></tr>
+<tr class="separator:a7bd353c8e60bf209124a118b2c3d8be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8271ab1b28d0ff3b4624207913437c7d"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a8271ab1b28d0ff3b4624207913437c7d">minimumTuriningValue</a> = 1</td></tr>
+<tr class="separator:a8271ab1b28d0ff3b4624207913437c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3629c3bcad455b966bd4ee07cd13e7"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a2b3629c3bcad455b966bd4ee07cd13e7">maximumTurningValue</a> = 6</td></tr>
+<tr class="separator:a2b3629c3bcad455b966bd4ee07cd13e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7566dcd683b1f794bec71f3e278479aa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a7566dcd683b1f794bec71f3e278479aa">steerRight</a> = <a class="el" href="motors_8cpp.html#a8271ab1b28d0ff3b4624207913437c7d">minimumTuriningValue</a></td></tr>
+<tr class="separator:a7566dcd683b1f794bec71f3e278479aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4663a347cd9e260d3b06f7628428e679"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a4663a347cd9e260d3b06f7628428e679">steerLeft</a> = <a class="el" href="motors_8cpp.html#a8271ab1b28d0ff3b4624207913437c7d">minimumTuriningValue</a></td></tr>
+<tr class="separator:a4663a347cd9e260d3b06f7628428e679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6843a6722983bc802fc64883c6efa0e2"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motors_8cpp.html#a6843a6722983bc802fc64883c6efa0e2">steerIntensity</a> = 1.3</td></tr>
+<tr class="separator:a6843a6722983bc802fc64883c6efa0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentatie van functies</h2>
+<a id="af51465d32f71939e249b9c1a1528a7cc" name="af51465d32f71939e249b9c1a1528a7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51465d32f71939e249b9c1a1528a7cc">&#9670;&#160;</a></span>applyMotorValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applyMotorValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0baa804ad7a5baebc895c3dd55c7adc5" name="a0baa804ad7a5baebc895c3dd55c7adc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0baa804ad7a5baebc895c3dd55c7adc5">&#9670;&#160;</a></span>getSpeedLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double getSpeedLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d015b90aa5681698c91290247fec78e" name="a6d015b90aa5681698c91290247fec78e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d015b90aa5681698c91290247fec78e">&#9670;&#160;</a></span>getSpeedRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double getSpeedRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a943e21fd9004fa13c0d24f2e0bea3ac9" name="a943e21fd9004fa13c0d24f2e0bea3ac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a943e21fd9004fa13c0d24f2e0bea3ac9">&#9670;&#160;</a></span>isAllowDrive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool isAllowDrive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab919cf03a59bd46418c5401ddb7b3283" name="ab919cf03a59bd46418c5401ddb7b3283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab919cf03a59bd46418c5401ddb7b3283">&#9670;&#160;</a></span>isStandingStill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool isStandingStill </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e1e28cf80278b769da016fdba075c59" name="a2e1e28cf80278b769da016fdba075c59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e1e28cf80278b769da016fdba075c59">&#9670;&#160;</a></span>moveFaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveFaster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a5379770a3d9a90ee4d827046d26eb0" name="a7a5379770a3d9a90ee4d827046d26eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5379770a3d9a90ee4d827046d26eb0">&#9670;&#160;</a></span>moveLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f1aff0fabeb87f42932d5ce436f4d5c" name="a8f1aff0fabeb87f42932d5ce436f4d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f1aff0fabeb87f42932d5ce436f4d5c">&#9670;&#160;</a></span>moveRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad11849f63c36842804c92d5c5ea3dd2e" name="ad11849f63c36842804c92d5c5ea3dd2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11849f63c36842804c92d5c5ea3dd2e">&#9670;&#160;</a></span>moveSlower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveSlower </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8fb9ca2c980f3770c0dd7390e1024d6" name="ae8fb9ca2c980f3770c0dd7390e1024d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fb9ca2c980f3770c0dd7390e1024d6">&#9670;&#160;</a></span>moveToMaxSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveToMaxSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace9ec204606b2c90d5babbeab46888a5" name="ace9ec204606b2c90d5babbeab46888a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9ec204606b2c90d5babbeab46888a5">&#9670;&#160;</a></span>resetRotationalMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetRotationalMovement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28070464477761b8b738560768549f4a" name="a28070464477761b8b738560768549f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28070464477761b8b738560768549f4a">&#9670;&#160;</a></span>resetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94c7017a10945f601b2185cb3a3fc9b2" name="a94c7017a10945f601b2185cb3a3fc9b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c7017a10945f601b2185cb3a3fc9b2">&#9670;&#160;</a></span>rotateDeg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rotateDeg </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96a0576a78164a0e83f1d3cee040e133" name="a96a0576a78164a0e83f1d3cee040e133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a0576a78164a0e83f1d3cee040e133">&#9670;&#160;</a></span>setAndNormalizeMotorValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setAndNormalizeMotorValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93398ea0c3c86bf4474cbbd398bfba03" name="a93398ea0c3c86bf4474cbbd398bfba03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93398ea0c3c86bf4474cbbd398bfba03">&#9670;&#160;</a></span>stopContinue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopContinue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentatie van variabelen</h2>
+<a id="a7bd353c8e60bf209124a118b2c3d8be5" name="a7bd353c8e60bf209124a118b2c3d8be5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd353c8e60bf209124a118b2c3d8be5">&#9670;&#160;</a></span>allowDrive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool allowDrive = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac325e333efe4ffd6691636f4f58405fc" name="ac325e333efe4ffd6691636f4f58405fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac325e333efe4ffd6691636f4f58405fc">&#9670;&#160;</a></span>MAX_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int MAX_SPEED = 400</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b3629c3bcad455b966bd4ee07cd13e7" name="a2b3629c3bcad455b966bd4ee07cd13e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3629c3bcad455b966bd4ee07cd13e7">&#9670;&#160;</a></span>maximumTurningValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int maximumTurningValue = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7dc52880b41eb022f995991d2815519" name="aa7dc52880b41eb022f995991d2815519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7dc52880b41eb022f995991d2815519">&#9670;&#160;</a></span>MIN_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int MIN_SPEED = -400</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8271ab1b28d0ff3b4624207913437c7d" name="a8271ab1b28d0ff3b4624207913437c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8271ab1b28d0ff3b4624207913437c7d">&#9670;&#160;</a></span>minimumTuriningValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int minimumTuriningValue = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a452935ce40125d44a8db6f3470ef8742" name="a452935ce40125d44a8db6f3470ef8742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452935ce40125d44a8db6f3470ef8742">&#9670;&#160;</a></span>motors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Zumo32U4Motors motors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dc6e6f3c75c509ce943163afb5dade7" name="a6dc6e6f3c75c509ce943163afb5dade7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc6e6f3c75c509ce943163afb5dade7">&#9670;&#160;</a></span>speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double speed = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a228c32b93ea823b89ed78d3d532a523b" name="a228c32b93ea823b89ed78d3d532a523b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228c32b93ea823b89ed78d3d532a523b">&#9670;&#160;</a></span>speedLeft</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double speedLeft</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7479dd47ebaa7c30094da89d04d1b609" name="a7479dd47ebaa7c30094da89d04d1b609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7479dd47ebaa7c30094da89d04d1b609">&#9670;&#160;</a></span>speedRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double speedRight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6843a6722983bc802fc64883c6efa0e2" name="a6843a6722983bc802fc64883c6efa0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6843a6722983bc802fc64883c6efa0e2">&#9670;&#160;</a></span>steerIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double steerIntensity = 1.3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4663a347cd9e260d3b06f7628428e679" name="a4663a347cd9e260d3b06f7628428e679"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4663a347cd9e260d3b06f7628428e679">&#9670;&#160;</a></span>steerLeft</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double steerLeft = <a class="el" href="motors_8cpp.html#a8271ab1b28d0ff3b4624207913437c7d">minimumTuriningValue</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7566dcd683b1f794bec71f3e278479aa" name="a7566dcd683b1f794bec71f3e278479aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7566dcd683b1f794bec71f3e278479aa">&#9670;&#160;</a></span>steerRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double steerRight = <a class="el" href="motors_8cpp.html#a8271ab1b28d0ff3b4624207913437c7d">minimumTuriningValue</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gegenereerd door&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

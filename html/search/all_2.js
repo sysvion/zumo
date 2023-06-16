@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['calabrategyro_0',['calabrateGyro',['../classinertial.html#ac0d0f5f4ac050199fe8bd8ed15576f77',1,'inertial']]],
+  ['calculatecorrectionstrength_1',['calculateCorrectionStrength',['../encoderStuff_8cpp.html#aa5b2e62ff27500a110a709d1054b45bd',1,'calculateCorrectionStrength(int32_t x):&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#ac03799f54f4f5c49d0ad75a8af9959de',1,'calculateCorrectionStrength(int32_t):&#160;encoderStuff.cpp']]],
+  ['calibratebrown_2',['CalibrateBrown',['../lineFollower_8cpp.html#a331402f7abc20970f0490fd5b94830a2',1,'CalibrateBrown():&#160;lineFollower.cpp'],['../lineFollower_8h.html#a331402f7abc20970f0490fd5b94830a2',1,'CalibrateBrown():&#160;lineFollower.cpp']]],
+  ['calibratedcount_3',['calibratedCount',['../lineFollower_8cpp.html#a7da8d3c98fb2936103a8b2238672e577',1,'lineFollower.cpp']]],
+  ['calibrategray_4',['CalibrateGray',['../lineFollower_8cpp.html#aff3b1d9244509b3c58209b12a5029014',1,'CalibrateGray():&#160;lineFollower.cpp'],['../lineFollower_8h.html#aff3b1d9244509b3c58209b12a5029014',1,'CalibrateGray():&#160;lineFollower.cpp']]],
+  ['calibrategreen_5',['CalibrateGreen',['../lineFollower_8cpp.html#ac3cebf67222e24492bff8418e5354782',1,'CalibrateGreen():&#160;lineFollower.cpp'],['../lineFollower_8h.html#ac3cebf67222e24492bff8418e5354782',1,'CalibrateGreen():&#160;lineFollower.cpp']]],
+  ['calibratesensors_6',['CalibrateSensors',['../lineFollower_8cpp.html#a01c67205f5fe0100824d991a19c9db68',1,'CalibrateSensors():&#160;lineFollower.cpp'],['../lineFollower_8h.html#a01c67205f5fe0100824d991a19c9db68',1,'CalibrateSensors():&#160;lineFollower.cpp']]],
+  ['check_7',['check',['../classinertial.html#a2a4f43e1d0b62ab9ef985f137a2a8fd5',1,'inertial']]],
+  ['checkdownwardspeed_8',['checkDownwardSpeed',['../classinertial.html#ac05eccfbb21f5f2fbd2051760c6e3dae',1,'inertial']]],
+  ['color_5fmargin_9',['COLOR_MARGIN',['../lineFollower_8cpp.html#aafec9ff1928dd5dc33ea2eda3f51c71b',1,'lineFollower.cpp']]],
+  ['colors_10',['colors',['../lineFollower_8cpp.html#af983608eaad77853e6283a63910341d7',1,'lineFollower.cpp']]],
+  ['correctionvalues_11',['correctionValues',['../encoderStuff_8cpp.html#ad94f10c769d97c4757e7c9ddba5bdc51',1,'encoderStuff.cpp']]],
+  ['correctleft_12',['correctLeft',['../encoderStuff_8cpp.html#aa99ad7b088fffbfb925efeb925efb3c8',1,'encoderStuff.cpp']]],
+  ['correctleftfaster_13',['correctLeftFaster',['../encoderStuff_8cpp.html#a1c4ba1af6752ccf3fdf55971ae57a406',1,'correctLeftFaster():&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a1c4ba1af6752ccf3fdf55971ae57a406',1,'correctLeftFaster():&#160;encoderStuff.cpp']]],
+  ['correctleftslower_14',['correctLeftSlower',['../encoderStuff_8cpp.html#a48697795fe55f55dc520d945484a050b',1,'correctLeftSlower():&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a48697795fe55f55dc520d945484a050b',1,'correctLeftSlower():&#160;encoderStuff.cpp']]],
+  ['correctoffset_15',['correctOffset',['../encoderStuff_8cpp.html#a13d056ad8faf1f64b4311b7360c4fc5a',1,'correctOffset():&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a13d056ad8faf1f64b4311b7360c4fc5a',1,'correctOffset():&#160;encoderStuff.cpp']]],
+  ['correctright_16',['correctRight',['../encoderStuff_8cpp.html#a17ffbb9ab7541b076f4d1daee2a1427d',1,'encoderStuff.cpp']]],
+  ['correctrightfaster_17',['correctRightFaster',['../encoderStuff_8cpp.html#a9c9b6137118b1eff479d81d097fc73c6',1,'correctRightFaster():&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a9c9b6137118b1eff479d81d097fc73c6',1,'correctRightFaster():&#160;encoderStuff.cpp']]],
+  ['correctrightslower_18',['correctRightSlower',['../encoderStuff_8cpp.html#a7e49ff3e2d5d846a546265871e8650b5',1,'correctRightSlower():&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a7e49ff3e2d5d846a546265871e8650b5',1,'correctRightSlower():&#160;encoderStuff.cpp']]],
+  ['count_5f_19',['count_',['../lineFollower_8cpp.html#a9acf5084c965a76d24ec228412256bc3',1,'lineFollower.cpp']]],
+  ['countsleft_20',['countsLeft',['../encoderStuff_8cpp.html#a05a1f3b93b9bd02ace07076c5c573cb2',1,'encoderStuff.cpp']]],
+  ['countsright_21',['countsRight',['../encoderStuff_8cpp.html#a37187b4d20db070ef6ceb6af43f8543c',1,'encoderStuff.cpp']]]
+];

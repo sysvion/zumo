@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>zumo: encoderStuff.cpp Bestand Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">zumo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Zoeken');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functies</a> &#124;
+<a href="#var-members">Variabelen</a>  </div>
+  <div class="headertitle"><div class="title">encoderStuff.cpp Bestand Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="encoderStuff_8h_source.html">encoderStuff.h</a>&quot;</code><br />
+<code>#include &lt;Zumo32U4.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functies</h2></td></tr>
+<tr class="memitem:a226bd92af241a0c9ecc5b9871305fe61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a226bd92af241a0c9ecc5b9871305fe61">resetEncoderCounts</a> ()</td></tr>
+<tr class="separator:a226bd92af241a0c9ecc5b9871305fe61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5b2e62ff27500a110a709d1054b45bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#aa5b2e62ff27500a110a709d1054b45bd">calculateCorrectionStrength</a> (int32_t x)</td></tr>
+<tr class="separator:aa5b2e62ff27500a110a709d1054b45bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4ba1af6752ccf3fdf55971ae57a406"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a1c4ba1af6752ccf3fdf55971ae57a406">correctLeftFaster</a> ()</td></tr>
+<tr class="separator:a1c4ba1af6752ccf3fdf55971ae57a406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9b6137118b1eff479d81d097fc73c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a9c9b6137118b1eff479d81d097fc73c6">correctRightFaster</a> ()</td></tr>
+<tr class="separator:a9c9b6137118b1eff479d81d097fc73c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48697795fe55f55dc520d945484a050b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a48697795fe55f55dc520d945484a050b">correctLeftSlower</a> ()</td></tr>
+<tr class="separator:a48697795fe55f55dc520d945484a050b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e49ff3e2d5d846a546265871e8650b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a7e49ff3e2d5d846a546265871e8650b5">correctRightSlower</a> ()</td></tr>
+<tr class="separator:a7e49ff3e2d5d846a546265871e8650b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13d056ad8faf1f64b4311b7360c4fc5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a13d056ad8faf1f64b4311b7360c4fc5a">correctOffset</a> ()</td></tr>
+<tr class="separator:a13d056ad8faf1f64b4311b7360c4fc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afead5a139cbf9ef6613f2b176040cd1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#afead5a139cbf9ef6613f2b176040cd1a">setExpectedLeftEncoderCount</a> (int x)</td></tr>
+<tr class="separator:afead5a139cbf9ef6613f2b176040cd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a006b9ea091f7ddde58b486879e8301ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a006b9ea091f7ddde58b486879e8301ec">setExpectedRightEncoderCount</a> (int x)</td></tr>
+<tr class="separator:a006b9ea091f7ddde58b486879e8301ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f86d446b25efbefa1583b0dcbfdcedd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a1f86d446b25efbefa1583b0dcbfdcedd">getCorrectLeft</a> ()</td></tr>
+<tr class="separator:a1f86d446b25efbefa1583b0dcbfdcedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8a13340909a4c88b395ba5707020ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a2e8a13340909a4c88b395ba5707020ed">getCorrectRight</a> ()</td></tr>
+<tr class="separator:a2e8a13340909a4c88b395ba5707020ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variabelen</h2></td></tr>
+<tr class="memitem:a896f357ba4cfdb1a8a1275653e771179"><td class="memItemLeft" align="right" valign="top">Zumo32U4Encoders&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a896f357ba4cfdb1a8a1275653e771179">encoders</a></td></tr>
+<tr class="separator:a896f357ba4cfdb1a8a1275653e771179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad94f10c769d97c4757e7c9ddba5bdc51"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#ad94f10c769d97c4757e7c9ddba5bdc51">correctionValues</a> [100]</td></tr>
+<tr class="separator:ad94f10c769d97c4757e7c9ddba5bdc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3187e998b8a7c7349af8bc447131a0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#aa3187e998b8a7c7349af8bc447131a0e">expectedLeftEncoderCount</a> = 0</td></tr>
+<tr class="separator:aa3187e998b8a7c7349af8bc447131a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d13795eecf4876013fd908b6adf225"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a05d13795eecf4876013fd908b6adf225">expectedRightEncoderCount</a> = 0</td></tr>
+<tr class="separator:a05d13795eecf4876013fd908b6adf225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8184f40f166939a43f1b93563401d8d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#ac8184f40f166939a43f1b93563401d8d">expectedOffsetLeftEncoderCount</a> = 1</td></tr>
+<tr class="separator:ac8184f40f166939a43f1b93563401d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8109242a976126315742942dfe05f367"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a8109242a976126315742942dfe05f367">expectedOffsetRightEncoderCount</a> = 1</td></tr>
+<tr class="separator:a8109242a976126315742942dfe05f367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade45463d0e6327cb5281f74cbcc431c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#ade45463d0e6327cb5281f74cbcc431c3">offsetLeftEncoderCount</a> = 1</td></tr>
+<tr class="separator:ade45463d0e6327cb5281f74cbcc431c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5946372f1503bd4289f9c80f9241be7e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a5946372f1503bd4289f9c80f9241be7e">offsetRightEncoderCount</a> = 1</td></tr>
+<tr class="separator:a5946372f1503bd4289f9c80f9241be7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa99ad7b088fffbfb925efeb925efb3c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#aa99ad7b088fffbfb925efeb925efb3c8">correctLeft</a> = 0</td></tr>
+<tr class="separator:aa99ad7b088fffbfb925efeb925efb3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ffbb9ab7541b076f4d1daee2a1427d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a17ffbb9ab7541b076f4d1daee2a1427d">correctRight</a> = 0</td></tr>
+<tr class="separator:a17ffbb9ab7541b076f4d1daee2a1427d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a1f3b93b9bd02ace07076c5c573cb2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a05a1f3b93b9bd02ace07076c5c573cb2">countsLeft</a></td></tr>
+<tr class="separator:a05a1f3b93b9bd02ace07076c5c573cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37187b4d20db070ef6ceb6af43f8543c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a37187b4d20db070ef6ceb6af43f8543c">countsRight</a></td></tr>
+<tr class="separator:a37187b4d20db070ef6ceb6af43f8543c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae414add252c40de19b5a56a411499e2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#ae414add252c40de19b5a56a411499e2a">lastEncodersCheckTime</a></td></tr>
+<tr class="separator:ae414add252c40de19b5a56a411499e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b87bc12dbdf3d7a7df11d64c154ba8"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="encoderStuff_8cpp.html#a12b87bc12dbdf3d7a7df11d64c154ba8">ALLOWED_SPEED_OFFSET</a> = 20</td></tr>
+<tr class="separator:a12b87bc12dbdf3d7a7df11d64c154ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentatie van functies</h2>
+<a id="aa5b2e62ff27500a110a709d1054b45bd" name="aa5b2e62ff27500a110a709d1054b45bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5b2e62ff27500a110a709d1054b45bd">&#9670;&#160;</a></span>calculateCorrectionStrength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calculateCorrectionStrength </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c4ba1af6752ccf3fdf55971ae57a406" name="a1c4ba1af6752ccf3fdf55971ae57a406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4ba1af6752ccf3fdf55971ae57a406">&#9670;&#160;</a></span>correctLeftFaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void correctLeftFaster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48697795fe55f55dc520d945484a050b" name="a48697795fe55f55dc520d945484a050b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48697795fe55f55dc520d945484a050b">&#9670;&#160;</a></span>correctLeftSlower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void correctLeftSlower </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13d056ad8faf1f64b4311b7360c4fc5a" name="a13d056ad8faf1f64b4311b7360c4fc5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d056ad8faf1f64b4311b7360c4fc5a">&#9670;&#160;</a></span>correctOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void correctOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c9b6137118b1eff479d81d097fc73c6" name="a9c9b6137118b1eff479d81d097fc73c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9b6137118b1eff479d81d097fc73c6">&#9670;&#160;</a></span>correctRightFaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void correctRightFaster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e49ff3e2d5d846a546265871e8650b5" name="a7e49ff3e2d5d846a546265871e8650b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e49ff3e2d5d846a546265871e8650b5">&#9670;&#160;</a></span>correctRightSlower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void correctRightSlower </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f86d446b25efbefa1583b0dcbfdcedd" name="a1f86d446b25efbefa1583b0dcbfdcedd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f86d446b25efbefa1583b0dcbfdcedd">&#9670;&#160;</a></span>getCorrectLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCorrectLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e8a13340909a4c88b395ba5707020ed" name="a2e8a13340909a4c88b395ba5707020ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8a13340909a4c88b395ba5707020ed">&#9670;&#160;</a></span>getCorrectRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCorrectRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a226bd92af241a0c9ecc5b9871305fe61" name="a226bd92af241a0c9ecc5b9871305fe61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226bd92af241a0c9ecc5b9871305fe61">&#9670;&#160;</a></span>resetEncoderCounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetEncoderCounts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afead5a139cbf9ef6613f2b176040cd1a" name="afead5a139cbf9ef6613f2b176040cd1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afead5a139cbf9ef6613f2b176040cd1a">&#9670;&#160;</a></span>setExpectedLeftEncoderCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setExpectedLeftEncoderCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a006b9ea091f7ddde58b486879e8301ec" name="a006b9ea091f7ddde58b486879e8301ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a006b9ea091f7ddde58b486879e8301ec">&#9670;&#160;</a></span>setExpectedRightEncoderCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setExpectedRightEncoderCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentatie van variabelen</h2>
+<a id="a12b87bc12dbdf3d7a7df11d64c154ba8" name="a12b87bc12dbdf3d7a7df11d64c154ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b87bc12dbdf3d7a7df11d64c154ba8">&#9670;&#160;</a></span>ALLOWED_SPEED_OFFSET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int ALLOWED_SPEED_OFFSET = 20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad94f10c769d97c4757e7c9ddba5bdc51" name="ad94f10c769d97c4757e7c9ddba5bdc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad94f10c769d97c4757e7c9ddba5bdc51">&#9670;&#160;</a></span>correctionValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char correctionValues[100]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa99ad7b088fffbfb925efeb925efb3c8" name="aa99ad7b088fffbfb925efeb925efb3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa99ad7b088fffbfb925efeb925efb3c8">&#9670;&#160;</a></span>correctLeft</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int correctLeft = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17ffbb9ab7541b076f4d1daee2a1427d" name="a17ffbb9ab7541b076f4d1daee2a1427d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17ffbb9ab7541b076f4d1daee2a1427d">&#9670;&#160;</a></span>correctRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int correctRight = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05a1f3b93b9bd02ace07076c5c573cb2" name="a05a1f3b93b9bd02ace07076c5c573cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a1f3b93b9bd02ace07076c5c573cb2">&#9670;&#160;</a></span>countsLeft</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int countsLeft</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37187b4d20db070ef6ceb6af43f8543c" name="a37187b4d20db070ef6ceb6af43f8543c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37187b4d20db070ef6ceb6af43f8543c">&#9670;&#160;</a></span>countsRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int countsRight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a896f357ba4cfdb1a8a1275653e771179" name="a896f357ba4cfdb1a8a1275653e771179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a896f357ba4cfdb1a8a1275653e771179">&#9670;&#160;</a></span>encoders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Zumo32U4Encoders encoders</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3187e998b8a7c7349af8bc447131a0e" name="aa3187e998b8a7c7349af8bc447131a0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3187e998b8a7c7349af8bc447131a0e">&#9670;&#160;</a></span>expectedLeftEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int expectedLeftEncoderCount = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8184f40f166939a43f1b93563401d8d" name="ac8184f40f166939a43f1b93563401d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8184f40f166939a43f1b93563401d8d">&#9670;&#160;</a></span>expectedOffsetLeftEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double expectedOffsetLeftEncoderCount = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8109242a976126315742942dfe05f367" name="a8109242a976126315742942dfe05f367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8109242a976126315742942dfe05f367">&#9670;&#160;</a></span>expectedOffsetRightEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double expectedOffsetRightEncoderCount = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05d13795eecf4876013fd908b6adf225" name="a05d13795eecf4876013fd908b6adf225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d13795eecf4876013fd908b6adf225">&#9670;&#160;</a></span>expectedRightEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int expectedRightEncoderCount = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae414add252c40de19b5a56a411499e2a" name="ae414add252c40de19b5a56a411499e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae414add252c40de19b5a56a411499e2a">&#9670;&#160;</a></span>lastEncodersCheckTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lastEncodersCheckTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade45463d0e6327cb5281f74cbcc431c3" name="ade45463d0e6327cb5281f74cbcc431c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade45463d0e6327cb5281f74cbcc431c3">&#9670;&#160;</a></span>offsetLeftEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double offsetLeftEncoderCount = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5946372f1503bd4289f9c80f9241be7e" name="a5946372f1503bd4289f9c80f9241be7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5946372f1503bd4289f9c80f9241be7e">&#9670;&#160;</a></span>offsetRightEncoderCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double offsetRightEncoderCount = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gegenereerd door&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
