@@ -5,6 +5,14 @@ NSE 1st year
 
 Project Systems Engineering 
 
+# aim
+
+![parcour](./readme_data/parkour.jpg)
+
+The aim of this project is the program a robot to follow a line. do when it sees a color it needs to remember what to do. while the project being instructed how to basic instructions works like throw.
+
+also don't tell the [genius Tom](https://www.youtube.com/watch?v=KmwI_qnLSOg) about this project because WE HAVE ENOUTH JAVASRIPT
+
 ### dependecies
 - arduino-cli (or ide) for compiling
 - zumo32u4 robot & libary
