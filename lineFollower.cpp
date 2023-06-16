@@ -9,7 +9,7 @@ has been tested with Zumos using 75:1 HP motors.*/
 #include "buzzerStuff.h"
 #include "motors.h"
 
-// This is the maximum speedLineFollower the motors will be allowed to turn.
+/// This is the maximum speedLineFollower the motors will be allowed to turn.
 const uint16_t MAX_SPEED = 300;
 uint16_t speedLineFollower = 150;
 int count_;
@@ -25,7 +25,8 @@ Zumo32U4ButtonC buttonC;
 int16_t lastError = 0;
 
 #define NUM_SENSORS 5
-unsigned int lineSensorValues[NUM_SENSORS];  // creates an array with length 5
+/// creates an array with length 5
+unsigned int lineSensorValues[NUM_SENSORS];  
 unsigned int lineSensorGreen[NUM_SENSORS] = {5000,5000,5000,5000,5000};
 unsigned int lineSensorGray[NUM_SENSORS] = {5000,5000,5000,5000,5000};
 unsigned int lineSensorBrown[NUM_SENSORS] = {5000,5000,5000,5000,5000};
@@ -76,8 +77,12 @@ int readLine(unsigned int *sensor_values) {
   unsigned char white_line = 0;
   int lastValue;
   unsigned char i, on_line = 0;
-  unsigned long avg;  // this is for the weighted total, which is long before division
-  unsigned int sum;   // this is for the denominator which is <= 64000
+
+  // this is for the weighted total, which is long before division
+  unsigned long avg;
+
+  // this is for the denominator which is <= 64000
+  unsigned int sum;   
 
   lineSensors.readCalibrated(sensor_values, readMode);
 

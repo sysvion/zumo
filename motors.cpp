@@ -1,13 +1,15 @@
+#include "pins_arduino.h"
 #include "motors.h"
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
-//starting speed (no movement)
 
 const double USER_STANDSTILL = 1;                                 
 const double MIN_USER_SPEED = -10; //?
 const double MAX_USER_SPEED = 10;
+
+/// starting speed (no movement)
 double userSpeed = USER_STANDSTILL;
 
 double speedRight;
@@ -15,13 +17,16 @@ double speedLeft;
 const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
-bool isAllowedToDrive = true;                           //determines if the robot should move or pause
+///determines if the robot should move or pause
+bool isAllowedToDrive = true;                           
 
 
-// the minimum is 1 because we are going to multiplied 
+/// the minimum is 1 because we are going to multiplied 
 const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
-double steerRight = minimumTuriningValue;         //default steer value. Value is later on multiplied with so the default is 1
+
+///default steer value. Value is later on multiplied with so the default is 1
+double steerRight = minimumTuriningValue;         
 double steerLeft = minimumTuriningValue;
 
 
@@ -43,10 +48,13 @@ void moveLeft(const int &steerIntensity)
 
   if  (steerLeft < minimumTuriningValue)
   {
+    Serial1.println("right");
     steerRight *= steerIntensity;   //increase right wheel speed
   }
   else
   {
+    Serial1.println("left");
+
     steerLeft /= steerIntensity;    //reduce left wheel speed if condition not met
   }
 }
@@ -76,7 +84,7 @@ void moveSlower()
   Serial1.println((String)"Speed: " + userSpeed + " --");
 }
 
-//does the opposite as moveSlower(), to move faster
+///does the opposite as moveSlower(), to move faster
 void moveFaster()
 {
   resetEncoderCounts();

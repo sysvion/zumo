@@ -77,10 +77,10 @@ int8_t inertial::DebugRegTest(String identifierString, uint8_t addr, uint8_t reg
 }
 #endif
 
-// array is of size 3
-// [0] roll left/right
-// [1] pich front/back
-// [2] yaw left/right
+/// array is of size 3
+/// [0] roll left/right
+/// [1] pich front/back
+/// [2] yaw left/right
 void inertial::getGyroPoss(int *array) {
   if (sensors.gyroDataReady()) {
     sensors.readGyro();
@@ -111,7 +111,7 @@ void inertial::getaccData(int *array) {
 }
  
 
-// source: example->zumo32u3->RotationResist->Turnsensor.h:turnSensorSetup()
+/// source: example->zumo32u3->RotationResist->Turnsensor.h:turnSensorSetup()
 void inertial::calabrateGyro() {
   int32_t totalx = 0;
   int32_t totaly = 0;
@@ -125,7 +125,7 @@ void inertial::calabrateGyro() {
     while(!sensors.gyroDataReady()) {}
     sensors.readGyro();
 
-    // Add the Z axis reading to the total.
+
     totalx += sensors.g.x;
     totaly += sensors.g.y;
     totalz += sensors.g.z;

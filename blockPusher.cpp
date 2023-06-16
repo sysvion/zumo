@@ -4,7 +4,8 @@
 Zumo32U4Motors motorsv2;
 Zumo32U4ProximitySensors proxSensorsaa;
 
-const uint8_t minimum = 1; //readings must be greater than this to 
+///readings must be greater than this to 
+const uint8_t minimum = 1; 
 const uint16_t turnSpeedMax = 300;
 const uint16_t turnSpeedMin = 100;
 const uint16_t deceleration = 10;
@@ -21,31 +22,37 @@ uint16_t turnSpeed = 200;
 uint16_t lastTimeObjectSeen = 0;
 int i = 0;
 
-void blockPusher::turnRight(){ //turns right towards block
+///turns right towards block
+void blockPusher::turnRight(){ 
   motorsv2.setSpeeds(turnSpeed, -turnSpeed);
   turningLeft = false;
   turningRight = true;
 }
 
-void blockPusher::turnLeft(){ //turns left towards block
+///turns left towards block
+void blockPusher::turnLeft(){
   motorsv2.setSpeeds(-turnSpeed, turnSpeed);
   turningLeft = true;
   turningRight = false;
 }
 
-void blockPusher::stop(){ //stops moving
+///stops moving
+void blockPusher::stop(){
   motorsv2.setSpeeds(0, 0);
   turningLeft = false;
   turningRight = false;
+
 }
-void blockPusher::twin(){ //it goes forward 20 cm
+///it goes forward 20 cm
+void blockPusher::twin(){
   motorsv2.setSpeeds(270, 270);
   delay(1000);
   motorsv2.setSpeeds(0, 0);
   ibne = false;
 }
 
-void blockPusher::attack(){ //named this attack because it attacks the block
+///named this attack because it attacks the block
+void blockPusher::attack(){
   if (i <= 10) {
   motorsv2.setSpeeds(400, 400);
   //delay(20);
@@ -53,7 +60,8 @@ void blockPusher::attack(){ //named this attack because it attacks the block
   }
 }
 
-void blockPusher::duwBlok(){ //the code that pushes the block out of the circle
+///the code that pushes the block out of the circle
+void blockPusher::duwBlok(){
   if (ibne) {
     twin();
   }

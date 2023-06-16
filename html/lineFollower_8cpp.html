@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>zumo: lineFollower.cpp Bestand Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">zumo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Zoeken');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functies</a> &#124;
+<a href="#var-members">Variabelen</a>  </div>
+  <div class="headertitle"><div class="title">lineFollower.cpp Bestand Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;Zumo32U4.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="lineFollower_8h_source.html">lineFollower.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="buzzerStuff_8h_source.html">buzzerStuff.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:add02d1c189e3b727b722638327642a8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:add02d1c189e3b727b722638327642a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functies</h2></td></tr>
+<tr class="memitem:a83335fd09e6f0a348d108934441077e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a83335fd09e6f0a348d108934441077e5">lineSensorsInitFiveSensors</a> ()</td></tr>
+<tr class="separator:a83335fd09e6f0a348d108934441077e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c67205f5fe0100824d991a19c9db68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a01c67205f5fe0100824d991a19c9db68">CalibrateSensors</a> ()</td></tr>
+<tr class="separator:a01c67205f5fe0100824d991a19c9db68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3cebf67222e24492bff8418e5354782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#ac3cebf67222e24492bff8418e5354782">CalibrateGreen</a> ()</td></tr>
+<tr class="separator:ac3cebf67222e24492bff8418e5354782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3b1d9244509b3c58209b12a5029014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#aff3b1d9244509b3c58209b12a5029014">CalibrateGray</a> ()</td></tr>
+<tr class="separator:aff3b1d9244509b3c58209b12a5029014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331402f7abc20970f0490fd5b94830a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a331402f7abc20970f0490fd5b94830a2">CalibrateBrown</a> ()</td></tr>
+<tr class="separator:a331402f7abc20970f0490fd5b94830a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829b5be4347fb90dde9af9a61798c1f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a829b5be4347fb90dde9af9a61798c1f0">getCalibratedCount</a> ()</td></tr>
+<tr class="separator:a829b5be4347fb90dde9af9a61798c1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45b934c0fc277d63c3ac4ebeb046d28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#aa45b934c0fc277d63c3ac4ebeb046d28">readLine</a> (unsigned int *sensor_values)</td></tr>
+<tr class="separator:aa45b934c0fc277d63c3ac4ebeb046d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85adb215d6359492712205c565530284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a85adb215d6359492712205c565530284">lineSensorIsGreen</a> (int <a class="el" href="blockPusher_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</td></tr>
+<tr class="separator:a85adb215d6359492712205c565530284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69301d463ad306aed9149a13510d5227"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a69301d463ad306aed9149a13510d5227">lineSensorIsGray</a> (int <a class="el" href="blockPusher_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</td></tr>
+<tr class="separator:a69301d463ad306aed9149a13510d5227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b74eac7d1f0f81bca7266621ab55e5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a1b74eac7d1f0f81bca7266621ab55e5f">lineSensorIsBrown</a> (int <a class="el" href="blockPusher_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</td></tr>
+<tr class="separator:a1b74eac7d1f0f81bca7266621ab55e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c7a5c090626a7dee4dacbfc27601e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a29c7a5c090626a7dee4dacbfc27601e8">lineSensorIsBlack</a> (int <a class="el" href="blockPusher_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</td></tr>
+<tr class="separator:a29c7a5c090626a7dee4dacbfc27601e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880228a982f96474d08f58b817e2fe1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a880228a982f96474d08f58b817e2fe1f">lineFollow</a> ()</td></tr>
+<tr class="separator:a880228a982f96474d08f58b817e2fe1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variabelen</h2></td></tr>
+<tr class="memitem:ad9e762e13cf39fade03e0c886608a2a4"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#ad9e762e13cf39fade03e0c886608a2a4">MAX_SPEED</a> = 300</td></tr>
+<tr class="memdesc:ad9e762e13cf39fade03e0c886608a2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the maximum speedLineFollower the motors will be allowed to turn.  <br /></td></tr>
+<tr class="separator:ad9e762e13cf39fade03e0c886608a2a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1d6a29b439d6f6603def213e84d6d97"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#ae1d6a29b439d6f6603def213e84d6d97">speedLineFollower</a> = 150</td></tr>
+<tr class="separator:ae1d6a29b439d6f6603def213e84d6d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9acf5084c965a76d24ec228412256bc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a9acf5084c965a76d24ec228412256bc3">count_</a></td></tr>
+<tr class="separator:a9acf5084c965a76d24ec228412256bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7da8d3c98fb2936103a8b2238672e577"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a7da8d3c98fb2936103a8b2238672e577">calibratedCount</a></td></tr>
+<tr class="separator:a7da8d3c98fb2936103a8b2238672e577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a477a2839112c5fc2b8e9c64459c07b53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a477a2839112c5fc2b8e9c64459c07b53">lastSensorDetectedLine</a> = 0</td></tr>
+<tr class="separator:a477a2839112c5fc2b8e9c64459c07b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af983608eaad77853e6283a63910341d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#af983608eaad77853e6283a63910341d7">colors</a> = 0</td></tr>
+<tr class="separator:af983608eaad77853e6283a63910341d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafec9ff1928dd5dc33ea2eda3f51c71b"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#aafec9ff1928dd5dc33ea2eda3f51c71b">COLOR_MARGIN</a> = 25</td></tr>
+<tr class="separator:aafec9ff1928dd5dc33ea2eda3f51c71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d10fd6c8a668e3ec604cfc1a14be6c5"><td class="memItemLeft" align="right" valign="top">Zumo32U4LineSensors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a4d10fd6c8a668e3ec604cfc1a14be6c5">lineSensors</a></td></tr>
+<tr class="separator:a4d10fd6c8a668e3ec604cfc1a14be6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc922dbeda245a2f8563d9e66f52aa9"><td class="memItemLeft" align="right" valign="top">Zumo32U4ButtonB&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#aefc922dbeda245a2f8563d9e66f52aa9">buttonB</a></td></tr>
+<tr class="separator:aefc922dbeda245a2f8563d9e66f52aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1317a80b598cf717540ed7499bc2e760"><td class="memItemLeft" align="right" valign="top">Zumo32U4ButtonC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a1317a80b598cf717540ed7499bc2e760">buttonC</a></td></tr>
+<tr class="separator:a1317a80b598cf717540ed7499bc2e760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af406b081a61d1b1eb58433db6dfec708"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#af406b081a61d1b1eb58433db6dfec708">lastError</a> = 0</td></tr>
+<tr class="separator:af406b081a61d1b1eb58433db6dfec708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858ddb5e76f83a5459ee613671d7525e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a858ddb5e76f83a5459ee613671d7525e">lineSensorValues</a> [<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>]</td></tr>
+<tr class="memdesc:a858ddb5e76f83a5459ee613671d7525e"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates an array with length 5  <br /></td></tr>
+<tr class="separator:a858ddb5e76f83a5459ee613671d7525e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b3826dbf074d6c81f32dacde3a9e1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#aac1b3826dbf074d6c81f32dacde3a9e1">lineSensorGreen</a> [<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td></tr>
+<tr class="separator:aac1b3826dbf074d6c81f32dacde3a9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c82e5b611c316d63b6d9fea5ead0445"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a7c82e5b611c316d63b6d9fea5ead0445">lineSensorGray</a> [<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td></tr>
+<tr class="separator:a7c82e5b611c316d63b6d9fea5ead0445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247a209fc6b5c556df47da4473bb10b8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lineFollower_8cpp.html#a247a209fc6b5c556df47da4473bb10b8">lineSensorBrown</a> [<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td></tr>
+<tr class="separator:a247a209fc6b5c556df47da4473bb10b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentatie van macro's</h2>
+<a id="add02d1c189e3b727b722638327642a8b" name="add02d1c189e3b727b722638327642a8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add02d1c189e3b727b722638327642a8b">&#9670;&#160;</a></span>NUM_SENSORS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUM_SENSORS&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentatie van functies</h2>
+<a id="a331402f7abc20970f0490fd5b94830a2" name="a331402f7abc20970f0490fd5b94830a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331402f7abc20970f0490fd5b94830a2">&#9670;&#160;</a></span>CalibrateBrown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalibrateBrown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff3b1d9244509b3c58209b12a5029014" name="aff3b1d9244509b3c58209b12a5029014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3b1d9244509b3c58209b12a5029014">&#9670;&#160;</a></span>CalibrateGray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalibrateGray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3cebf67222e24492bff8418e5354782" name="ac3cebf67222e24492bff8418e5354782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3cebf67222e24492bff8418e5354782">&#9670;&#160;</a></span>CalibrateGreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalibrateGreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01c67205f5fe0100824d991a19c9db68" name="a01c67205f5fe0100824d991a19c9db68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c67205f5fe0100824d991a19c9db68">&#9670;&#160;</a></span>CalibrateSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CalibrateSensors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a829b5be4347fb90dde9af9a61798c1f0" name="a829b5be4347fb90dde9af9a61798c1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829b5be4347fb90dde9af9a61798c1f0">&#9670;&#160;</a></span>getCalibratedCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCalibratedCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a880228a982f96474d08f58b817e2fe1f" name="a880228a982f96474d08f58b817e2fe1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880228a982f96474d08f58b817e2fe1f">&#9670;&#160;</a></span>lineFollow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineFollow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29c7a5c090626a7dee4dacbfc27601e8" name="a29c7a5c090626a7dee4dacbfc27601e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c7a5c090626a7dee4dacbfc27601e8">&#9670;&#160;</a></span>lineSensorIsBlack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lineSensorIsBlack </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b74eac7d1f0f81bca7266621ab55e5f" name="a1b74eac7d1f0f81bca7266621ab55e5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b74eac7d1f0f81bca7266621ab55e5f">&#9670;&#160;</a></span>lineSensorIsBrown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lineSensorIsBrown </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69301d463ad306aed9149a13510d5227" name="a69301d463ad306aed9149a13510d5227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69301d463ad306aed9149a13510d5227">&#9670;&#160;</a></span>lineSensorIsGray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lineSensorIsGray </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85adb215d6359492712205c565530284" name="a85adb215d6359492712205c565530284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85adb215d6359492712205c565530284">&#9670;&#160;</a></span>lineSensorIsGreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lineSensorIsGreen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83335fd09e6f0a348d108934441077e5" name="a83335fd09e6f0a348d108934441077e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83335fd09e6f0a348d108934441077e5">&#9670;&#160;</a></span>lineSensorsInitFiveSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineSensorsInitFiveSensors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa45b934c0fc277d63c3ac4ebeb046d28" name="aa45b934c0fc277d63c3ac4ebeb046d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45b934c0fc277d63c3ac4ebeb046d28">&#9670;&#160;</a></span>readLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readLine </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int *&#160;</td>
+          <td class="paramname"><em>sensor_values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentatie van variabelen</h2>
+<a id="aefc922dbeda245a2f8563d9e66f52aa9" name="aefc922dbeda245a2f8563d9e66f52aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc922dbeda245a2f8563d9e66f52aa9">&#9670;&#160;</a></span>buttonB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Zumo32U4ButtonB buttonB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1317a80b598cf717540ed7499bc2e760" name="a1317a80b598cf717540ed7499bc2e760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1317a80b598cf717540ed7499bc2e760">&#9670;&#160;</a></span>buttonC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Zumo32U4ButtonC buttonC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7da8d3c98fb2936103a8b2238672e577" name="a7da8d3c98fb2936103a8b2238672e577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7da8d3c98fb2936103a8b2238672e577">&#9670;&#160;</a></span>calibratedCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calibratedCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafec9ff1928dd5dc33ea2eda3f51c71b" name="aafec9ff1928dd5dc33ea2eda3f51c71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafec9ff1928dd5dc33ea2eda3f51c71b">&#9670;&#160;</a></span>COLOR_MARGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int COLOR_MARGIN = 25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af983608eaad77853e6283a63910341d7" name="af983608eaad77853e6283a63910341d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af983608eaad77853e6283a63910341d7">&#9670;&#160;</a></span>colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int colors = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9acf5084c965a76d24ec228412256bc3" name="a9acf5084c965a76d24ec228412256bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9acf5084c965a76d24ec228412256bc3">&#9670;&#160;</a></span>count_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af406b081a61d1b1eb58433db6dfec708" name="af406b081a61d1b1eb58433db6dfec708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af406b081a61d1b1eb58433db6dfec708">&#9670;&#160;</a></span>lastError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t lastError = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a477a2839112c5fc2b8e9c64459c07b53" name="a477a2839112c5fc2b8e9c64459c07b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a477a2839112c5fc2b8e9c64459c07b53">&#9670;&#160;</a></span>lastSensorDetectedLine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lastSensorDetectedLine = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a247a209fc6b5c556df47da4473bb10b8" name="a247a209fc6b5c556df47da4473bb10b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247a209fc6b5c556df47da4473bb10b8">&#9670;&#160;</a></span>lineSensorBrown</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int lineSensorBrown[<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c82e5b611c316d63b6d9fea5ead0445" name="a7c82e5b611c316d63b6d9fea5ead0445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c82e5b611c316d63b6d9fea5ead0445">&#9670;&#160;</a></span>lineSensorGray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int lineSensorGray[<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac1b3826dbf074d6c81f32dacde3a9e1" name="aac1b3826dbf074d6c81f32dacde3a9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1b3826dbf074d6c81f32dacde3a9e1">&#9670;&#160;</a></span>lineSensorGreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int lineSensorGreen[<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>] = {5000,5000,5000,5000,5000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d10fd6c8a668e3ec604cfc1a14be6c5" name="a4d10fd6c8a668e3ec604cfc1a14be6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d10fd6c8a668e3ec604cfc1a14be6c5">&#9670;&#160;</a></span>lineSensors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Zumo32U4LineSensors lineSensors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a858ddb5e76f83a5459ee613671d7525e" name="a858ddb5e76f83a5459ee613671d7525e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a858ddb5e76f83a5459ee613671d7525e">&#9670;&#160;</a></span>lineSensorValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int lineSensorValues[<a class="el" href="lineFollower_8cpp.html#add02d1c189e3b727b722638327642a8b">NUM_SENSORS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>creates an array with length 5 </p>
+
+</div>
+</div>
+<a id="ad9e762e13cf39fade03e0c886608a2a4" name="ad9e762e13cf39fade03e0c886608a2a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e762e13cf39fade03e0c886608a2a4">&#9670;&#160;</a></span>MAX_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t MAX_SPEED = 300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the maximum speedLineFollower the motors will be allowed to turn. </p>
+
+</div>
+</div>
+<a id="ae1d6a29b439d6f6603def213e84d6d97" name="ae1d6a29b439d6f6603def213e84d6d97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1d6a29b439d6f6603def213e84d6d97">&#9670;&#160;</a></span>speedLineFollower</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t speedLineFollower = 150</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gegenereerd door&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
