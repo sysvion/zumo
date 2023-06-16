@@ -23,16 +23,16 @@ int16_t lastError = 0;
 
 #define NUM_SENSORS 5
 unsigned int lineSensorValues[NUM_SENSORS];  // creates an array with length 5
-unsigned int lineSensorGreen[NUM_SENSORS] = {5000,5000,5000,5000,5000};
+unsigned int lineSensorGreen[NUM_SENSORS] = {5000,5000,5000,5000,5000}; // creates an array for each color and put the value standard value te a non used value.
 unsigned int lineSensorGray[NUM_SENSORS] = {5000,5000,5000,5000,5000};
 unsigned int lineSensorBrown[NUM_SENSORS] = {5000,5000,5000,5000,5000};
 
-int CalibrateSensors() {
+int CalibrateSensors() { // Calibarates the lowest and highest gray value.
   lineSensors.calibrate();
   buzzer.play(">a32");
 }
 
-void CalibrateGreen() {
+void CalibrateGreen() { // Copies the main array to a new array.
   if (buttonC.getSingleDebouncedPress()) {
     buzzer.play(">a32");
     colors = 1;
@@ -40,7 +40,7 @@ void CalibrateGreen() {
       lineSensorGreen[i] = lineSensorValues[i];
   }
 }
-void CalibrateGray() {
+void CalibrateGray() { // Copies the main array to a new array.
   if (buttonC.getSingleDebouncedPress()) {
     buzzer.play(">a32");
     colors = 2;
@@ -48,7 +48,7 @@ void CalibrateGray() {
       lineSensorGray[i] = lineSensorValues[i];
   }
 }
-void CalibrateBrown() {
+void CalibrateBrown() { // Copies the main array to a new array.
   if (buttonC.getSingleDebouncedPress()) {
     buzzer.play(">a32");
     colors = 10;
@@ -58,7 +58,7 @@ void CalibrateBrown() {
   }
 }
 
-void setup() {
+void setup() { // Before the ZUMO starts with the loop.
   lineSensors.initFiveSensors();
   buzzer.play(">a32>>c32");
 
@@ -68,7 +68,7 @@ void setup() {
   CalibrateSensors();
 }
 
-int readLine(unsigned int *sensor_values, unsigned char readMode = 1, unsigned char white_line = 0) {
+int readLine(unsigned int *sensor_values, unsigned char readMode = 1, unsigned char white_line = 0) { // Function for reading the line.
 
   int lastValue;
 
@@ -137,7 +137,7 @@ void loop() {
   leftSpeed = constrain(leftSpeed, 0, MAX_SPEED);
   rightSpeed = constrain(rightSpeed, 0, MAX_SPEED);
 
-  if (colors == 0) {
+  if (colors == 0) { // Makes sure each color will always be calibrated in order.
     CalibrateGreen();
   } else if (colors == 1) {
     CalibrateGray();
@@ -145,7 +145,7 @@ void loop() {
     CalibrateBrown();
   }
 
-  if (startMotor) {
+  if (startMotor) { // Only lets the motor move when this bool is true.
     if ((lineSensorValues[2] > lineSensorGreen[2]-30) && (lineSensorValues[2] < lineSensorGreen[2]+30)) { // If the color is green
       leftSpeed = 100;
       rightSpeed = 100;
