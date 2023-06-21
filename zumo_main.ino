@@ -41,7 +41,6 @@ void setup() {
 
   startupSound();
 }
-//function to simplify/shorten the use of buzzer in the main loop
 
 void manualMode() {  //when button C is pressed, message how to use the control keys is printed into Serial1 again
   if (buttonC_2.getSingleDebouncedPress()) {
@@ -51,7 +50,6 @@ void manualMode() {  //when button C is pressed, message how to use the control 
   if (Serial1.available())  //if character is received form Serial1
   {
     inputChar = Serial1.read();  //stores received character into a char varible
-
     switch (inputChar)  //a switch is used instead of multiple if-else statements to make code more readable and optimized
     {
       case '-':  //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
@@ -131,10 +129,8 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         }
         break;
     }
-
     setAndNormalizeMotorValues();  //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
   }
-
   if (!isAllowDrive()) {
     count++;
     if (count > 5) {
@@ -146,17 +142,14 @@ void manualMode() {  //when button C is pressed, message how to use the control 
     ledRed(0);
     delay(100);
   }
-
   if (isStandingStill()) {
     ledGreen(0);
   } else {
     ledGreen(1);
   }
-
   correctOffset();
   applyMotorValues();
 }
-
 void blokMode() {
   bp.duwBlok();
   if (Serial1.available())  //if character is received form Serial1
@@ -178,7 +171,6 @@ void blokMode() {
     }
   }
 }
-
 void autonomousMode() {
   lineFollow();
   if (getCalibratedCount() != 5) {
@@ -212,9 +204,7 @@ void autonomousMode() {
     }
   }
 }
-
 void loop() {
-
   if (buttonA.getSingleDebouncedPress()) {
     drivingMode = (drivingMode + 1) % 3;
     if (drivingMode == 1) {
@@ -226,7 +216,6 @@ void loop() {
     }
     resetSpeed();
   }
-
   if (drivingMode == 1) {
     autonomousMode();
   } else if (drivingMode == 2) {
@@ -234,7 +223,6 @@ void loop() {
   } else {
     manualMode();
   }
-
   if (playSoundId > 0) {
     //play a different sound for each id
     playSoundId = playSoundById(playSoundId);
