@@ -8,3 +8,4 @@ void startupSound();
 void scanColorSound();
 void autonomousModeSound();
 void manualModeSound();
+int playSoundById(int);
