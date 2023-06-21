@@ -4,7 +4,7 @@
 Zumo32U4Motors motorsv2;
 Zumo32U4ProximitySensors proxSensors;
 
-const uint8_t minimum = 0; //readings must be greater than this to 
+const uint8_t minimum = 0;  //readings must be greater than this to
 const uint16_t turnSpeedMax = 300;
 const uint16_t turnSpeedMin = 100;
 const uint16_t deceleration = 10;
@@ -32,21 +32,21 @@ void blockPusher::setup() {
   proxSensors.initFrontSensor();
 }
 //turns left towards block
-void blockPusher::turnLeft() { 
+void blockPusher::turnLeft() {
   motorsv2.setSpeeds(-turnSpeed, turnSpeed);
   turningLeft = true;
   turningRight = false;
 }
 
 //stops moving
-void blockPusher::stop(){ 
+void blockPusher::stop() {
   motorsv2.setSpeeds(0, 0);
   turningLeft = false;
   turningRight = false;
 }
 
 //it goes forward 20 cm
-void blockPusher::twin(){ 
+void blockPusher::twin() {
   motorsv2.setSpeeds(270, 270);
   delay(1000);
   motorsv2.setSpeeds(0, 0);
@@ -54,16 +54,16 @@ void blockPusher::twin(){
 }
 
 //named this attack because it attacks the block
-void blockPusher::attack(){ 
+void blockPusher::attack() {
   if (i <= 10) {
-  motorsv2.setSpeeds(400, 400);
-  //delay(20);
-  //i++
+    motorsv2.setSpeeds(400, 400);
+    //delay(20);
+    //i++
   }
 }
 
 //the code that pushes the block out of the circle
-void blockPusher::duwBlok(){ 
+void blockPusher::duwBlok() {
   if (ibne) {
     twin();
   }
@@ -77,16 +77,13 @@ void blockPusher::duwBlok(){
 
   // printReadingsToSerial();
 
-  if (objectSeen)
-  {
+  if (objectSeen) {
 
     // An object is visible, so we will start decelerating in
     // order to help the robot find the object without
     // overshooting or oscillating.
     turnSpeed = 200;
-  }
-  else
-  {
+  } else {
     // An object is not visible, so we will accelerate in order
     // to help find the object sooner.
     turnSpeed += acceleration;
@@ -96,17 +93,14 @@ void blockPusher::duwBlok(){
   // turnSpeedMax.
   turnSpeed = constrain(turnSpeed, turnSpeedMin, turnSpeedMax);
 
-  if (objectSeen)
-  {
+  if (objectSeen) {
     // An object seen.
     ledYellow(1);
 
     lastTimeObjectSeen = millis();
 
-    if (leftValue < rightValue)
-    {
-      if (rightValue - leftValue > minimum)
-      { // minimum was 1 first
+    if (leftValue < rightValue) {
+      if (rightValue - leftValue > minimum) {  // minimum was 1 first
 
         // The right value is greater, so the object is probably
         // closer to the robot's right LEDs, which means the robot
@@ -114,41 +108,29 @@ void blockPusher::duwBlok(){
         // make it more even.
         turnRight();
         senseDir = RIGHT;
-      }
-      else
-      {
+      } else {
         stop();
       }
-    }
-    else if (leftValue > rightValue)
-    {
-      if (leftValue - rightValue > minimum)
-      { // minimum was 1 first
+    } else if (leftValue > rightValue) {
+      if (leftValue - rightValue > minimum) {  // minimum was 1 first
 
         // The left value is greater, so turn to the left.
         turnLeft();
         senseDir = LEFT;
       }
-    }
-    else
-    {
+    } else {
       // The values are equal, so stop the motors.
       // stop();
       attack();
     }
-  }
-  else
-  {
+  } else {
     // No object is seen, so just keep turning in the direction
     // that we last sensed the object.
     ledYellow(0);
 
-    if (senseDir == RIGHT)
-    {
+    if (senseDir == RIGHT) {
       turnRight();
-    }
-    else
-    {
+    } else {
       turnLeft();
     }
   }
@@ -162,7 +144,7 @@ void blockPusher::duwBlok(){
 // Zumo32U4Motors motorsv2;
 // Zumo32U4ProximitySensors proxSensorsaa;
 
-// const uint8_t minimum = 1; //readings must be greater than this to 
+// const uint8_t minimum = 1; //readings must be greater than this to
 // const uint16_t turnSpeedMax = 300;
 // const uint16_t turnSpeedMin = 100;
 // const uint16_t deceleration = 10;
@@ -222,12 +204,12 @@ void blockPusher::duwBlok(){
 
 //   // Determine if an object is visible or not.
 //   bool objectSeen = leftValue >= minimum || rightValue >= minimum;
-  
+
 //   //printReadingsToSerial();
 
 //   if (objectSeen)
 //   {
-    
+
 //     // An object is visible, so we will start decelerating in
 //     // order to help the robot find the object without
 //     // overshooting or oscillating.
@@ -299,5 +281,5 @@ void blockPusher::duwBlok(){
 //       turnLeft();
 //     }
 //   }
-  
+
 // }

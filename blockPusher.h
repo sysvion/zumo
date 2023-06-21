@@ -3,7 +3,7 @@
 #pragma once
 
 class blockPusher {
-  public:
+public:
   void setup();
   void turnRight();
   void turnLeft();
@@ -11,8 +11,8 @@ class blockPusher {
   void twin();
   void attack();
   void duwBlok();
-  
-  private:
+
+private:
   bool ibne = true;
   bool himar = false;
 };
@@ -31,7 +31,7 @@ class blockPusher {
 //   void twin();
 //   void attack();
 //   void duwBlok();
-  
+
 //   private:
 //   bool ibne = true;
 //   bool himar = false;

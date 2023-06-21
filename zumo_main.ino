@@ -63,14 +63,6 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         increaseVolume();
         break;
 
-      // case 'k':
-      //   isDebuging = !isDebuging;
-      //   break;
-
-      // case 'j':
-      //   whatToDebug = whatToDebug + 1 % 4;
-      //   break;
-
       case 'a':
         moveLeft();
         playSoundId = 1;
@@ -140,8 +132,7 @@ void manualMode() {  //when button C is pressed, message how to use the control 
         break;
     }
 
-    //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
-    setAndNormalizeMotorValues();
+    setAndNormalizeMotorValues();  //these statements set the motor speeds to the minimum or maximum allowed value if these are above or below allowed vaues
   }
 
   if (!isAllowDrive()) {
@@ -228,11 +219,9 @@ void loop() {
     drivingMode = (drivingMode + 1) % 3;
     if (drivingMode == 1) {
       autonomousModeSound();
-    }
-    else if (drivingMode == 2) {
-     autonomousModeSound(); 
-    }
-    else {
+    } else if (drivingMode == 2) {
+      autonomousModeSound();
+    } else {
       manualModeSound();
     }
     resetSpeed();

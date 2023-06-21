@@ -11,8 +11,8 @@ has been tested with Zumos using 75:1 HP motors.*/
 #include "motors.h"
 
 // This is the maximum speedLineFollower the motors will be allowed to turn.
-const uint16_t MAX_SPEED = 300; //300
-uint16_t speedLineFollower = 240; //240
+const uint16_t MAX_SPEED = 300;    //300
+uint16_t speedLineFollower = 240;  //240
 int count_;
 int calibratedCount;
 int lastSensorDetectedLine = 0;
@@ -22,7 +22,7 @@ const int COLOR_MARGIN = 25;
 
 bool almostOffLine = false;
 
-int scheduleTurn = 0; //0 is none 1 is left 2 is right
+int scheduleTurn = 0;  //0 is none 1 is left 2 is right
 int doScheduledTurn = 0;
 int doScheduledTurnTimerLastTime = 0;
 
@@ -98,7 +98,7 @@ bool isBlack(int i) {
 }
 
 bool isWhite(int i) {
-  return lineSensorValues[i] <50;
+  return lineSensorValues[i] < 50;
 }
 
 bool isLine(int i) {
@@ -202,12 +202,12 @@ void lineFollow() {
     almostOffLine = true;
   }
   if (isWhite(1) && isWhite(4) && lastSensorDetectedLine == 4) {
-     speedLeft += 150;
-     speedRight = -100;
+    speedLeft += 150;
+    speedRight = -100;
   }
   if (isWhite(0) && isWhite(3) && lastSensorDetectedLine == 0) {
-     speedLeft = -100;
-     speedRight += 150;
+    speedLeft = -100;
+    speedRight += 150;
   }
 
   if (isWhite(0) && isWhite(1) && isWhite(3) && isWhite(4)) {
@@ -237,7 +237,7 @@ void lineFollow() {
     almostOffLine = false;
   }
 
-/////////////////////////////
+  /////////////////////////////
 
 
   // if (isGray(0) && !isGray(4) && (isBlack(1) || isBlack(2) || isBlack(3))) {
@@ -269,8 +269,8 @@ void lineFollow() {
   // if (isGreen(2)) {
   //   speedLeft /= 2 + 70;
   //   speedRight /= 2 + 70;
-  // } 
-  
+  // }
+
   // else if (scheduleTurn) {
   //   speedLeft /= 2;
   //   speedRight /= 2;
