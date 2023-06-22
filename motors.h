@@ -11,9 +11,7 @@ void moveFaster();
 void moveToMaxSpeed();
 void resetSpeed();
 void resetRotationalMovement();
-
 void rotateDeg(int);
-
 void stopContinue();
 
 void setAndNormalizeMotorValues();

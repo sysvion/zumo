@@ -2,7 +2,6 @@
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
 
-//#define debugEncoder
 Zumo32U4Encoders encoders;
 
 //CORRECT SPEED VARIABLES:
@@ -63,9 +62,7 @@ void correctOffset() {
 
     if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET) {
       correctLeftFaster();
-#ifdef debugEncoder
-      Serial.println("correctFaster");
-#endif
+      // Serial.println("correctFaster");
     }
     if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET) {
       correctRightFaster();
@@ -73,9 +70,7 @@ void correctOffset() {
 
     if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET) {
       correctLeftSlower();
-#ifdef debugEncoder
-      Serial.println("correctLeftSlower");
-#endif
+      // Serial.println("correctLeftSlower");
     }
     if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET) {
       correctRightSlower();
@@ -97,4 +92,14 @@ int getCorrectLeft() {
 
 int getCorrectRight() {
   return correctRight;
+}
+
+void printCorrectionValues()
+{
+  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
+          countsLeft, countsRight,
+          expectedLeftEncoderCount, expectedRightEncoderCount);
+  Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount
+  + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
+      );
 }
