@@ -10,8 +10,6 @@ char correctionValues[100];
 
 int expectedLeftEncoderCount = 0;
 int expectedRightEncoderCount = 0;
-double expectedOffsetLeftEncoderCount = 1;
-double expectedOffsetRightEncoderCount = 1;
 double offsetLeftEncoderCount = 1;
 double offsetRightEncoderCount = 1;
 int correctLeft = 0;

@@ -10,7 +10,7 @@ public:
   void stop();
   void twin();
   void attack();
-  void duwBlok();
+  void duwBlock();
 
 private:
   bool ibne = true;

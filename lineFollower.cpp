@@ -217,9 +217,9 @@ void lineFollow() {
 
   if (isBrown(0) && isBrown(1) && isBrown(3) && isBrown(4)) {
     // Ga naar modus: blok duwen.
-    ////////////////////////////////////////////////////////////drivingMode = 2;
-    // speedLeft = 0;
-    // speedRight = 0;
+    drivingMode = 2;
+    speedLeft = 0;
+    speedRight = 0;
     play(600, 50);
   }
 
@@ -237,8 +237,7 @@ void lineFollow() {
     almostOffLine = false;
   }
 
-  /////////////////////////////
-
+///////////////////////////this part of the code handles the gray tape to take turns at intersections but was not stable enough.
 
   // if (isGray(0) && !isGray(4) && (isBlack(1) || isBlack(2) || isBlack(3))) {
   //   scheduleTurn = 1; //left
@@ -294,9 +293,7 @@ void lineFollow() {
   //   doScheduledTurn = 0;
   // }
 
-
-
-
+///////////////////////////print sensor values, used for debugging only
   // char buffer[80];
   // sprintf(buffer, "%5d %5d %5d %5d %5d error: %5d %5d %5d %5d gray %5d %5d %5d %5d %5d\n", lineSensorValues[0], lineSensorValues[1], lineSensorValues[2], lineSensorValues[3], lineSensorValues[4], error, speedDifference, (int)speedLeft, (int)speedRight, lineSensorGreen[0], lineSensorGreen[1], lineSensorGreen[2], lineSensorGreen[3], lineSensorGreen[4]);
   // if (count_ == 40) {

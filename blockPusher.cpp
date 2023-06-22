@@ -63,7 +63,7 @@ void blockPusher::attack() {
 }
 
 //the code that pushes the block out of the circle
-void blockPusher::duwBlok() {
+void blockPusher::duwBlock() {
   if (ibne) {
     twin();
   }

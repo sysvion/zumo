@@ -1,5 +1,6 @@
 #include <Zumo32U4.h>
 #pragma once
+extern int playSoundId;
 
 void play(int, int);
 void lowerVolume();
