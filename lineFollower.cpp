@@ -10,9 +10,9 @@ has been tested with Zumos using 75:1 HP motors.*/
 #include "buzzerStuff.h"
 #include "motors.h"
 
-// This is the maximum speedLineFollower the motors will be allowed to turn.
-const uint16_t MAX_SPEED = 300;    //300
-uint16_t speedLineFollower = 240;  //240
+/// This is the maximum speedLineFollower the motors will be allowed to turn.
+const uint16_t MAX_SPEED = 300;
+uint16_t speedLineFollower = 240;
 int count_;
 int calibratedCount;
 int lastSensorDetectedLine = 0;
@@ -22,7 +22,8 @@ const int COLOR_MARGIN = 25;
 
 bool almostOffLine = false;
 
-int scheduleTurn = 0;  //0 is none 1 is left 2 is right
+/// 0 is none 1 is left 2 is right
+int scheduleTurn = 0;  
 int doScheduledTurn = 0;
 int doScheduledTurnTimerLastTime = 0;
 
@@ -33,11 +34,14 @@ Zumo32U4ButtonC buttonC;
 int16_t lastError = 0;
 
 #define NUM_SENSORS 5
-unsigned int lineSensorValues[NUM_SENSORS];  // creates an array with length 5
+
+/// creates an array with length 5
+unsigned int lineSensorValues[NUM_SENSORS];  
 unsigned int lineSensorGreen[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorGray[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorBrown[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 
+/// init 
 void lineSensorsInitFiveSensors() {
   lineSensors.initFiveSensors();
 }
@@ -48,6 +52,7 @@ int CalibrateSensors() {
   calibratedCount++;
 }
 
+/// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void CalibrateGreen() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
@@ -57,6 +62,8 @@ void CalibrateGreen() {
       lineSensorGreen[i] = lineSensorValues[i];
   }
 }
+
+/// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void CalibrateGray() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
@@ -65,6 +72,8 @@ void CalibrateGray() {
       lineSensorGray[i] = lineSensorValues[i];
   }
 }
+
+/// store the measurement color in the array lineSensorBrown when buttonC is pressed
 void CalibrateBrown() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
@@ -75,36 +84,59 @@ void CalibrateBrown() {
   }
 }
 
+/// getCalibratedCount
 int getCalibratedCount() {
   return calibratedCount;
 }
 
 ////////////////////////COLOR CHECK FUNCTIONS
 
+/// check if it is sensor is reading a color near the stored color representing green
 bool isGreen(int i) {
   return lineSensorValues[i] > lineSensorGreen[i] - COLOR_MARGIN && lineSensorValues[i] < lineSensorGreen[i] + COLOR_MARGIN;
 }
 
+/// check if it is sensor is reading a color near the stored color representing gray
 bool isGray(int i) {
   return lineSensorValues[i] > lineSensorGray[i] - (COLOR_MARGIN + 10) && lineSensorValues[i] < lineSensorGray[i] + (COLOR_MARGIN + 70);
 }
 
+/// check if it is sensor is reading a color near the stored color representing brown 
 bool isBrown(int i) {
   return lineSensorValues[i] > lineSensorBrown[i] - COLOR_MARGIN + 10 && lineSensorValues[i] < lineSensorBrown[i] + COLOR_MARGIN + 10;
 }
 
+/// check if it is standing on a black line
 bool isBlack(int i) {
   return lineSensorValues[i] > 700;
 }
 
+/// check if it is standing on a white line 
 bool isWhite(int i) {
   return lineSensorValues[i] < 50;
 }
 
+/// check if it is standing on a line 
 bool isLine(int i) {
   return isGreen(i) || isBlack(i);
 }
 
+/// This function operates the same as readCalibrated(), but also returns an
+/// estimated position of the robot with respect to a line. The
+/// estimate is made using a weighted average of the sensor indices
+/// multiplied by 1000, so that a return value of 0 indicates that
+/// the line is directly below sensor 0, a return value of 1000
+/// indicates that the line is directly below sensor 1, 2000
+/// indicates that it's below sensor 2000, etc.  Intermediate
+/// values indicate that the line is between two sensors.  The
+/// formula is (where \f$v_0\f$ represents the value from the
+/// first sensor):
+///
+/// \f[
+/// {(0 \times v_0) + (1000 \times v_1) + (2000 \times v_2) + \cdots
+/// \over
+/// v_0 + v_1 + v_2 + \cdots}
+/// \f]
 int readLine(unsigned int *sensor_values) {
 
   unsigned char readMode = 1;
@@ -152,6 +184,7 @@ int readLine(unsigned int *sensor_values) {
 
 ////////////////////////
 
+// this is the main loop where all the logic for the 
 void lineFollow() {
 
   int16_t position = readLine(lineSensorValues);
@@ -237,8 +270,7 @@ void lineFollow() {
     almostOffLine = false;
   }
 
-  /////////////////////////////
-
+  // gray line code (does not work )
 
   // if (isGray(0) && !isGray(4) && (isBlack(1) || isBlack(2) || isBlack(3))) {
   //   scheduleTurn = 1; //left
