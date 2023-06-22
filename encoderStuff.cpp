@@ -96,9 +96,9 @@ int getCorrectRight() {
 
 void printCorrectionValues()
 {
-  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
+  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d encL %4d encR %4d"),
           countsLeft, countsRight,
-          expectedLeftEncoderCount, expectedRightEncoderCount);
+          expectedLeftEncoderCount, expectedRightEncoderCount, encoders.getCountsLeft(), encoders.getCountsRight());
   Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount
   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
       );

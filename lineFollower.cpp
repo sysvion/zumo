@@ -205,8 +205,8 @@ void lineFollow() {
   int16_t error = position - 2000;
 
   // Get motor speedLineFollower difference using proportional and derivative PID terms (the integral term is generally not very
-  // useful for line following).  Here we are using a proportional constant of 1/4 and a derivative constant of 6.
-  int speedDifference = error / 6 + (0 * (error - lastError));
+  // useful for line following).  Here we are using a proportional constant of 1/6 and a derivative constant of 2.
+  int speedDifference = error / 6 + (2 * (error - lastError));
 
   lastError = error;
 
