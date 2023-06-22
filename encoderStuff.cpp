@@ -18,36 +18,36 @@ int countsRight;
 int lastEncodersCheckTime;
 const int ALLOWED_SPEED_OFFSET = 20;
 
-void resetEncoderCounts() {
+void encoderStuff::resetEncoderCounts() {
   encoders.getCountsAndResetLeft();
   encoders.getCountsAndResetRight();
   expectedLeftEncoderCount = 0;
   expectedRightEncoderCount = 0;
 }
 
-int calculateCorrectionStrength(int32_t x) {
+int encoderStuff::calculateCorrectionStrength(int32_t x) {
   if (x >= 0)
     return sqrt(x * 40);
   else
     return -sqrt(-x * 40);
 }
 
-void correctLeftFaster() {
+void encoderStuff::correctLeftFaster() {
   correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
 }
 
-void correctRightFaster() {
+void encoderStuff::correctRightFaster() {
   correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
 }
 
-void correctLeftSlower() {
+void encoderStuff::correctLeftSlower() {
   correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
 }
-void correctRightSlower() {
+void encoderStuff::correctRightSlower() {
   correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
 }
 
-void correctOffset() {
+void encoderStuff::correctOffset() {
   if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) {
     lastEncodersCheckTime = millis();
 
@@ -78,27 +78,27 @@ void correctOffset() {
   }
 }
 
-void setExpectedLeftEncoderCount(int x) {
+void encoderStuff::setExpectedLeftEncoderCount(int x) {
   expectedLeftEncoderCount = x;
 }
 
-void setExpectedRightEncoderCount(int x) {
+void encoderStuff::setExpectedRightEncoderCount(int x) {
   expectedRightEncoderCount = x;
 }
 
-int getCorrectLeft() {
+int encoderStuff::getCorrectLeft() {
   return correctLeft;
 }
 
-int getCorrectRight() {
+int encoderStuff::getCorrectRight() {
   return correctRight;
 }
 
-void printCorrectionValues()
+void encoderStuff::printCorrectionValues()
 {
-  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d encL %4d encR %4d"),
+  snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
           countsLeft, countsRight,
-          expectedLeftEncoderCount, expectedRightEncoderCount, encoders.getCountsLeft(), encoders.getCountsRight());
+          expectedLeftEncoderCount, expectedRightEncoderCount);
   Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount
   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
       );

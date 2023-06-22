@@ -1,7 +1,7 @@
 #include "motors.h"
 #include "buzzerStuff.h"
 
-bool inputReceivedManual() {
+bool xBee::inputReceivedManual() {
   //if character is received form Serial1
   if (Serial1.available()) {
     //stores received character into a char varible
@@ -91,7 +91,7 @@ bool inputReceivedManual() {
   return false;
 }
 
-void inputReceivedAutonomous() {
+void xBee::inputReceivedAutonomous() {
 if (Serial1.available()) {
 
     switch (Serial1.read()) {

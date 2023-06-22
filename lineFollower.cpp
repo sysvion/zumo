@@ -42,18 +42,18 @@ unsigned int lineSensorGray[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorBrown[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 
 /// init 
-void lineSensorsInitFiveSensors() {
+void lineFollower::lineSensorsInitFiveSensors() {
   lineSensors.initFiveSensors();
 }
 
-int CalibrateSensors() {
+int lineFollower::CalibrateSensors() {
   lineSensors.calibrate();
   scanColorSound();
   calibratedCount++;
 }
 
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
-void CalibrateGreen() {
+void lineFollower::CalibrateGreen() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
     calibratedCount = 3;
@@ -64,7 +64,7 @@ void CalibrateGreen() {
 }
 
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
-void CalibrateGray() {
+void lineFollower::CalibrateGray() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
     calibratedCount = 4;
@@ -74,7 +74,7 @@ void CalibrateGray() {
 }
 
 /// store the measurement color in the array lineSensorBrown when buttonC is pressed
-void CalibrateBrown() {
+void lineFollower::CalibrateBrown() {
   if (buttonC.getSingleDebouncedPress()) {
     scanColorSound();
     calibratedCount = 5;
@@ -85,7 +85,7 @@ void CalibrateBrown() {
 }
 
 /// getCalibratedCount
-int getCalibratedCount() {
+int lineFollower::getCalibratedCount() {
   return calibratedCount;
 }
 
@@ -137,7 +137,7 @@ bool isLine(int i) {
 /// \over
 /// v_0 + v_1 + v_2 + \cdots}
 /// \f]
-int readLine(unsigned int *sensor_values) {
+int lineFollower::readLine(unsigned int *sensor_values) {
 
   unsigned char readMode = 1;
   unsigned char white_line = 0;
@@ -205,8 +205,8 @@ void lineFollow() {
   int16_t error = position - 2000;
 
   // Get motor speedLineFollower difference using proportional and derivative PID terms (the integral term is generally not very
-  // useful for line following).  Here we are using a proportional constant of 1/6 and a derivative constant of 2.
-  int speedDifference = error / 6 + (2 * (error - lastError));
+  // useful for line following).  Here we are using a proportional constant of 1/4 and a derivative constant of 6.
+  int speedDifference = error / 6 + (0 * (error - lastError));
 
   lastError = error;
 

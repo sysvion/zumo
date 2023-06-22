@@ -1,4 +1,8 @@
 #pragma once
 
-bool inputReceivedManual();
-void inputReceivedAutonomous();
+class xBee {
+
+  public:
+    bool inputReceivedManual();
+    void inputReceivedAutonomous();
+}
