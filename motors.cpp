@@ -21,17 +21,6 @@ double steerLeft = minimumTuriningValue;
 const double steerIntensity = 1.3;  //intensity of steering changes
 
 
-// void printCorrectionValues()
-// {
-//   snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
-//           countsLeft, countsRight,
-//           expectedLeftEncoderCount, expectedRightEncoderCount);
-//   Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount
-//   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
-//       );
-// }
-
-
 void moveLeft() {
   resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {

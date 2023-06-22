@@ -61,6 +61,7 @@ void manualMode() {
   }
   correctOffset();
   applyMotorValues();
+  printCorrectionValues();
 }
 
 void blockMode() {

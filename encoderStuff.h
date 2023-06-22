@@ -22,3 +22,5 @@ void setExpectedRightEncoderCount(int);
 int getCorrectLeft();
 
 int getCorrectRight();
+
+void printCorrectionValues();
