@@ -6,7 +6,7 @@ var searchData=
   ['lastsensordetectedlinetimer_3',['lastSensorDetectedLineTimer',['../lineFollower_8cpp.html#acd923b8cade23066929985a83425aa89',1,'lineFollower.cpp']]],
   ['lasttimeobjectseen_4',['lastTimeObjectSeen',['../blockPusher_8cpp.html#a06c87776dbd82be73e7fdd034f0b8602',1,'blockPusher.cpp']]],
   ['left_5',['LEFT',['../blockPusher_8cpp.html#a437ef08681e7210d6678427030446a54',1,'blockPusher.cpp']]],
-  ['linefollow_6',['lineFollow',['../lineFollower_8cpp.html#a880228a982f96474d08f58b817e2fe1f',1,'lineFollow():&#160;lineFollower.cpp'],['../lineFollower_8h.html#a880228a982f96474d08f58b817e2fe1f',1,'lineFollow():&#160;lineFollower.cpp']]],
+  ['linefollow_6',['lineFollow',['../lineFollower_8h.html#a880228a982f96474d08f58b817e2fe1f',1,'lineFollower.h']]],
   ['linefollower_2ecpp_7',['lineFollower.cpp',['../lineFollower_8cpp.html',1,'']]],
   ['linefollower_2eh_8',['lineFollower.h',['../lineFollower_8h.html',1,'']]],
   ['linesensorbrown_9',['lineSensorBrown',['../lineFollower_8cpp.html#a247a209fc6b5c556df47da4473bb10b8',1,'lineFollower.cpp']]],

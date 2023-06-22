@@ -5,13 +5,15 @@
 
 inertial::inertial() {}
 
+// setup the inertial sensors 
+// if error hang
 void inertial::setup() {
   Wire.begin();
 
   {
+    // check if wire is started
     if (!sensors.init())
-      // check if wire is started
-      DebugRegTest(String("LSM303D"), 0b0011101, 0x0F, 0x49);
+    DebugRegTest(String("LSM303D"), 0b0011101, 0x0F, 0x49);
     DebugRegTest(String("L3GD20H"), 0b1101011, 0x0F, 0xD7);
     DebugRegTest(String("LSM6DS33"), 0b1101011, 0x0F, 0x69);
     DebugRegTest(String("L3GD20H"), 0b0011110, 0x0F, 0x3D);
@@ -30,6 +32,7 @@ void inertial::setup() {
   calabrateGyro();
 }
 
+/// redo the setup of Zumo32U4IMU with 
 int8_t inertial::DebugRegTest(String identifierString, uint8_t addr, uint8_t reg, int16_t whoAmI) const {
   Serial.println("debuging " + identifierString);
   Wire.beginTransmission(addr);

@@ -24,6 +24,7 @@
 */
 var menudata={children:[
 {text:"Hoofd Pagina",url:"index.html"},
+{text:"Gerelateerde pagina's",url:"pages.html"},
 {text:"Klassen",url:"annotated.html",children:[
 {text:"Klasse Lijst",url:"annotated.html"},
 {text:"Klasse Index",url:"classes.html"},
