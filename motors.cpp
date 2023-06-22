@@ -4,34 +4,32 @@
 
 Zumo32U4Motors motors;
 
-double speed = 1;  //starting speed (no movement)
+///starting speed (no movement)
+double speed = 1;  
 double speedRight;
 double speedLeft;
 const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
-bool allowDrive = true;  //determines if the robot should move or pause
+/// determines if the robot should move or pause
+bool allowDrive = true;  
 
 
-// the minimum is 1 because we are going to multiplied
+/// the minimum is 1 because we are going to multiplied
 const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
-double steerRight = minimumTuriningValue;  //default steer value. Value is later on multiplied with so the default is 1
+
+//default steer value. Value is later on multiplied with so the default is 1
+double steerRight = minimumTuriningValue;  
+
+//default steer value. Value is later on multiplied with so the default is 1
 double steerLeft = minimumTuriningValue;
-const double steerIntensity = 1.3;  //intensity of steering changes
+
+//intensity of steering changes
+const double steerIntensity = 1.3;  
 
 
-// void printCorrectionValues()
-// {
-//   snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
-//           countsLeft, countsRight,
-//           expectedLeftEncoderCount, expectedRightEncoderCount);
-//   Serial.println((String)correctionValues + "\toffL:" + offsetLeftEncoderCount + "\toffR:" + offsetRightEncoderCount
-//   + "\tcorrectLeft:" + correctLeft + "\tcorrectRight:" + correctRight
-//       );
-// }
-
-
+/// change the turning left speed by the steerIntensity 
 void moveLeft() {
   resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {
@@ -43,6 +41,8 @@ void moveLeft() {
     steerLeft /= steerIntensity;  //reduce left wheel speed if condition not met
   }
 }
+
+/// change the turning right speed by the steerIntensity 
 void moveRight() {
   resetEncoderCounts();
   if (steerLeft < maximumTurningValue) {
@@ -53,6 +53,8 @@ void moveRight() {
     }
   }
 }
+
+// move slower by 10 %
 void moveSlower() {
   resetEncoderCounts();
   if (speed > -10)  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
@@ -61,7 +63,9 @@ void moveSlower() {
     Serial1.println((String) "Speed: " + speed + " --");
   }
 }
-void moveFaster()  //does the opposite as moveSlower(), to move faster
+
+/// does the opposite as moveSlower(), to move faster
+void moveFaster()  
 {
   resetEncoderCounts();
   if (speed < 10)  //checks if speed is below maximum allowed value
@@ -70,11 +74,15 @@ void moveFaster()  //does the opposite as moveSlower(), to move faster
     Serial1.println((String) "Speed: " + speed + " ++");
   }
 }
+
+/// set speed to 8
 void moveToMaxSpeed() {
   resetEncoderCounts();
   speed = 8;  //set speed to the max
   Serial1.println((String) "Speed: " + speed + " ++");
 }
+
+/// set speed to 1 (standing still)
 void resetSpeed() {
   resetEncoderCounts();
   speed = 1;
@@ -87,6 +95,8 @@ void resetSpeed() {
   //sets drive t true so robot can immediately start to drive again when input it given in case the robot was paused before reset was pressed
   allowDrive = true;
 }
+
+// reset rotational movement
 void resetRotationalMovement() {
   resetEncoderCounts();
   //resets steer values but not the overal speed so the robots starts driving straight forward
@@ -94,10 +104,13 @@ void resetRotationalMovement() {
   steerRight = 1;
 }
 
+/// switches the allowDrive flag
 void stopContinue() {
   resetEncoderCounts();
   allowDrive = !allowDrive;
 }
+
+/// rotate param degrees
 void rotateDeg(int deg) {
   resetEncoderCounts();
   deg *= 10.6;
@@ -105,6 +118,7 @@ void rotateDeg(int deg) {
   setExpectedRightEncoderCount(deg);
 }
 
+ 
 void setAndNormalizeMotorValues() {
   speedLeft = (speed * steerLeft - steerRight) * 50;
   speedRight = (speed * steerRight - steerLeft) * 50;
@@ -120,23 +134,28 @@ void setAndNormalizeMotorValues() {
   }
 }
 
+/// set the pins of the motor so it changes the speed
 void applyMotorValues() {
   motors.setLeftSpeed(speedLeft + getCorrectLeft());
   motors.setRightSpeed(speedRight + getCorrectRight());
 }
 
+// if the motor speed is 0
 const bool isStandingStill() {
   return (speedLeft == 0 && speedRight == 0);
 }
 
+// is the allowDrive flag is set
 const bool isAllowDrive() {
   return allowDrive;
 }
 
+// get motorSpeedLeft
 const double getSpeedLeft() {
   return speedLeft;
 }
 
+// get motorSpeedRight
 const double getSpeedRight() {
   return speedRight;
 }
