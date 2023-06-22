@@ -2,12 +2,14 @@
 #include "buzzerStuff.h"
 
 bool inputReceivedManual() {
-
-  if (Serial1.available()) {         //if character is received form Serial1
-    int inputChar = Serial1.read();  //stores received character into a char varible
+  //if character is received form Serial1
+  if (Serial1.available()) {
+    //stores received character into a char varible
+    int inputChar = Serial1.read();
 
     switch (inputChar) {
-      case '-':   //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
+      //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
+      case '-':
         lowerVolume();
         break;
 
@@ -71,8 +73,9 @@ bool inputReceivedManual() {
         drivingMode = 1;
         autonomousModeSound();
         break;
-
-      default:  //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
+      
+      //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
+      default:
         if (inputChar == ' ') {
           stopContinue();
           if (isAllowDrive()) {

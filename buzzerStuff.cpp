@@ -10,7 +10,8 @@ void play(int frequency, int durationMilliseconds) {
 }
 
 void lowerVolume() {
-  if (volume > MIN_VOLUME)  //checks if volume is already at minimum
+  //checks if volume is already at minimum
+  if (volume > MIN_VOLUME)
   {
     volume -= 1;
     Serial1.println((String) "Volume: " + (volume - 6));
@@ -18,7 +19,8 @@ void lowerVolume() {
   }
 }
 void increaseVolume() {
-  if (volume < MAX_VOLUME)  //checks if volume is already at maximum
+  //checks if volume is already at maximum
+  if (volume < MAX_VOLUME)
   {
     volume += 1;
     Serial1.println((String) "Volume: " + (volume - 6));
