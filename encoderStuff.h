@@ -16,4 +16,4 @@ class encoderStuff {
     int getCorrectLeft();
     int getCorrectRight();
     void printCorrectionValues();
-}
+};

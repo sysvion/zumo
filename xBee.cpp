@@ -1,6 +1,8 @@
 #include "motors.h"
 #include "buzzerStuff.h"
 
+buzzerStuff buzzer
+
 bool xBee::inputReceivedManual() {
   //if character is received form Serial1
   if (Serial1.available()) {
@@ -10,11 +12,11 @@ bool xBee::inputReceivedManual() {
     switch (inputChar) {
       //if input char is "-", call lowerVolume() function. The same is done for every other key which call other functions
       case '-':
-        lowerVolume();
+        buzzer.lowerVolume();
         break;
 
       case '=':
-        increaseVolume();
+        buzzer.increaseVolume();
         break;
 
       case 'a':
@@ -71,7 +73,7 @@ bool xBee::inputReceivedManual() {
 
       case 'x':
         drivingMode = 1;
-        autonomousModeSound();
+        buzzer.autonomousModeSound();
         break;
       
       //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
@@ -79,9 +81,9 @@ bool xBee::inputReceivedManual() {
         if (inputChar == ' ') {
           stopContinue();
           if (isAllowDrive()) {
-            playSoundId = 8;
+            buzzer.playSoundId = 8;
           } else {
-            playSoundId = 9;
+            buzzer.playSoundId = 9;
           }
         }
         break;
@@ -97,17 +99,17 @@ if (Serial1.available()) {
     switch (Serial1.read()) {
       case 'z':
         drivingMode = 0;
-        manualModeSound();
+        buzzer.manualModeSound();
         break;
 
       case 'x':
         drivingMode = 1;
-        autonomousModeSound();
+        buzzer.autonomousModeSound();
         break;
 
       case 'c':
         drivingMode = 2;
-        startupSound();
+        buzzer.startupSound();
         break;
     }
   }
