@@ -30,6 +30,7 @@ int doScheduledTurnTimerLastTime = 0;
 Zumo32U4LineSensors lineSensors;
 Zumo32U4ButtonB buttonB;
 Zumo32U4ButtonC buttonC;
+buzzerStuff buzzer;
 
 int16_t lastError = 0;
 
@@ -48,14 +49,14 @@ void lineFollower::lineSensorsInitFiveSensors() {
 
 int lineFollower::CalibrateSensors() {
   lineSensors.calibrate();
-  scanColorSound();
+  buzzer.scanColorSound();
   calibratedCount++;
 }
 
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void lineFollower::CalibrateGreen() {
   if (buttonC.getSingleDebouncedPress()) {
-    scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 3;
     Serial.println(colors);
     for (int i = 0; i < NUM_SENSORS; i++)
@@ -66,7 +67,7 @@ void lineFollower::CalibrateGreen() {
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void lineFollower::CalibrateGray() {
   if (buttonC.getSingleDebouncedPress()) {
-    scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 4;
     for (int i = 0; i < NUM_SENSORS; i++)
       lineSensorGray[i] = lineSensorValues[i];
@@ -76,7 +77,7 @@ void lineFollower::CalibrateGray() {
 /// store the measurement color in the array lineSensorBrown when buttonC is pressed
 void lineFollower::CalibrateBrown() {
   if (buttonC.getSingleDebouncedPress()) {
-    scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 5;
     for (int i = 0; i < NUM_SENSORS; i++)
       lineSensorBrown[i] = lineSensorValues[i];

@@ -1,7 +1,8 @@
 #include "motors.h"
 #include "buzzerStuff.h"
+#include "xBee.h"
 
-buzzerStuff buzzer
+buzzerStuff buzzer;
 
 bool xBee::inputReceivedManual() {
   //if character is received form Serial1

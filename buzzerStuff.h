@@ -12,6 +12,6 @@ class buzzerStuff {
     void autonomousModeSound();
     void manualModeSound();
     int playSoundById(int);
-    extern int playSoundId;
+    int playSoundId;
     
 };
