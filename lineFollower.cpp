@@ -185,7 +185,7 @@ int lineFollower::readLine(unsigned int *sensor_values) {
 ////////////////////////
 
 // this is the main loop where all the logic for the 
-void lineFollower::lineFollow() {
+void lineFollow() {
 
   int16_t position = readLine(lineSensorValues);
 
