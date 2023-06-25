@@ -28,6 +28,7 @@ int doScheduledTurn = 0;
 int doScheduledTurnTimerLastTime = 0;
 
 Zumo32U4LineSensors lineSensors;
+lineFollower lineFollow;
 Zumo32U4ButtonB buttonB;
 Zumo32U4ButtonC buttonC;
 buzzerStuff buzzer;
@@ -188,18 +189,18 @@ int lineFollower::readLine(unsigned int *sensor_values) {
 // this is the main loop where all the logic for the 
 void lineFollow() {
 
-  int16_t position = readLine(lineSensorValues);
+  int16_t position = lineFollow.readLine(lineSensorValues);
 
   if (buttonB.getSingleDebouncedPress() && calibratedCount < 2) {
-    CalibrateSensors();
+    lineFollow.CalibrateSensors();
   }
 
   if (calibratedCount == 2) {
-    CalibrateGreen();
+    lineFollow.CalibrateGreen();
   } else if (calibratedCount == 3) {
-    CalibrateGray();
+    lineFollow.CalibrateGray();
   } else if (calibratedCount == 4) {
-    CalibrateBrown();
+    lineFollow.CalibrateBrown();
   }
 
   // "error" is how far we are away from the center of the line, which corresponds to position 2000.
@@ -254,7 +255,7 @@ void lineFollow() {
     drivingMode = 2;
     speedLeft = 0;
     speedRight = 0;
-    play(600, 50);
+    buzzer.play(600, 50);
   }
 
   if (almostOffLine && lastSensorDetectedLine == 0) {

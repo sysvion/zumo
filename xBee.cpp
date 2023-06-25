@@ -48,12 +48,12 @@ bool xBee::inputReceivedManual() {
       case 'R':
       case 'r':
         resetSpeed();
-        playSoundId = 6;
+        buzzer.playSoundId = 6;
         break;
 
       case 'e':
         resetRotationalMovement();
-        playSoundId = 7;
+        buzzer.playSoundId = 7;
         break;
 
       case 'A':

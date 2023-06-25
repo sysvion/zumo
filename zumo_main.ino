@@ -12,6 +12,9 @@
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC_2;
 blockPusher bp;
+lineFollower lineFollow;
+buzzerStuff buzzer;
+xBee xBees;
 
 char inputChar;
 bool isDebuging = false;
@@ -33,8 +36,8 @@ void setup() {
   bp.setup();
   while (!Serial1) {}
   sendManualToPc();
-  lineSensorsInitFiveSensors();
-  startupSound();
+  lineFollow.lineSensorsInitFiveSensors();
+  buzzer.startupSound();
 }
 
 void manualMode() {
@@ -66,26 +69,26 @@ void manualMode() {
 
 void blockMode() {
   bp.duwBlock();
-  inputReceivedAutonomous();
+  xBees.inputReceivedAutonomous();
 }
 
 void autonomousMode() {
   lineFollow();
-  if (getCalibratedCount() != 5) {
+  if (lineFollow.getCalibratedCount() != 5) {
     resetSpeed();
   }
   applyMotorValues();
-  inputReceivedAutonomous();
+  xBees.inputReceivedAutonomous();
 }
 void loop() {
   if (buttonA.getSingleDebouncedPress()) {
     drivingMode = (drivingMode + 1) % 3;
     if (drivingMode == 1) {
-      autonomousModeSound();
+      buzzer.autonomousModeSound();
     } else if (drivingMode == 2) {
-      autonomousModeSound();
+      buzzer.autonomousModeSound();
     } else {
-      manualModeSound();
+      buzzer.manualModeSound();
     }
     resetSpeed();
   }
