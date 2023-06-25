@@ -22,27 +22,27 @@ bool xBee::inputReceivedManual() {
 
       case 'a':
         moveLeft();
-        playSoundId = 1;
+        buzzer.playSoundId = 1;
         break;
 
       case 'd':
         moveRight();
-        playSoundId = 2;
+        buzzer.playSoundId = 2;
         break;
 
       case 's':
         moveSlower();
-        playSoundId = 3;
+        buzzer.playSoundId = 3;
         break;
 
       case 'w':
         moveFaster();
-        playSoundId = 4;
+        buzzer.playSoundId = 4;
         break;
 
       case 'q':
         moveToMaxSpeed();
-        playSoundId = 5;
+        buzzer.playSoundId = 5;
         break;
 
       case 'R':

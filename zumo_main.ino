@@ -12,9 +12,10 @@
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC_2;
 blockPusher bp;
-lineFollower lineFollow;
+lineFollower lineFollowing;
 buzzerStuff buzzer;
 xBee xBees;
+encoderStuff encoder;
 
 char inputChar;
 bool isDebuging = false;
@@ -36,7 +37,7 @@ void setup() {
   bp.setup();
   while (!Serial1) {}
   sendManualToPc();
-  lineFollow.lineSensorsInitFiveSensors();
+  lineFollowing.lineSensorsInitFiveSensors();
   buzzer.startupSound();
 }
 
@@ -45,14 +46,14 @@ void manualMode() {
     //when button C is pressed, message how to use the control keys is printed into Serial1 again
     sendManualToPc();
   }
-  if (inputReceivedManual()) {
+  if (xBees.inputReceivedManual()) {
     setAndNormalizeMotorValues();
   }
 
   if (!isAllowDrive()) {
     count++;
     if (count > 5) {
-      play(300, 40);
+      buzzer.play(300, 40);
       count = 0;
     }
     ledRed(1); delay(50); ledRed(0); delay(100);
@@ -62,9 +63,9 @@ void manualMode() {
   } else {
     ledGreen(1);
   }
-  correctOffset();
+  encoderStuff.correctOffset();
   applyMotorValues();
-  printCorrectionValues();
+  encoderStuff.printCorrectionValues();
 }
 
 void blockMode() {
@@ -73,8 +74,8 @@ void blockMode() {
 }
 
 void autonomousMode() {
-  lineFollow();
-  if (lineFollow.getCalibratedCount() != 5) {
+  lineFollowing.lineFollow();
+  if (lineFollowing.getCalibratedCount() != 5) {
     resetSpeed();
   }
   applyMotorValues();
@@ -101,6 +102,6 @@ void loop() {
   }
   if (playSoundId > 0) {
     //play a different sound for each id
-    playSoundId = playSoundById(playSoundId);
+    playSoundId = buzzer.playSoundById(playSoundId);
   }
 }
