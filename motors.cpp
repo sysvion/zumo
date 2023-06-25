@@ -3,6 +3,7 @@
 #include <Zumo32U4.h>
 
 Zumo32U4Motors motors;
+encoderStuff encoderStuff;
 
 ///starting speed (no movement)
 double speed = 1;  
@@ -31,7 +32,7 @@ const double steerIntensity = 1.3;
 
 /// change the turning left speed by the steerIntensity 
 void moveLeft() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {
     return;
   }
@@ -44,7 +45,7 @@ void moveLeft() {
 
 /// change the turning right speed by the steerIntensity 
 void moveRight() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   if (steerLeft < maximumTurningValue) {
     if (steerRight < minimumTuriningValue) {
       steerLeft *= steerIntensity;  //increase left wheel speed
@@ -56,7 +57,7 @@ void moveRight() {
 
 // move slower by 10 %
 void moveSlower() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   if (speed > -10)  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
   {                 //The actual speeds for the motors are calculated at the end using a formula)
     speed -= 1;
@@ -67,7 +68,7 @@ void moveSlower() {
 /// does the opposite as moveSlower(), to move faster
 void moveFaster()  
 {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   if (speed < 10)  //checks if speed is below maximum allowed value
   {
     speed += 1;
@@ -77,14 +78,14 @@ void moveFaster()
 
 /// set speed to 8
 void moveToMaxSpeed() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   speed = 8;  //set speed to the max
   Serial1.println((String) "Speed: " + speed + " ++");
 }
 
 /// set speed to 1 (standing still)
 void resetSpeed() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   speed = 1;
   //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motors (1-1=0)
   steerLeft = 1;
@@ -98,7 +99,7 @@ void resetSpeed() {
 
 // reset rotational movement
 void resetRotationalMovement() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   //resets steer values but not the overal speed so the robots starts driving straight forward
   steerLeft = 1;
   steerRight = 1;
@@ -106,16 +107,16 @@ void resetRotationalMovement() {
 
 /// switches the allowDrive flag
 void stopContinue() {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   allowDrive = !allowDrive;
 }
 
 /// rotate param degrees
 void rotateDeg(int deg) {
-  resetEncoderCounts();
+  encoderStuff.resetEncoderCounts();
   deg *= 10.6;
-  setExpectedLeftEncoderCount(-deg);
-  setExpectedRightEncoderCount(deg);
+  encoderStuff.setExpectedLeftEncoderCount(-deg);
+  encoderStuff.setExpectedRightEncoderCount(deg);
 }
 
  
@@ -136,8 +137,9 @@ void setAndNormalizeMotorValues() {
 
 /// set the pins of the motor so it changes the speed
 void applyMotorValues() {
-  motors.setLeftSpeed(speedLeft + getCorrectLeft());
-  motors.setRightSpeed(speedRight + getCorrectRight());
+  encoderStuff.correctOffset();  
+  motors.setLeftSpeed(speedLeft + encoderStuff.getCorrectLeft());
+  motors.setRightSpeed(speedRight + encoderStuff.getCorrectRight());
 }
 
 // if the motor speed is 0

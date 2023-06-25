@@ -15,4 +15,4 @@ class lineFollower {
     void storeCollor(int);
     int *getStoredColors(int index);
     void readCalibrated(int *sensor_values);
-}
+};

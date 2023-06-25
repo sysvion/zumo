@@ -12,6 +12,8 @@
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC_2;
 blockPusher bp;
+lineFollower lineFollower;
+xBee xBee;
 
 char inputChar;
 bool isDebuging = false;
@@ -33,7 +35,7 @@ void setup() {
   bp.setup();
   while (!Serial1) {}
   sendManualToPc();
-  lineSensorsInitFiveSensors();
+  lineFollower.lineSensorsInitFiveSensors();
   startupSound();
 }
 
@@ -42,7 +44,7 @@ void manualMode() {
     //when button C is pressed, message how to use the control keys is printed into Serial1 again
     sendManualToPc();
   }
-  if (inputReceivedManual()) {
+  if (xBee.inputReceivedManual()) {
     setAndNormalizeMotorValues();
   }
 
@@ -59,23 +61,22 @@ void manualMode() {
   } else {
     ledGreen(1);
   }
-  correctOffset();
   applyMotorValues();
-  printCorrectionValues();
+  //printCorrectionValues(); illegal location for this method. thanks oop
 }
 
 void blockMode() {
   bp.duwBlock();
-  inputReceivedAutonomous();
+  xBee.inputReceivedAutonomous();
 }
 
 void autonomousMode() {
-  lineFollow();
-  if (getCalibratedCount() != 5) {
+  lineFollower.lineFollow();
+  if (lineFollower.getCalibratedCount() != 5) {
     resetSpeed();
   }
   applyMotorValues();
-  inputReceivedAutonomous();
+  xBee.inputReceivedAutonomous();
 }
 void loop() {
   if (buttonA.getSingleDebouncedPress()) {

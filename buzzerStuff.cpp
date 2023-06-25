@@ -5,11 +5,11 @@ const int MIN_VOLUME = 6;
 const int MAX_VOLUME = 13;
 int volume = MIN_VOLUME + 4;
 
-void buzzerStuff::play(int frequency, int durationMilliseconds) {
+void play(int frequency, int durationMilliseconds) {
   buzzer.playFrequency(frequency, durationMilliseconds, volume);
 }
 
-void buzzerStuff::lowerVolume() {
+void lowerVolume() {
   //checks if volume is already at minimum
   if (volume > MIN_VOLUME)
   {
@@ -18,7 +18,7 @@ void buzzerStuff::lowerVolume() {
     play(460, 300);
   }
 }
-void buzzerStuff::increaseVolume() {
+void increaseVolume() {
   //checks if volume is already at maximum
   if (volume < MAX_VOLUME)
   {
@@ -28,23 +28,23 @@ void buzzerStuff::increaseVolume() {
   }
 }
 
-void buzzerStuff::startupSound() {
+void startupSound() {
   buzzer.play(">a32>>c32");
 }
 
-void buzzerStuff::scanColorSound() {
+void scanColorSound() {
   buzzer.play(">a32");
 }
 
-void buzzerStuff::autonomousModeSound() {
+void autonomousModeSound() {
   buzzer.play(">a32>>c32>>a32");
 }
 
-void buzzerStuff::manualModeSound() {
+void manualModeSound() {
   buzzer.play(">a32>>c32>>e32");
 }
 
-int buzzerStuff::playSoundById(int id) {
+int playSoundById(int id) {
   switch (id) {
     case 1:
       play(400, 200);
