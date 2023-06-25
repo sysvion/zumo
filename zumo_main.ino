@@ -63,9 +63,9 @@ void manualMode() {
   } else {
     ledGreen(1);
   }
-  encoderStuff.correctOffset();
+  encoder.correctOffset();
   applyMotorValues();
-  encoderStuff.printCorrectionValues();
+  encoder.printCorrectionValues();
 }
 
 void blockMode() {
