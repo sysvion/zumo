@@ -12,8 +12,8 @@
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonC buttonC_2;
 blockPusher bp;
-lineFollower lineFollowing;
-buzzerStuff buzzer;
+lineFollower lineFollowerObj;
+buzzerStuff buzzerObj2;
 xBee xBees;
 encoderStuff encoder;
 
@@ -37,8 +37,8 @@ void setup() {
   bp.setup();
   while (!Serial1) {}
   sendManualToPc();
-  lineFollowing.lineSensorsInitFiveSensors();
-  buzzer.startupSound();
+  lineFollowerObj.lineSensorsInitFiveSensors();
+  buzzerObj2.startupSound();
 }
 
 void manualMode() {
@@ -53,7 +53,7 @@ void manualMode() {
   if (!isAllowDrive()) {
     count++;
     if (count > 5) {
-      buzzer.play(300, 40);
+      buzzerObj2.play(300, 40);
       count = 0;
     }
     ledRed(1); delay(50); ledRed(0); delay(100);
@@ -74,8 +74,8 @@ void blockMode() {
 }
 
 void autonomousMode() {
-  lineFollowing.lineFollow();
-  if (lineFollowing.getCalibratedCount() != 5) {
+  lineFollowerObj.lineFollow();
+  if (lineFollowerObj.getCalibratedCount() != 5) {
     resetSpeed();
   }
   applyMotorValues();
@@ -85,11 +85,11 @@ void loop() {
   if (buttonA.getSingleDebouncedPress()) {
     drivingMode = (drivingMode + 1) % 3;
     if (drivingMode == 1) {
-      buzzer.autonomousModeSound();
+      buzzerObj2.autonomousModeSound();
     } else if (drivingMode == 2) {
-      buzzer.autonomousModeSound();
+      buzzerObj2.autonomousModeSound();
     } else {
-      buzzer.manualModeSound();
+      buzzerObj2.manualModeSound();
     }
     resetSpeed();
   }
@@ -102,6 +102,6 @@ void loop() {
   }
   if (playSoundId > 0) {
     //play a different sound for each id
-    playSoundId = buzzer.playSoundById(playSoundId);
+    playSoundId = buzzerObj2.playSoundById(playSoundId);
   }
 }
