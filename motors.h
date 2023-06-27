@@ -1,24 +1,27 @@
+#include <Zumo32U4.h>
+#include "motors.h"
 #pragma once
-extern double speedLeft;
-extern double speedRight;
-extern int drivingMode;
 
-void moveLeft();
-void moveRight();
-void moveSlower();
-void moveFaster();
+class motors {
 
-void moveToMaxSpeed();
-void resetSpeed();
-void resetRotationalMovement();
-void rotateDeg(int);
-void stopContinue();
+    public:
+        void moveLeft();
+        void moveRight();
+        void moveSlower();
+        void moveFaster();
 
-void setAndNormalizeMotorValues();
-void applyMotorValues();
+        void moveToMaxSpeed();
+        void resetSpeed();
+        void resetRotationalMovement();
+        void rotateDeg(int);
+        void stopContinue();
 
-const bool isStandingStill();
-const bool isAllowDrive();
+        void setAndNormalizeMotorValues();
+        void applyMotorValues();
 
-const double getSpeedLeft();
-const double getSpeedRight();
+        const bool isStandingStill();
+        const bool isAllowDrive();
+
+        const double getSpeedLeft();
+        const double getSpeedRight();
+}

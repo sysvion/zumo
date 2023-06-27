@@ -31,7 +31,7 @@ const double steerIntensity = 1.3;
 
 
 /// change the turning left speed by the steerIntensity 
-void moveLeft() {
+void motors::moveLeft() {
   encoderObj.resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {
     return;
@@ -44,7 +44,7 @@ void moveLeft() {
 }
 
 /// change the turning right speed by the steerIntensity 
-void moveRight() {
+void motors::moveRight() {
   encoderObj.resetEncoderCounts();
   if (steerLeft < maximumTurningValue) {
     if (steerRight < minimumTuriningValue) {
@@ -56,7 +56,7 @@ void moveRight() {
 }
 
 // move slower by 10 %
-void moveSlower() {
+void motors::moveSlower() {
   encoderObj.resetEncoderCounts();
   if (speed > -10)  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
   {                 //The actual speeds for the motors are calculated at the end using a formula)
@@ -66,7 +66,7 @@ void moveSlower() {
 }
 
 /// does the opposite as moveSlower(), to move faster
-void moveFaster()  
+void motors::moveFaster()  
 {
   encoderObj.resetEncoderCounts();
   if (speed < 10)  //checks if speed is below maximum allowed value
@@ -77,14 +77,14 @@ void moveFaster()
 }
 
 /// set speed to 8
-void moveToMaxSpeed() {
+void motors::moveToMaxSpeed() {
   encoderObj.resetEncoderCounts();
   speed = 8;  //set speed to the max
   Serial1.println((String) "Speed: " + speed + " ++");
 }
 
 /// set speed to 1 (standing still)
-void resetSpeed() {
+void motors::resetSpeed() {
   encoderObj.resetEncoderCounts();
   speed = 1;
   //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motors (1-1=0)
@@ -98,7 +98,7 @@ void resetSpeed() {
 }
 
 // reset rotational movement
-void resetRotationalMovement() {
+void motors::resetRotationalMovement() {
   encoderObj.resetEncoderCounts();
   //resets steer values but not the overal speed so the robots starts driving straight forward
   steerLeft = 1;
@@ -106,13 +106,13 @@ void resetRotationalMovement() {
 }
 
 /// switches the allowDrive flag
-void stopContinue() {
+void motors::stopContinue() {
   encoderObj.resetEncoderCounts();
   allowDrive = !allowDrive;
 }
 
 /// rotate param degrees
-void rotateDeg(int deg) {
+void motors::rotateDeg(int deg) {
   encoderObj.resetEncoderCounts();
   deg *= 10.6;
   encoderObj.setExpectedLeftEncoderCount(-deg);
@@ -120,7 +120,7 @@ void rotateDeg(int deg) {
 }
 
  
-void setAndNormalizeMotorValues() {
+void motors::setAndNormalizeMotorValues() {
   speedLeft = (speed * steerLeft - steerRight) * 50;
   speedRight = (speed * steerRight - steerLeft) * 50;
 
@@ -136,27 +136,27 @@ void setAndNormalizeMotorValues() {
 }
 
 /// set the pins of the motor so it changes the speed
-void applyMotorValues() {
+void motors::applyMotorValues() {
   motors.setLeftSpeed(speedLeft + encoderObj.getCorrectLeft());
   motors.setRightSpeed(speedRight + encoderObj.getCorrectRight());
 }
 
 // if the motor speed is 0
-const bool isStandingStill() {
+const bool motors::isStandingStill() {
   return (speedLeft == 0 && speedRight == 0);
 }
 
 // is the allowDrive flag is set
-const bool isAllowDrive() {
+const bool motors::isAllowDrive() {
   return allowDrive;
 }
 
 // get motorSpeedLeft
-const double getSpeedLeft() {
+const double motors::getSpeedLeft() {
   return speedLeft;
 }
 
 // get motorSpeedRight
-const double getSpeedRight() {
+const double motors::getSpeedRight() {
   return speedRight;
 }

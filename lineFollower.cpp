@@ -29,7 +29,7 @@ int16_t lastError = 0;
 
 #define NUM_SENSORS 5
 
-/// creates an array with length 5
+/// creates an array with length 5 and 3 color arrays with dummy values.
 unsigned int lineSensorValues[NUM_SENSORS];  
 unsigned int lineSensorGreen[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorGray[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
