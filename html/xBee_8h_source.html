@@ -72,12 +72,26 @@ $(function() {
   <div class="headertitle"><div class="title">xBee.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="xBee_8h.html">Ga naar de documentatie van dit bestand.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keywordtype">bool</span> <a class="code hl_function" href="xBee_8h.html#ab57b9c781dc0336bb701f75b66ccd64d">inputReceivedManual</a>();</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keywordtype">void</span> <a class="code hl_function" href="xBee_8h.html#a540ef404b72c7e6f0e20beb2edc0c838">inputReceivedAutonomous</a>();</div>
-<div class="ttc" id="axBee_8h_html_a540ef404b72c7e6f0e20beb2edc0c838"><div class="ttname"><a href="xBee_8h.html#a540ef404b72c7e6f0e20beb2edc0c838">inputReceivedAutonomous</a></div><div class="ttdeci">void inputReceivedAutonomous()</div><div class="ttdef"><b>Definition:</b> xBee.cpp:94</div></div>
-<div class="ttc" id="axBee_8h_html_ab57b9c781dc0336bb701f75b66ccd64d"><div class="ttname"><a href="xBee_8h.html#ab57b9c781dc0336bb701f75b66ccd64d">inputReceivedManual</a></div><div class="ttdeci">bool inputReceivedManual()</div><div class="ttdef"><b>Definition:</b> xBee.cpp:4</div></div>
+<a href="xBee_8h.html">Ga naar de documentatie van dit bestand.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="buzzerStuff_8h.html">buzzerStuff.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="motorsManual_8h.html">motorsManual.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classxBee.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classxBee.html">xBee</a> {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classxBee.html#a245a0c542263c94be1bffd97c99f016d">inputReceivedManual</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxBee.html#aff8006483949cdb6b9443d88b61f1c80">inputReceivedAutonomous</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <a class="code hl_class" href="classbuzzerStuff.html">buzzerStuff</a> buzzer;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_class" href="classmotorsManual.html">motorsManual</a> m;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+<div class="ttc" id="abuzzerStuff_8h_html"><div class="ttname"><a href="buzzerStuff_8h.html">buzzerStuff.h</a></div></div>
+<div class="ttc" id="aclassbuzzerStuff_html"><div class="ttname"><a href="classbuzzerStuff.html">buzzerStuff</a></div><div class="ttdef"><b>Definition:</b> buzzerStuff.h:4</div></div>
+<div class="ttc" id="aclassmotorsManual_html"><div class="ttname"><a href="classmotorsManual.html">motorsManual</a></div><div class="ttdef"><b>Definition:</b> motorsManual.h:4</div></div>
+<div class="ttc" id="aclassxBee_html"><div class="ttname"><a href="classxBee.html">xBee</a></div><div class="ttdef"><b>Definition:</b> xBee.h:5</div></div>
+<div class="ttc" id="aclassxBee_html_a245a0c542263c94be1bffd97c99f016d"><div class="ttname"><a href="classxBee.html#a245a0c542263c94be1bffd97c99f016d">xBee::inputReceivedManual</a></div><div class="ttdeci">bool inputReceivedManual()</div><div class="ttdef"><b>Definition:</b> xBee.cpp:5</div></div>
+<div class="ttc" id="aclassxBee_html_aff8006483949cdb6b9443d88b61f1c80"><div class="ttname"><a href="classxBee.html#aff8006483949cdb6b9443d88b61f1c80">xBee::inputReceivedAutonomous</a></div><div class="ttdeci">void inputReceivedAutonomous()</div><div class="ttdef"><b>Definition:</b> xBee.cpp:95</div></div>
+<div class="ttc" id="amotorsManual_8h_html"><div class="ttname"><a href="motorsManual_8h.html">motorsManual.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inertial_0',['inertial',['../classinertial.html',1,'']]]
+  ['encoderstuff_0',['encoderStuff',['../classencoderStuff.html',1,'']]]
 ];

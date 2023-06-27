@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['scancolorsound_0',['scanColorSound',['../buzzerStuff_8cpp.html#a4a5d227071dfb02404dee04a48611ce0',1,'scanColorSound():&#160;buzzerStuff.cpp'],['../buzzerStuff_8h.html#a4a5d227071dfb02404dee04a48611ce0',1,'scanColorSound():&#160;buzzerStuff.cpp']]],
-  ['setandnormalizemotorvalues_1',['setAndNormalizeMotorValues',['../motors_8cpp.html#a96a0576a78164a0e83f1d3cee040e133',1,'setAndNormalizeMotorValues():&#160;motors.cpp'],['../motors_8h.html#a96a0576a78164a0e83f1d3cee040e133',1,'setAndNormalizeMotorValues():&#160;motors.cpp']]],
-  ['setexpectedleftencodercount_2',['setExpectedLeftEncoderCount',['../encoderStuff_8cpp.html#afead5a139cbf9ef6613f2b176040cd1a',1,'setExpectedLeftEncoderCount(int x):&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#a8c9a6d446f1d30b709cad3b96af3cd34',1,'setExpectedLeftEncoderCount(int):&#160;encoderStuff.cpp']]],
-  ['setexpectedrightencodercount_3',['setExpectedRightEncoderCount',['../encoderStuff_8cpp.html#a006b9ea091f7ddde58b486879e8301ec',1,'setExpectedRightEncoderCount(int x):&#160;encoderStuff.cpp'],['../encoderStuff_8h.html#adec3a01e98ee1c45d3d56379eb41f15c',1,'setExpectedRightEncoderCount(int):&#160;encoderStuff.cpp']]],
-  ['setup_4',['setup',['../classblockPusher.html#a0bd37dde788ccd9b0d8f213201453292',1,'blockPusher::setup()'],['../classinertial.html#af04901e4e7f08ed6fcd45c741aa9285e',1,'inertial::setup()']]],
-  ['startupsound_5',['startupSound',['../buzzerStuff_8cpp.html#a240e3bbe521c4afa4c66ed7d474af208',1,'startupSound():&#160;buzzerStuff.cpp'],['../buzzerStuff_8h.html#a240e3bbe521c4afa4c66ed7d474af208',1,'startupSound():&#160;buzzerStuff.cpp']]],
-  ['stop_6',['stop',['../classblockPusher.html#a857ca84e8c59f0535f1cac0effa45c23',1,'blockPusher']]],
-  ['stopcontinue_7',['stopContinue',['../motors_8cpp.html#a93398ea0c3c86bf4474cbbd398bfba03',1,'stopContinue():&#160;motors.cpp'],['../motors_8h.html#a93398ea0c3c86bf4474cbbd398bfba03',1,'stopContinue():&#160;motors.cpp']]],
-  ['storecollor_8',['storeCollor',['../lineFollower_8h.html#ae118bb7509775c00af8d29fc1df4ce78',1,'lineFollower.h']]]
+  ['scancolorsound_0',['scanColorSound',['../classbuzzerStuff.html#aad7f1687a7df213b26ed0d4e706ce823',1,'buzzerStuff']]],
+  ['setandnormalizemotorvalues_1',['setAndNormalizeMotorValues',['../classmotorsManual.html#aefe0d1fcb38978b80b86fadeaee2b33d',1,'motorsManual']]],
+  ['setexpectedleftencodercount_2',['setExpectedLeftEncoderCount',['../classencoderStuff.html#aabd80712ff39af4c5fecebac1f06804b',1,'encoderStuff']]],
+  ['setexpectedrightencodercount_3',['setExpectedRightEncoderCount',['../classencoderStuff.html#a1ad7fc2833f752ef1460ba9ac9e3b7e7',1,'encoderStuff']]],
+  ['setspeedleft_4',['setSpeedLeft',['../classmotorsManual.html#a9242f3e370fde611ee7737aad75735a3',1,'motorsManual']]],
+  ['setspeedright_5',['setSpeedRight',['../classmotorsManual.html#aeff80a0eea89b8a0e37ca3e1aa8e508f',1,'motorsManual']]],
+  ['setup_6',['setup',['../classblockPusher.html#a0bd37dde788ccd9b0d8f213201453292',1,'blockPusher::setup()'],['../classinertial.html#af04901e4e7f08ed6fcd45c741aa9285e',1,'inertial::setup()']]],
+  ['startupsound_7',['startupSound',['../classbuzzerStuff.html#a1d12ad4b4dd1b54230f3b2624815c883',1,'buzzerStuff']]],
+  ['stop_8',['stop',['../classblockPusher.html#a857ca84e8c59f0535f1cac0effa45c23',1,'blockPusher']]],
+  ['stopcontinue_9',['stopContinue',['../classmotorsManual.html#ae8981bf8c9a0bd5c228668322cb8b62d',1,'motorsManual']]],
+  ['storecollor_10',['storeCollor',['../classlineFollower.html#a9c16eb25e23a7761d65e280c3f571dea',1,'lineFollower']]]
 ];

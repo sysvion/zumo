@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['manualmodesound_0',['manualModeSound',['../buzzerStuff_8cpp.html#a198fbd67bbdbf962d78e59e9a774a400',1,'manualModeSound():&#160;buzzerStuff.cpp'],['../buzzerStuff_8h.html#a198fbd67bbdbf962d78e59e9a774a400',1,'manualModeSound():&#160;buzzerStuff.cpp']]],
-  ['movefaster_1',['moveFaster',['../motors_8cpp.html#a2e1e28cf80278b769da016fdba075c59',1,'moveFaster():&#160;motors.cpp'],['../motors_8h.html#a2e1e28cf80278b769da016fdba075c59',1,'moveFaster():&#160;motors.cpp']]],
-  ['moveleft_2',['moveLeft',['../motors_8cpp.html#a7a5379770a3d9a90ee4d827046d26eb0',1,'moveLeft():&#160;motors.cpp'],['../motors_8h.html#a7a5379770a3d9a90ee4d827046d26eb0',1,'moveLeft():&#160;motors.cpp']]],
-  ['moveright_3',['moveRight',['../motors_8cpp.html#a8f1aff0fabeb87f42932d5ce436f4d5c',1,'moveRight():&#160;motors.cpp'],['../motors_8h.html#a8f1aff0fabeb87f42932d5ce436f4d5c',1,'moveRight():&#160;motors.cpp']]],
-  ['moveslower_4',['moveSlower',['../motors_8cpp.html#ad11849f63c36842804c92d5c5ea3dd2e',1,'moveSlower():&#160;motors.cpp'],['../motors_8h.html#ad11849f63c36842804c92d5c5ea3dd2e',1,'moveSlower():&#160;motors.cpp']]],
-  ['movetomaxspeed_5',['moveToMaxSpeed',['../motors_8cpp.html#ae8fb9ca2c980f3770c0dd7390e1024d6',1,'moveToMaxSpeed():&#160;motors.cpp'],['../motors_8h.html#ae8fb9ca2c980f3770c0dd7390e1024d6',1,'moveToMaxSpeed():&#160;motors.cpp']]]
+  ['manualmodesound_0',['manualModeSound',['../classbuzzerStuff.html#a40e48ed42eefde8e5576a972b518f0b3',1,'buzzerStuff']]],
+  ['motorsmanual_1',['motorsManual',['../classmotorsManual.html#a1d6cd3988fb9c413c2a73817d042f4e9',1,'motorsManual']]],
+  ['movefaster_2',['moveFaster',['../classmotorsManual.html#a838127bc17a97f9d09561dceaedf7b51',1,'motorsManual']]],
+  ['moveleft_3',['moveLeft',['../classmotorsManual.html#a0e898351db1b80509ac5a72042558961',1,'motorsManual']]],
+  ['moveright_4',['moveRight',['../classmotorsManual.html#a812063887f85e8e5479e74799bc7c7d4',1,'motorsManual']]],
+  ['moveslower_5',['moveSlower',['../classmotorsManual.html#a00020e659acba89b50cc0948aed2765d',1,'motorsManual']]],
+  ['movetomaxspeed_6',['moveToMaxSpeed',['../classmotorsManual.html#a7850497f992dd9bd9ad6f48282178c22',1,'motorsManual']]]
 ];
