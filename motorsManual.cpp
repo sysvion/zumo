@@ -30,7 +30,7 @@ double steerLeft = minimumTuriningValue;
 const double steerIntensity = 1.3;  
 
 motorsManual::motorsManual() {
-  
+
 }
 
 /// change the turning left speed by the steerIntensity 

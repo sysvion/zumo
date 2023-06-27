@@ -27,5 +27,5 @@ public:
 private:
   buzzerStuff buzzer;
   Zumo32U4ButtonC buttonC;
-  motorsManual motorsManual;
+  motorsManual m;
 };

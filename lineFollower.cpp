@@ -205,17 +205,14 @@ void lineFollower::lineFollow() {
 
   // Get motor speedLineFollower difference using proportional and derivative PID terms (the integral term is generally not very
   // useful for line following).  Here we are using a proportional constant of 1/4 and a derivative constant of 6.
-  int speedDifference = error / 6 + (0 * (error - lastError));
+  int speedDifference = error / 4 + (0 * (error - lastError));
 
   lastError = error;
 
   // Get individual motor speeds. The sign of speedDifference
   // determines if the robot turns left or right.
-  double speedLeft = speedLineFollower + speedDifference;
-  double speedRight = speedLineFollower - speedDifference;
-
-  motorsManual.setSpeedLeft(speedLeft);
-  motorsManual.setSpeedRight(speedRight);
+  int speedLeft = speedLineFollower + speedDifference;
+  int speedRight = speedLineFollower - speedDifference;
 
   speedLeft = constrain(speedLeft, 0, MAX_SPEED);
   speedRight = constrain(speedRight, 0, MAX_SPEED);
@@ -296,11 +293,6 @@ void lineFollower::lineFollow() {
   //   //manualModeSound();
   // }
 
-  if (isGreen(2)) {
-    speedLeft /= 1.7;
-    speedRight /= 1.7;
-  }
-
   // else if (scheduleTurn) {
   //   speedLeft /= 2;
   //   speedRight /= 2;
@@ -332,4 +324,12 @@ void lineFollower::lineFollow() {
   //   count_ = 0;
   // }
   // count_++;
+
+  if (isGreen(2)) {
+    speedLeft /= 2;
+    speedRight /= 2;
+  }
+
+  m.setSpeedLeft(speedLeft);
+  m.setSpeedRight(speedRight);
 }
