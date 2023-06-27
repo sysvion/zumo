@@ -10,10 +10,10 @@
 #include "xBee.h"
 
 Zumo32U4ButtonA buttonA;
-Zumo32U4ButtonC buttonC_2;
+Zumo32U4ButtonC buttonC;
 blockPusher bp;
 lineFollower lineFollowerObj;
-buzzerStuff buzzerObj2;
+buzzerStuff buzzerObj;
 xBee xBees;
 encoderStuff encoder;
 
@@ -38,11 +38,11 @@ void setup() {
   while (!Serial1) {}
   sendManualToPc();
   lineFollowerObj.lineSensorsInitFiveSensors();
-  buzzerObj2.startupSound();
+  buzzerObj.startupSound();
 }
 
 void manualMode() {
-  if (buttonC_2.getSingleDebouncedPress()) {
+  if (buttonC.getSingleDebouncedPress()) {
     //when button C is pressed, message how to use the control keys is printed into Serial1 again
     sendManualToPc();
   }
@@ -53,7 +53,7 @@ void manualMode() {
   if (!isAllowDrive()) {
     count++;
     if (count > 5) {
-      buzzerObj2.play(300, 40);
+      buzzerObj.play(300, 40);
       count = 0;
     }
     ledRed(1); delay(50); ledRed(0); delay(100);
@@ -85,11 +85,11 @@ void loop() {
   if (buttonA.getSingleDebouncedPress()) {
     drivingMode = (drivingMode + 1) % 3;
     if (drivingMode == 1) {
-      buzzerObj2.autonomousModeSound();
+      buzzerObj.autonomousModeSound();
     } else if (drivingMode == 2) {
-      buzzerObj2.autonomousModeSound();
+      buzzerObj.autonomousModeSound();
     } else {
-      buzzerObj2.manualModeSound();
+      buzzerObj.manualModeSound();
     }
     resetSpeed();
   }
@@ -102,6 +102,6 @@ void loop() {
   }
   if (playSoundId > 0) {
     //play a different sound for each id
-    playSoundId = buzzerObj2.playSoundById(playSoundId);
+    playSoundId = buzzerObj.playSoundById(playSoundId);
   }
 }

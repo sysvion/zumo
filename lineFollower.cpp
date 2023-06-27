@@ -1,13 +1,7 @@
 #include "Arduino.h"
-/* This example uses the line sensors on the Zumo 32U4 to follow
-a black line on a white background, using a PID-based algorithm.
-It works decently on courses with smooth, 6" radius curves and
-has been tested with Zumos using 75:1 HP motors.*/
-
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include "lineFollower.h"
-#include "buzzerStuff.h"
 #include "motors.h"
 
 /// This is the maximum speedLineFollower the motors will be allowed to turn.
@@ -28,10 +22,8 @@ int doScheduledTurn = 0;
 int doScheduledTurnTimerLastTime = 0;
 
 Zumo32U4LineSensors lineSensors;
-lineFollower lineFollowerObj;
+lineFollower lineFollower;
 Zumo32U4ButtonB buttonB;
-Zumo32U4ButtonC buttonC;
-buzzerStuff buzzerObj;
 
 int16_t lastError = 0;
 
@@ -43,21 +35,25 @@ unsigned int lineSensorGreen[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorGray[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 unsigned int lineSensorBrown[NUM_SENSORS] = { 5000, 5000, 5000, 5000, 5000 };
 
-/// init 
+/// init
+lineFollower::lineFollower() {
+
+}
+
 void lineFollower::lineSensorsInitFiveSensors() {
   lineSensors.initFiveSensors();
 }
 
 int lineFollower::CalibrateSensors() {
   lineSensors.calibrate();
-  buzzerObj.scanColorSound();
+  buzzer.scanColorSound();
   calibratedCount++;
 }
 
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void lineFollower::CalibrateGreen() {
   if (buttonC.getSingleDebouncedPress()) {
-    buzzerObj.scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 3;
     Serial.println(colors);
     for (int i = 0; i < NUM_SENSORS; i++)
@@ -68,7 +64,7 @@ void lineFollower::CalibrateGreen() {
 /// store the measurement color in the array lineSensorGreen when buttonC is pressed
 void lineFollower::CalibrateGray() {
   if (buttonC.getSingleDebouncedPress()) {
-    buzzerObj.scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 4;
     for (int i = 0; i < NUM_SENSORS; i++)
       lineSensorGray[i] = lineSensorValues[i];
@@ -78,7 +74,7 @@ void lineFollower::CalibrateGray() {
 /// store the measurement color in the array lineSensorBrown when buttonC is pressed
 void lineFollower::CalibrateBrown() {
   if (buttonC.getSingleDebouncedPress()) {
-    buzzerObj.scanColorSound();
+    buzzer.scanColorSound();
     calibratedCount = 5;
     for (int i = 0; i < NUM_SENSORS; i++)
       lineSensorBrown[i] = lineSensorValues[i];
@@ -94,32 +90,32 @@ int lineFollower::getCalibratedCount() {
 ////////////////////////COLOR CHECK FUNCTIONS
 
 /// check if it is sensor is reading a color near the stored color representing green
-bool isGreen(int i) {
+bool lineFollower::isGreen(int i) {
   return lineSensorValues[i] > lineSensorGreen[i] - COLOR_MARGIN && lineSensorValues[i] < lineSensorGreen[i] + COLOR_MARGIN;
 }
 
 /// check if it is sensor is reading a color near the stored color representing gray
-bool isGray(int i) {
+bool lineFollower::isGray(int i) {
   return lineSensorValues[i] > lineSensorGray[i] - (COLOR_MARGIN + 10) && lineSensorValues[i] < lineSensorGray[i] + (COLOR_MARGIN + 70);
 }
 
 /// check if it is sensor is reading a color near the stored color representing brown 
-bool isBrown(int i) {
+bool lineFollower::isBrown(int i) {
   return lineSensorValues[i] > lineSensorBrown[i] - COLOR_MARGIN + 10 && lineSensorValues[i] < lineSensorBrown[i] + COLOR_MARGIN + 10;
 }
 
 /// check if it is standing on a black line
-bool isBlack(int i) {
+bool lineFollower::isBlack(int i) {
   return lineSensorValues[i] > 700;
 }
 
 /// check if it is standing on a white line 
-bool isWhite(int i) {
+bool lineFollower::isWhite(int i) {
   return lineSensorValues[i] < 50;
 }
 
 /// check if it is standing on a line 
-bool isLine(int i) {
+bool lineFollower::isLine(int i) {
   return isGreen(i) || isBlack(i);
 }
 
@@ -187,20 +183,20 @@ int lineFollower::readLine(unsigned int *sensor_values) {
 ////////////////////////
 
 // this is the main loop where all the logic for the 
-void lineFollow() {
+void lineFollower::lineFollow() {
 
-  int16_t position = lineFollowerObj.readLine(lineSensorValues);
+  int16_t position = readLine(lineSensorValues);
 
   if (buttonB.getSingleDebouncedPress() && calibratedCount < 2) {
-    lineFollowerObj.CalibrateSensors();
+    CalibrateSensors();
   }
 
   if (calibratedCount == 2) {
-    lineFollowerObj.CalibrateGreen();
+    CalibrateGreen();
   } else if (calibratedCount == 3) {
-    lineFollowerObj.CalibrateGray();
+    CalibrateGray();
   } else if (calibratedCount == 4) {
-    lineFollowerObj.CalibrateBrown();
+    CalibrateBrown();
   }
 
   // "error" is how far we are away from the center of the line, which corresponds to position 2000.
@@ -255,7 +251,6 @@ void lineFollow() {
     drivingMode = 2;
     speedLeft = 0;
     speedRight = 0;
-    buzzerObj.play(600, 50);
   }
 
   if (almostOffLine && lastSensorDetectedLine == 0) {
