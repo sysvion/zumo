@@ -9,6 +9,5 @@ var searchData=
   ['setup_6',['setup',['../classblockPusher.html#a0bd37dde788ccd9b0d8f213201453292',1,'blockPusher::setup()'],['../classinertial.html#af04901e4e7f08ed6fcd45c741aa9285e',1,'inertial::setup()']]],
   ['startupsound_7',['startupSound',['../classbuzzerStuff.html#a1d12ad4b4dd1b54230f3b2624815c883',1,'buzzerStuff']]],
   ['stop_8',['stop',['../classblockPusher.html#a857ca84e8c59f0535f1cac0effa45c23',1,'blockPusher']]],
-  ['stopcontinue_9',['stopContinue',['../classmotorsManual.html#ae8981bf8c9a0bd5c228668322cb8b62d',1,'motorsManual']]],
-  ['storecollor_10',['storeCollor',['../classlineFollower.html#a9c16eb25e23a7761d65e280c3f571dea',1,'lineFollower']]]
+  ['stopcontinue_9',['stopContinue',['../classmotorsManual.html#ae8981bf8c9a0bd5c228668322cb8b62d',1,'motorsManual']]]
 ];

@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['readcalibrated_0',['readCalibrated',['../classlineFollower.html#a61d073e9efe1c0a7a9e9a1a8996e18bc',1,'lineFollower']]],
-  ['readline_1',['readLine',['../classlineFollower.html#a96aad476df4e9f2ac5a40f08b43ee6ab',1,'lineFollower']]],
-  ['readme_2emd_2',['README.md',['../README_8md.html',1,'']]],
-  ['resetencodercounts_3',['resetEncoderCounts',['../classencoderStuff.html#a95a681de9413b3fb09c454bf0dc69acd',1,'encoderStuff']]],
-  ['resetrotationalmovement_4',['resetRotationalMovement',['../classmotorsManual.html#a9b2982633cc0cc13e7cf0728a4fa9286',1,'motorsManual']]],
-  ['resetspeed_5',['resetSpeed',['../classmotorsManual.html#a2db01a1c77576449d2681a168a499948',1,'motorsManual']]],
-  ['right_6',['RIGHT',['../blockPusher_8cpp.html#a80fb826a684cf3f0d306b22aa100ddac',1,'blockPusher.cpp']]],
-  ['rotatedeg_7',['rotateDeg',['../classmotorsManual.html#a620816f7cc3acc418fe152ffb63e29bf',1,'motorsManual']]]
+  ['scancolorsound_0',['scanColorSound',['../classbuzzerStuff.html#aad7f1687a7df213b26ed0d4e706ce823',1,'buzzerStuff']]],
+  ['sensedir_1',['senseDir',['../blockPusher_8cpp.html#a35db6cebbbbefd80e1267eb71fdbfb20',1,'blockPusher.cpp']]],
+  ['setandnormalizemotorvalues_2',['setAndNormalizeMotorValues',['../classmotorsManual.html#aefe0d1fcb38978b80b86fadeaee2b33d',1,'motorsManual']]],
+  ['setexpectedleftencodercount_3',['setExpectedLeftEncoderCount',['../classencoderStuff.html#aabd80712ff39af4c5fecebac1f06804b',1,'encoderStuff']]],
+  ['setexpectedrightencodercount_4',['setExpectedRightEncoderCount',['../classencoderStuff.html#a1ad7fc2833f752ef1460ba9ac9e3b7e7',1,'encoderStuff']]],
+  ['setspeedleft_5',['setSpeedLeft',['../classmotorsManual.html#a9242f3e370fde611ee7737aad75735a3',1,'motorsManual']]],
+  ['setspeedright_6',['setSpeedRight',['../classmotorsManual.html#aeff80a0eea89b8a0e37ca3e1aa8e508f',1,'motorsManual']]],
+  ['setup_7',['setup',['../classblockPusher.html#a0bd37dde788ccd9b0d8f213201453292',1,'blockPusher::setup()'],['../classinertial.html#af04901e4e7f08ed6fcd45c741aa9285e',1,'inertial::setup()']]],
+  ['speed_8',['speed',['../motorsManual_8cpp.html#a6dc6e6f3c75c509ce943163afb5dade7',1,'motorsManual.cpp']]],
+  ['speedleft_9',['speedLeft',['../motorsManual_8cpp.html#a228c32b93ea823b89ed78d3d532a523b',1,'motorsManual.cpp']]],
+  ['speedright_10',['speedRight',['../motorsManual_8cpp.html#a7479dd47ebaa7c30094da89d04d1b609',1,'motorsManual.cpp']]],
+  ['startupsound_11',['startupSound',['../classbuzzerStuff.html#a1d12ad4b4dd1b54230f3b2624815c883',1,'buzzerStuff']]],
+  ['steerintensity_12',['steerIntensity',['../motorsManual_8cpp.html#a6843a6722983bc802fc64883c6efa0e2',1,'motorsManual.cpp']]],
+  ['steerleft_13',['steerLeft',['../motorsManual_8cpp.html#a4663a347cd9e260d3b06f7628428e679',1,'motorsManual.cpp']]],
+  ['steerright_14',['steerRight',['../motorsManual_8cpp.html#a7566dcd683b1f794bec71f3e278479aa',1,'motorsManual.cpp']]],
+  ['stop_15',['stop',['../classblockPusher.html#a857ca84e8c59f0535f1cac0effa45c23',1,'blockPusher']]],
+  ['stopcontinue_16',['stopContinue',['../classmotorsManual.html#ae8981bf8c9a0bd5c228668322cb8b62d',1,'motorsManual']]]
 ];

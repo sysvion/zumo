@@ -8,5 +8,5 @@ var searchData=
   ['getmegdata_5',['getMegData',['../classinertial.html#aaec845d80d4d5213edcfbdbb6a5914bd',1,'inertial']]],
   ['getspeedleft_6',['getSpeedLeft',['../classmotorsManual.html#aedf92a084c29f813bd0d78775dd4bc5a',1,'motorsManual']]],
   ['getspeedright_7',['getSpeedRight',['../classmotorsManual.html#af7073abbd298c67b5ef82bce25c6ac5b',1,'motorsManual']]],
-  ['getstoredcolors_8',['getStoredColors',['../classlineFollower.html#a36f1791ba10c400186c597016044020c',1,'lineFollower']]]
+  ['getvolume_8',['getVolume',['../classbuzzerStuff.html#ad6ac2d0f29df260c42c41928cc1d1f7e',1,'buzzerStuff']]]
 ];

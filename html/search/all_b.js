@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['play_0',['play',['../classbuzzerStuff.html#a78ff55c20b093b8cd48340651cc554d8',1,'buzzerStuff']]],
-  ['playsoundbyid_1',['playSoundById',['../classbuzzerStuff.html#ac08dbea4b3fb22e56768b30f82cb886e',1,'buzzerStuff']]],
-  ['playsoundid_2',['playSoundId',['../classbuzzerStuff.html#a5b4ce7e673f162b64b6f988acf965535',1,'buzzerStuff']]],
-  ['print_3',['print',['../classinertial.html#a80cabce7883585a411f38acd7bbd6202',1,'inertial']]],
-  ['printcorrectionvalues_4',['printCorrectionValues',['../classencoderStuff.html#a6586d8b3627de59221388c3919a6808b',1,'encoderStuff']]],
-  ['proxsensors_5',['proxSensors',['../blockPusher_8cpp.html#aae434c254fde90fef6ee97ea45919c0d',1,'blockPusher.cpp']]]
+  ['readline_0',['readLine',['../classlineFollower.html#a96aad476df4e9f2ac5a40f08b43ee6ab',1,'lineFollower']]],
+  ['readme_2emd_1',['README.md',['../README_8md.html',1,'']]],
+  ['resetencodercounts_2',['resetEncoderCounts',['../classencoderStuff.html#a95a681de9413b3fb09c454bf0dc69acd',1,'encoderStuff']]],
+  ['resetrotationalmovement_3',['resetRotationalMovement',['../classmotorsManual.html#a9b2982633cc0cc13e7cf0728a4fa9286',1,'motorsManual']]],
+  ['resetspeed_4',['resetSpeed',['../classmotorsManual.html#a2db01a1c77576449d2681a168a499948',1,'motorsManual']]],
+  ['right_5',['RIGHT',['../blockPusher_8cpp.html#a80fb826a684cf3f0d306b22aa100ddac',1,'blockPusher.cpp']]],
+  ['rotatedeg_6',['rotateDeg',['../classmotorsManual.html#a620816f7cc3acc418fe152ffb63e29bf',1,'motorsManual']]]
 ];

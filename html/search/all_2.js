@@ -1,25 +1,12 @@
 var searchData=
 [
   ['calabrategyro_0',['calabrateGyro',['../classinertial.html#ac0d0f5f4ac050199fe8bd8ed15576f77',1,'inertial']]],
-  ['calculatecorrectionstrength_1',['calculateCorrectionStrength',['../classencoderStuff.html#a75d52cbef29422e64e365d076940622b',1,'encoderStuff']]],
-  ['calibratebrown_2',['CalibrateBrown',['../classlineFollower.html#a41c1621780c6487c8c62745d541373b3',1,'lineFollower']]],
-  ['calibratedcount_3',['calibratedCount',['../lineFollower_8cpp.html#a7da8d3c98fb2936103a8b2238672e577',1,'lineFollower.cpp']]],
-  ['calibrategray_4',['CalibrateGray',['../classlineFollower.html#a6291c5329a3709be4b792520b669197e',1,'lineFollower']]],
-  ['calibrategreen_5',['CalibrateGreen',['../classlineFollower.html#ac740cda7b58655288c0b73dee66ba265',1,'lineFollower']]],
-  ['calibratesensors_6',['CalibrateSensors',['../classlineFollower.html#a700ea70ad00da57ee2432d2daba1cf41',1,'lineFollower']]],
-  ['check_7',['check',['../classinertial.html#a2a4f43e1d0b62ab9ef985f137a2a8fd5',1,'inertial']]],
-  ['checkdownwardspeed_8',['checkDownwardSpeed',['../classinertial.html#ac05eccfbb21f5f2fbd2051760c6e3dae',1,'inertial']]],
-  ['color_5fmargin_9',['COLOR_MARGIN',['../lineFollower_8cpp.html#aafec9ff1928dd5dc33ea2eda3f51c71b',1,'lineFollower.cpp']]],
-  ['colors_10',['colors',['../lineFollower_8cpp.html#af983608eaad77853e6283a63910341d7',1,'lineFollower.cpp']]],
-  ['correctionvalues_11',['correctionValues',['../encoderStuff_8cpp.html#ad94f10c769d97c4757e7c9ddba5bdc51',1,'encoderStuff.cpp']]],
-  ['correctleft_12',['correctLeft',['../encoderStuff_8cpp.html#aa99ad7b088fffbfb925efeb925efb3c8',1,'encoderStuff.cpp']]],
-  ['correctleftfaster_13',['correctLeftFaster',['../classencoderStuff.html#afa8f5bd7ba6c34b31f25e17a49b4c18b',1,'encoderStuff']]],
-  ['correctleftslower_14',['correctLeftSlower',['../classencoderStuff.html#abb875b46af6320844d559644f8b75a64',1,'encoderStuff']]],
-  ['correctoffset_15',['correctOffset',['../classencoderStuff.html#af3159bc2f0c0c5947334fd3f5414c706',1,'encoderStuff']]],
-  ['correctright_16',['correctRight',['../encoderStuff_8cpp.html#a17ffbb9ab7541b076f4d1daee2a1427d',1,'encoderStuff.cpp']]],
-  ['correctrightfaster_17',['correctRightFaster',['../classencoderStuff.html#ad5097e73441606a26c23c6047d49028d',1,'encoderStuff']]],
-  ['correctrightslower_18',['correctRightSlower',['../classencoderStuff.html#a77b0924c3a0bde37a729e4c5aae7a501',1,'encoderStuff']]],
-  ['count_5f_19',['count_',['../lineFollower_8cpp.html#a9acf5084c965a76d24ec228412256bc3',1,'lineFollower.cpp']]],
-  ['countsleft_20',['countsLeft',['../encoderStuff_8cpp.html#a05a1f3b93b9bd02ace07076c5c573cb2',1,'encoderStuff.cpp']]],
-  ['countsright_21',['countsRight',['../encoderStuff_8cpp.html#a37187b4d20db070ef6ceb6af43f8543c',1,'encoderStuff.cpp']]]
+  ['calibratebrown_1',['CalibrateBrown',['../classlineFollower.html#a41c1621780c6487c8c62745d541373b3',1,'lineFollower']]],
+  ['calibrategray_2',['CalibrateGray',['../classlineFollower.html#a6291c5329a3709be4b792520b669197e',1,'lineFollower']]],
+  ['calibrategreen_3',['CalibrateGreen',['../classlineFollower.html#ac740cda7b58655288c0b73dee66ba265',1,'lineFollower']]],
+  ['calibratesensors_4',['CalibrateSensors',['../classlineFollower.html#a700ea70ad00da57ee2432d2daba1cf41',1,'lineFollower']]],
+  ['check_5',['check',['../classinertial.html#a2a4f43e1d0b62ab9ef985f137a2a8fd5',1,'inertial']]],
+  ['checkdownwardspeed_6',['checkDownwardSpeed',['../classinertial.html#ac05eccfbb21f5f2fbd2051760c6e3dae',1,'inertial']]],
+  ['correctionvalues_7',['correctionValues',['../encoderStuff_8cpp.html#ad94f10c769d97c4757e7c9ddba5bdc51',1,'encoderStuff.cpp']]],
+  ['correctoffset_8',['correctOffset',['../classencoderStuff.html#af3159bc2f0c0c5947334fd3f5414c706',1,'encoderStuff']]]
 ];
