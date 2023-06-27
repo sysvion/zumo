@@ -13,5 +13,4 @@ class buzzerStuff {
     void manualModeSound();
     int playSoundById(int);
     int playSoundId;
-    
 };

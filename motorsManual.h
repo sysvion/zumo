@@ -2,27 +2,27 @@
 #pragma once
 
 class motorsManual {
-    public:
-        motorsManual();
-        void moveLeft();
-        void moveRight();
-        void moveSlower();
-        void moveFaster();
+public:
+  motorsManual();
+  void moveLeft();
+  void moveRight();
+  void moveSlower();
+  void moveFaster();
 
-        void moveToMaxSpeed();
-        void resetSpeed();
-        void resetRotationalMovement();
-        void rotateDeg(int);
-        void stopContinue();
+  void moveToMaxSpeed();
+  void resetSpeed();
+  void resetRotationalMovement();
+  void rotateDeg(int);
+  void stopContinue();
 
-        void setAndNormalizeMotorValues();
-        void applyMotorValues();
+  void setAndNormalizeMotorValues();
+  void applyMotorValues();
 
-        const bool isStandingStill();
-        const bool isAllowDrive();
+  const bool isStandingStill();
+  const bool isAllowDrive();
 
-        const double getSpeedLeft();
-        const double getSpeedRight();
-        void setSpeedLeft(double);
-        void setSpeedRight(double);
+  const double getSpeedLeft();
+  const double getSpeedRight();
+  void setSpeedLeft(double);
+  void setSpeedRight(double);
 };

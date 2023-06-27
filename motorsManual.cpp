@@ -13,27 +13,25 @@ const int MIN_SPEED = -400;
 const int MAX_SPEED = 400;
 
 /// determines if the robot should move or pause
-bool allowDrive = true;  
-
+bool allowDrive = true;
 
 /// the minimum is 1 because we are going to multiplied
 const int minimumTuriningValue = 1;
 const int maximumTurningValue = 6;
 
 //default steer value. Value is later on multiplied with so the default is 1
-double steerRight = minimumTuriningValue;  
+double steerRight = minimumTuriningValue;
 
 //default steer value. Value is later on multiplied with so the default is 1
 double steerLeft = minimumTuriningValue;
 
 //intensity of steering changes
-const double steerIntensity = 1.3;  
+const double steerIntensity = 1.3;
 
 motorsManual::motorsManual() {
-
 }
 
-/// change the turning left speed by the steerIntensity 
+/// change the turning left speed by the steerIntensity
 void motorsManual::moveLeft() {
   encoderObj.resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {
@@ -46,7 +44,7 @@ void motorsManual::moveLeft() {
   }
 }
 
-/// change the turning right speed by the steerIntensity 
+/// change the turning right speed by the steerIntensity
 void motorsManual::moveRight() {
   encoderObj.resetEncoderCounts();
   if (steerLeft < maximumTurningValue) {
@@ -69,8 +67,7 @@ void motorsManual::moveSlower() {
 }
 
 /// does the opposite as moveSlower(), to move faster
-void motorsManual::moveFaster()  
-{
+void motorsManual::moveFaster() {
   encoderObj.resetEncoderCounts();
   if (speed < 10)  //checks if speed is below maximum allowed value
   {
@@ -122,7 +119,7 @@ void motorsManual::rotateDeg(int deg) {
   encoderObj.setExpectedRightEncoderCount(deg);
 }
 
- 
+
 void motorsManual::setAndNormalizeMotorValues() {
   speedLeft = (speed * steerLeft - steerRight) * 50;
   speedRight = (speed * steerRight - steerLeft) * 50;

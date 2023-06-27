@@ -3,30 +3,11 @@
 #include <Zumo32U4.h>
 #include "lineFollower.h"
 
-/// This is the maximum speedLineFollower the motors will be allowed to turn.
-const uint16_t MAX_SPEED = 300;
-uint16_t speedLineFollower = 240;
-int count_;
-int calibratedCount;
-int lastSensorDetectedLine = 0;
-int lastSensorDetectedLineTimer;
-int colors = 0;
-const int COLOR_MARGIN = 25;
-
-bool almostOffLine = false;
-
-/// 0 is none 1 is left 2 is right
-int scheduleTurn = 0;  
-int doScheduledTurn = 0;
-int doScheduledTurnTimerLastTime = 0;
-
-extern int drivingMode;
-
 Zumo32U4LineSensors lineSensors;
 lineFollower lineFollower;
 Zumo32U4ButtonB buttonB;
 
-int16_t lastError = 0;
+extern int drivingMode;
 
 #define NUM_SENSORS 5
 
@@ -216,7 +197,6 @@ void lineFollower::lineFollow() {
 
   speedLeft = constrain(speedLeft, 0, MAX_SPEED);
   speedRight = constrain(speedRight, 0, MAX_SPEED);
-
 
   if (isLine(0)) {
     speedLeft = -300;
