@@ -248,7 +248,7 @@ void lineFollower::lineFollow() {
 
   if (isBrown(0) && isBrown(1) && isBrown(3) && isBrown(4)) {
     // Ga naar modus: blok duwen.
-    drivingMode = 2;
+    drivingMode = 1;
     speedLeft = 0;
     speedRight = 0;
   }
@@ -295,10 +295,10 @@ void lineFollower::lineFollow() {
   //   //manualModeSound();
   // }
 
-  // if (isGreen(2)) {
-  //   speedLeft /= 2 + 70;
-  //   speedRight /= 2 + 70;
-  // }
+  if (isGreen(2)) {
+    speedLeft /= 1.7;
+    speedRight /= 1.7;
+  }
 
   // else if (scheduleTurn) {
   //   speedLeft /= 2;

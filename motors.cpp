@@ -6,7 +6,7 @@ Zumo32U4Motors motors;
 encoderStuff encoderObj;
 
 ///starting speed (no movement)
-double speed = 1;  
+double speed = 1;
 double speedRight;
 double speedLeft;
 const int MIN_SPEED = -400;
