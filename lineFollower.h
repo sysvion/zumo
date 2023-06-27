@@ -1,6 +1,7 @@
-#pragma once
 #include <Zumo32U4.h>
 #include "buzzerStuff.h"
+#include "motorsManual.h"
+#pragma once
 
 class lineFollower {
 
@@ -26,4 +27,5 @@ public:
 private:
   buzzerStuff buzzer;
   Zumo32U4ButtonC buttonC;
+  motorsManual motorsManual;
 };

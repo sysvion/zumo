@@ -1,5 +1,5 @@
-#pragma once
 #include <Zumo32U4.h>
+#pragma once
 
 class inertial {
 private:

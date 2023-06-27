@@ -1,4 +1,5 @@
 #include <Zumo32U4.h>
+#include "motorsManual.h"
 #pragma once
 
 class encoderStuff {
@@ -16,4 +17,6 @@ class encoderStuff {
     int getCorrectLeft();
     int getCorrectRight();
     void printCorrectionValues();
+    private:
+    motorsManual m;
 };

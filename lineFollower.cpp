@@ -2,7 +2,6 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include "lineFollower.h"
-#include "motors.h"
 
 /// This is the maximum speedLineFollower the motors will be allowed to turn.
 const uint16_t MAX_SPEED = 300;
@@ -20,6 +19,8 @@ bool almostOffLine = false;
 int scheduleTurn = 0;  
 int doScheduledTurn = 0;
 int doScheduledTurnTimerLastTime = 0;
+
+extern int drivingMode;
 
 Zumo32U4LineSensors lineSensors;
 lineFollower lineFollower;
@@ -210,11 +211,11 @@ void lineFollower::lineFollow() {
 
   // Get individual motor speeds. The sign of speedDifference
   // determines if the robot turns left or right.
-  speedLeft = speedLineFollower + speedDifference;
-  speedRight = speedLineFollower - speedDifference;
+  double speedLeft = speedLineFollower + speedDifference;
+  double speedRight = speedLineFollower - speedDifference;
 
-  speedLeft = (int)speedLeft;
-  speedRight = (int)speedRight;
+  motorsManual.setSpeedLeft(speedLeft);
+  motorsManual.setSpeedRight(speedRight);
 
   speedLeft = constrain(speedLeft, 0, MAX_SPEED);
   speedRight = constrain(speedRight, 0, MAX_SPEED);

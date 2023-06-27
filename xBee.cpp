@@ -1,5 +1,6 @@
-#include "motors.h"
 #include "xBee.h"
+
+extern int drivingMode;
 
 bool xBee::inputReceivedManual() {
   //if character is received form Serial1
@@ -18,55 +19,55 @@ bool xBee::inputReceivedManual() {
         break;
 
       case 'a':
-        moveLeft();
+        m.moveLeft();
         buzzer.playSoundId = 1;
         break;
 
       case 'd':
-        moveRight();
+        m.moveRight();
         buzzer.playSoundId = 2;
         break;
 
       case 's':
-        moveSlower();
+        m.moveSlower();
         buzzer.playSoundId = 3;
         break;
 
       case 'w':
-        moveFaster();
+        m.moveFaster();
         buzzer.playSoundId = 4;
         break;
 
       case 'q':
-        moveToMaxSpeed();
+        m.moveToMaxSpeed();
         buzzer.playSoundId = 5;
         break;
 
       case 'R':
       case 'r':
-        resetSpeed();
+        m.resetSpeed();
         buzzer.playSoundId = 6;
         break;
 
       case 'e':
-        resetRotationalMovement();
+        m.resetRotationalMovement();
         buzzer.playSoundId = 7;
         break;
 
       case 'A':
-        rotateDeg(90);
+        m.rotateDeg(90);
         break;
 
       case 'S':
-        rotateDeg(-90);
+        m.rotateDeg(-90);
         break;
 
       case 'D':
-        rotateDeg(-180);
+        m.rotateDeg(-180);
         break;
 
       case 'F':
-        rotateDeg(360);
+        m.rotateDeg(360);
         break;
 
       case 'x':
@@ -77,8 +78,8 @@ bool xBee::inputReceivedManual() {
       //"default:" is ran if none of other cases were activated. This is needed for the ' ' character (SPACEBAR) because this gives an error in a regular case.
       default:
         if (inputChar == ' ') {
-          stopContinue();
-          if (isAllowDrive()) {
+          m.stopContinue();
+          if (m.isAllowDrive()) {
             buzzer.playSoundId = 8;
           } else {
             buzzer.playSoundId = 9;

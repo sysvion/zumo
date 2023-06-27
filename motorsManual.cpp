@@ -1,4 +1,4 @@
-#include "motors.h"
+#include "motorsManual.h"
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
 
@@ -29,9 +29,12 @@ double steerLeft = minimumTuriningValue;
 //intensity of steering changes
 const double steerIntensity = 1.3;  
 
+motorsManual::motorsManual() {
+  
+}
 
 /// change the turning left speed by the steerIntensity 
-void motors::moveLeft() {
+void motorsManual::moveLeft() {
   encoderObj.resetEncoderCounts();
   if (!(steerRight < maximumTurningValue)) {
     return;
@@ -44,7 +47,7 @@ void motors::moveLeft() {
 }
 
 /// change the turning right speed by the steerIntensity 
-void motors::moveRight() {
+void motorsManual::moveRight() {
   encoderObj.resetEncoderCounts();
   if (steerLeft < maximumTurningValue) {
     if (steerRight < minimumTuriningValue) {
@@ -56,17 +59,17 @@ void motors::moveRight() {
 }
 
 // move slower by 10 %
-void motors::moveSlower() {
+void motorsManual::moveSlower() {
   encoderObj.resetEncoderCounts();
   if (speed > -10)  //checks if speed is above mimimum allowed value (NOTE: speed within functions isn't the actual motor speed.
-  {                 //The actual speeds for the motors are calculated at the end using a formula)
+  {                 //The actual speeds for the motorsManual are calculated at the end using a formula)
     speed -= 1;
     Serial1.println((String) "Speed: " + speed + " --");
   }
 }
 
 /// does the opposite as moveSlower(), to move faster
-void motors::moveFaster()  
+void motorsManual::moveFaster()  
 {
   encoderObj.resetEncoderCounts();
   if (speed < 10)  //checks if speed is below maximum allowed value
@@ -77,17 +80,17 @@ void motors::moveFaster()
 }
 
 /// set speed to 8
-void motors::moveToMaxSpeed() {
+void motorsManual::moveToMaxSpeed() {
   encoderObj.resetEncoderCounts();
   speed = 8;  //set speed to the max
   Serial1.println((String) "Speed: " + speed + " ++");
 }
 
 /// set speed to 1 (standing still)
-void motors::resetSpeed() {
+void motorsManual::resetSpeed() {
   encoderObj.resetEncoderCounts();
   speed = 1;
-  //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motors (1-1=0)
+  //This stops the robot because opposite steer is subtracted from speed in the formula that determines the final speed for both motorsManual (1-1=0)
   steerLeft = 1;
   steerRight = 1;
   speedLeft = 0;
@@ -98,7 +101,7 @@ void motors::resetSpeed() {
 }
 
 // reset rotational movement
-void motors::resetRotationalMovement() {
+void motorsManual::resetRotationalMovement() {
   encoderObj.resetEncoderCounts();
   //resets steer values but not the overal speed so the robots starts driving straight forward
   steerLeft = 1;
@@ -106,13 +109,13 @@ void motors::resetRotationalMovement() {
 }
 
 /// switches the allowDrive flag
-void motors::stopContinue() {
+void motorsManual::stopContinue() {
   encoderObj.resetEncoderCounts();
   allowDrive = !allowDrive;
 }
 
 /// rotate param degrees
-void motors::rotateDeg(int deg) {
+void motorsManual::rotateDeg(int deg) {
   encoderObj.resetEncoderCounts();
   deg *= 10.6;
   encoderObj.setExpectedLeftEncoderCount(-deg);
@@ -120,7 +123,7 @@ void motors::rotateDeg(int deg) {
 }
 
  
-void motors::setAndNormalizeMotorValues() {
+void motorsManual::setAndNormalizeMotorValues() {
   speedLeft = (speed * steerLeft - steerRight) * 50;
   speedRight = (speed * steerRight - steerLeft) * 50;
 
@@ -136,27 +139,35 @@ void motors::setAndNormalizeMotorValues() {
 }
 
 /// set the pins of the motor so it changes the speed
-void motors::applyMotorValues() {
+void motorsManual::applyMotorValues() {
   motors.setLeftSpeed(speedLeft + encoderObj.getCorrectLeft());
   motors.setRightSpeed(speedRight + encoderObj.getCorrectRight());
 }
 
 // if the motor speed is 0
-const bool motors::isStandingStill() {
+const bool motorsManual::isStandingStill() {
   return (speedLeft == 0 && speedRight == 0);
 }
 
 // is the allowDrive flag is set
-const bool motors::isAllowDrive() {
+const bool motorsManual::isAllowDrive() {
   return allowDrive;
 }
 
 // get motorSpeedLeft
-const double motors::getSpeedLeft() {
+const double motorsManual::getSpeedLeft() {
   return speedLeft;
 }
 
 // get motorSpeedRight
-const double motors::getSpeedRight() {
+const double motorsManual::getSpeedRight() {
   return speedRight;
+}
+
+void motorsManual::setSpeedLeft(double s) {
+  speedLeft = s;
+}
+
+void motorsManual::setSpeedRight(double s) {
+  speedRight = s;
 }

@@ -1,5 +1,6 @@
-#pragma once
 #include "buzzerStuff.h"
+#include "motorsManual.h"
+#pragma once
 
 class xBee {
 
@@ -8,4 +9,5 @@ public:
   void inputReceivedAutonomous();
 private:
   buzzerStuff buzzer;
+  motorsManual m;
 };

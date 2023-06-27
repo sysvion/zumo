@@ -1,10 +1,9 @@
 #include <Zumo32U4.h>
-#include "motors.h"
 #pragma once
 
-class motors {
-
+class motorsManual {
     public:
+        motorsManual();
         void moveLeft();
         void moveRight();
         void moveSlower();
@@ -24,4 +23,6 @@ class motors {
 
         const double getSpeedLeft();
         const double getSpeedRight();
-}
+        void setSpeedLeft(double);
+        void setSpeedRight(double);
+};

@@ -2,7 +2,7 @@
 #include <Zumo32U4.h>
 #include <math.h>
 #include "inertial.h"
-#include "motors.h"
+#include "motorsManual.h"
 #include "buzzerStuff.h"
 #include "encoderStuff.h"
 #include "lineFollower.h"
@@ -16,6 +16,7 @@ lineFollower lineFollowerObj;
 buzzerStuff buzzerObj;
 xBee xBees;
 encoderStuff encoder;
+motorsManual m;
 
 char inputChar;
 bool isDebuging = false;
@@ -47,10 +48,10 @@ void manualMode() {
     sendManualToPc();
   }
   if (xBees.inputReceivedManual()) {
-    setAndNormalizeMotorValues();
+    m.setAndNormalizeMotorValues();
   }
 
-  if (!isAllowDrive()) {
+  if (!m.isAllowDrive()) {
     count++;
     if (count > 5) {
       buzzerObj.play(300, 40);
@@ -58,13 +59,13 @@ void manualMode() {
     }
     ledRed(1); delay(50); ledRed(0); delay(100);
   }
-  if (isStandingStill()) {
+  if (m.isStandingStill()) {
     ledGreen(0);
   } else {
     ledGreen(1);
   }
   encoder.correctOffset();
-  applyMotorValues();
+  m.applyMotorValues();
   encoder.printCorrectionValues();
 }
 
@@ -76,9 +77,9 @@ void blockMode() {
 void autonomousMode() {
   lineFollowerObj.lineFollow();
   if (lineFollowerObj.getCalibratedCount() != 5) {
-    resetSpeed();
+    m.resetSpeed();
   }
-  applyMotorValues();
+  m.applyMotorValues();
   xBees.inputReceivedAutonomous();
 }
 void loop() {
@@ -91,7 +92,7 @@ void loop() {
     } else {
       buzzerObj.manualModeSound();
     }
-    resetSpeed();
+    m.resetSpeed();
   }
   if (drivingMode == 1) {
     autonomousMode();

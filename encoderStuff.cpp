@@ -1,4 +1,3 @@
-#include "motors.h"
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
 
@@ -54,8 +53,8 @@ void encoderStuff::correctOffset() {
     countsLeft = encoders.getCountsLeft();
     countsRight = encoders.getCountsRight();
 
-    expectedLeftEncoderCount += 0.6 * getSpeedLeft();
-    expectedRightEncoderCount += 0.6 * getSpeedRight();
+    expectedLeftEncoderCount += 0.6 * m.getSpeedLeft();
+    expectedRightEncoderCount += 0.6 * m.getSpeedRight();
 
     offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
     offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
