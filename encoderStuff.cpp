@@ -1,20 +1,10 @@
 #include "encoderStuff.h"
 #include <Zumo32U4.h>
-
-Zumo32U4Encoders encoders;
+#include <math.h>
 
 //CORRECT SPEED VARIABLES:
 char correctionValues[100];
 
-int expectedLeftEncoderCount = 0;
-int expectedRightEncoderCount = 0;
-double offsetLeftEncoderCount = 1;
-double offsetRightEncoderCount = 1;
-int correctLeft = 0;
-int correctRight = 0;
-int countsLeft;
-int countsRight;
-int lastEncodersCheckTime;
 const int ALLOWED_SPEED_OFFSET = 20;
 
 void encoderStuff::resetEncoderCounts() {
@@ -24,26 +14,12 @@ void encoderStuff::resetEncoderCounts() {
   expectedRightEncoderCount = 0;
 }
 
-int encoderStuff::calculateCorrectionStrength(int32_t x) {
-  if (x >= 0)
-    return sqrt(x * 40);
+// old name: calculateCorrectStrengt(int x)
+int encoderStuff::NormaliseStrength(int32_t Strength) {
+  if (Strength >= 0)
+    return sqrt(Strength * 40);
   else
-    return -sqrt(-x * 40);
-}
-
-void encoderStuff::correctLeftFaster() {
-  correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-}
-
-void encoderStuff::correctRightFaster() {
-  correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
-}
-
-void encoderStuff::correctLeftSlower() {
-  correctLeft = calculateCorrectionStrength(offsetLeftEncoderCount);
-}
-void encoderStuff::correctRightSlower() {
-  correctRight = calculateCorrectionStrength(offsetRightEncoderCount);
+    return -sqrt(-Strength * 40);
 }
 
 void encoderStuff::correctOffset() {
@@ -53,36 +29,32 @@ void encoderStuff::correctOffset() {
     countsLeft = encoders.getCountsLeft();
     countsRight = encoders.getCountsRight();
 
-    expectedLeftEncoderCount += 0.6 * m.getSpeedLeft();
-    expectedRightEncoderCount += 0.6 * m.getSpeedRight();
+    expectedLeftEncoderCount += 0.6 * motors.getSpeedLeft();
+    expectedRightEncoderCount += 0.6 * motors.getSpeedRight();
 
     offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
     offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
 
-    if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET) {
-      correctLeftFaster();
-      // Serial.println("correctFaster");
-    }
-    if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET) {
-      correctRightFaster();
+   
+    if (offsetLeftEncoderCount > ALLOWED_SPEED_OFFSET ||
+        offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET ) {
+      correctLeft = NormaliseStrength(offsetLeftEncoderCount);
     }
 
-    if (offsetLeftEncoderCount < -ALLOWED_SPEED_OFFSET) {
-      correctLeftSlower();
-      // Serial.println("correctLeftSlower");
+    if (offsetRightEncoderCount > ALLOWED_SPEED_OFFSET ||
+        offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET) {
+      correctRight = NormaliseStrength(offsetRightEncoderCount);
     }
-    if (offsetRightEncoderCount < -ALLOWED_SPEED_OFFSET) {
-      correctRightSlower();
-    }
+
   }
 }
 
-void encoderStuff::setExpectedLeftEncoderCount(int x) {
-  expectedLeftEncoderCount = x;
+void encoderStuff::setExpectedLeftEncoderCount(int value) {
+  expectedLeftEncoderCount = value;
 }
 
-void encoderStuff::setExpectedRightEncoderCount(int x) {
-  expectedRightEncoderCount = x;
+void encoderStuff::setExpectedRightEncoderCount(int value) {
+  expectedRightEncoderCount = value;
 }
 
 int encoderStuff::getCorrectLeft() {
