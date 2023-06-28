@@ -4,7 +4,6 @@
 #include "inertial.h"
 #include "motorsManual.h"
 #include "buzzerStuff.h"
-#include "encoderStuff.h"
 #include "lineFollower.h"
 #include "blockPusher.h"
 #include "xBee.h"
@@ -15,7 +14,6 @@ blockPusher bp;
 lineFollower lineFollowerObj;
 buzzerStuff buzzerObj;
 xBee xBees;
-encoderStuff encoder;
 motorsManual m;
 
 char inputChar;
@@ -64,9 +62,7 @@ void manualMode() {
   } else {
     ledGreen(1);
   }
-  encoder.correctOffset();
   m.applyMotorValues();
-  encoder.printCorrectionValues();
 }
 
 void blockMode() {

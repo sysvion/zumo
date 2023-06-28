@@ -2,10 +2,6 @@
 #include <Zumo32U4.h>
 #include <math.h>
 
-//CORRECT SPEED VARIABLES:
-char correctionValues[100];
-
-const int ALLOWED_SPEED_OFFSET = 20;
 
 void encoderStuff::resetEncoderCounts() {
   encoders.getCountsAndResetLeft();
@@ -22,15 +18,15 @@ int encoderStuff::NormaliseStrength(int32_t Strength) {
     return -sqrt(-Strength * 40);
 }
 
-void encoderStuff::correctOffset() {
+void encoderStuff::correctOffset(int speedL, int speedR) {
   if ((uint8_t)(millis() - lastEncodersCheckTime) >= 50) {
     lastEncodersCheckTime = millis();
 
     countsLeft = encoders.getCountsLeft();
     countsRight = encoders.getCountsRight();
 
-    expectedLeftEncoderCount += 0.6 * motors.getSpeedLeft();
-    expectedRightEncoderCount += 0.6 * motors.getSpeedRight();
+    expectedLeftEncoderCount += 0.6 * speedL;
+    expectedRightEncoderCount += 0.6 * speedR;
 
     offsetLeftEncoderCount = expectedLeftEncoderCount - countsLeft;
     offsetRightEncoderCount = expectedRightEncoderCount - countsRight;
@@ -67,6 +63,7 @@ int encoderStuff::getCorrectRight() {
 
 void encoderStuff::printCorrectionValues()
 {
+  char correctionValues[100];
   snprintf_P(correctionValues, sizeof(correctionValues), PSTR("%6d %6d exp L: %4d exp R: %4d"),
           countsLeft, countsRight,
           expectedLeftEncoderCount, expectedRightEncoderCount);

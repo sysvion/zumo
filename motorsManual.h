@@ -1,9 +1,11 @@
-#include <Zumo32U4.h>
 #pragma once
+#include <Zumo32U4.h>
+#include "encoderStuff.h"
 
 class motorsManual {
 public:
   motorsManual();
+
   void moveLeft();
   void moveRight();
   void moveSlower();
@@ -23,7 +25,7 @@ public:
   void setSpeedLeft(double);
   void setSpeedRight(double);
   
-  private:
+private:
   double speed;
   double speedRight;
   double speedLeft;
@@ -36,4 +38,5 @@ public:
   double steerLeft;
   const double steerIntensity = 1.3;
 
+  encoderStuff encoder;
 };
