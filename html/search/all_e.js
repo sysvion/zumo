@@ -1,6 +1,24 @@
 var searchData=
 [
-  ['xbee_0',['xBee',['../classxBee.html',1,'']]],
-  ['xbee_2ecpp_1',['xBee.cpp',['../xBee_8cpp.html',1,'']]],
-  ['xbee_2eh_2',['xBee.h',['../xBee_8h.html',1,'']]]
+  ['scancolorsound_0',['scanColorSound',['../classbuzzerStuff.html#aad7f1687a7df213b26ed0d4e706ce823',1,'buzzerStuff']]],
+  ['scheduleturn_1',['scheduleTurn',['../classlineFollower.html#a2e3c8fda7630cde257bc27a5a675d0db',1,'lineFollower']]],
+  ['sensedir_2',['senseDir',['../classblockPusher.html#ae3250715e8f4094a92c14b78c4833a1c',1,'blockPusher']]],
+  ['sensors_3',['sensors',['../classinertial.html#a75dbb9d33c2cd28ad48387c191e3d71d',1,'inertial']]],
+  ['setandnormalizemotorvalues_4',['setAndNormalizeMotorValues',['../classmotorsManual.html#aefe0d1fcb38978b80b86fadeaee2b33d',1,'motorsManual']]],
+  ['setexpectedleftencodercount_5',['setExpectedLeftEncoderCount',['../classencoderStuff.html#aabd80712ff39af4c5fecebac1f06804b',1,'encoderStuff']]],
+  ['setexpectedrightencodercount_6',['setExpectedRightEncoderCount',['../classencoderStuff.html#a1ad7fc2833f752ef1460ba9ac9e3b7e7',1,'encoderStuff']]],
+  ['setspeedleft_7',['setSpeedLeft',['../classmotorsManual.html#a9242f3e370fde611ee7737aad75735a3',1,'motorsManual']]],
+  ['setspeedright_8',['setSpeedRight',['../classmotorsManual.html#aeff80a0eea89b8a0e37ca3e1aa8e508f',1,'motorsManual']]],
+  ['setup_9',['setup',['../classblockPusher.html#a0bd37dde788ccd9b0d8f213201453292',1,'blockPusher::setup()'],['../classinertial.html#af04901e4e7f08ed6fcd45c741aa9285e',1,'inertial::setup()']]],
+  ['speed_10',['speed',['../classmotorsManual.html#aa25576750f3938fa4f64b57a49aa10e0',1,'motorsManual']]],
+  ['speedleft_11',['speedLeft',['../classmotorsManual.html#a7f11d2706e0b1f83db738091e7dc6fc7',1,'motorsManual']]],
+  ['speedlinefollower_12',['speedLineFollower',['../classlineFollower.html#afa97a53bfb3e6fc982459292b61b13ee',1,'lineFollower']]],
+  ['speedright_13',['speedRight',['../classmotorsManual.html#a8a34c1bc444b2b1e22de6a63c5095967',1,'motorsManual']]],
+  ['startupsound_14',['startupSound',['../classbuzzerStuff.html#a1d12ad4b4dd1b54230f3b2624815c883',1,'buzzerStuff']]],
+  ['steerintensity_15',['steerIntensity',['../classmotorsManual.html#a1c8c77270e5d62de0c5c05d80f22cb4e',1,'motorsManual']]],
+  ['steerleft_16',['steerLeft',['../classmotorsManual.html#ac831b815f74ce43146e8960f4a5b4268',1,'motorsManual']]],
+  ['steerright_17',['steerRight',['../classmotorsManual.html#a52cd22553b5dd809031211ecd9d9420e',1,'motorsManual']]],
+  ['stop_18',['stop',['../classblockPusher.html#a857ca84e8c59f0535f1cac0effa45c23',1,'blockPusher']]],
+  ['stopcontinue_19',['stopContinue',['../classmotorsManual.html#ae8981bf8c9a0bd5c228668322cb8b62d',1,'motorsManual']]],
+  ['storecollor_20',['storeCollor',['../classlineFollower.html#a9c16eb25e23a7761d65e280c3f571dea',1,'lineFollower']]]
 ];

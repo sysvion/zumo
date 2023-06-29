@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['manualmodesound_0',['manualModeSound',['../classbuzzerStuff.html#a40e48ed42eefde8e5576a972b518f0b3',1,'buzzerStuff']]],
-  ['motorsmanual_1',['motorsManual',['../classmotorsManual.html#a1d6cd3988fb9c413c2a73817d042f4e9',1,'motorsManual']]],
-  ['movefaster_2',['moveFaster',['../classmotorsManual.html#a838127bc17a97f9d09561dceaedf7b51',1,'motorsManual']]],
-  ['moveleft_3',['moveLeft',['../classmotorsManual.html#a0e898351db1b80509ac5a72042558961',1,'motorsManual']]],
-  ['moveright_4',['moveRight',['../classmotorsManual.html#a812063887f85e8e5479e74799bc7c7d4',1,'motorsManual']]],
-  ['moveslower_5',['moveSlower',['../classmotorsManual.html#a00020e659acba89b50cc0948aed2765d',1,'motorsManual']]],
-  ['movetomaxspeed_6',['moveToMaxSpeed',['../classmotorsManual.html#a7850497f992dd9bd9ad6f48282178c22',1,'motorsManual']]]
+  ['linefollow_0',['lineFollow',['../classlineFollower.html#aaf484cb71a7c675195893d71672dc443',1,'lineFollower']]],
+  ['linefollower_1',['lineFollower',['../classlineFollower.html#a0bc6c469ebbbdabaa657f3b6f0c704f9',1,'lineFollower']]],
+  ['linesensorsinitfivesensors_2',['lineSensorsInitFiveSensors',['../classlineFollower.html#adcc0fa21bcd5de7fcc67f01a518ddc2b',1,'lineFollower']]],
+  ['lowervolume_3',['lowerVolume',['../classbuzzerStuff.html#a7e9c3d5f4059e5ddc15d24c1ffed4cbb',1,'buzzerStuff']]]
 ];

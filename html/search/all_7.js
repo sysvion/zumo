@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['lasttimeobjectseen_0',['lastTimeObjectSeen',['../blockPusher_8cpp.html#a06c87776dbd82be73e7fdd034f0b8602',1,'blockPusher.cpp']]],
-  ['left_1',['LEFT',['../blockPusher_8cpp.html#a437ef08681e7210d6678427030446a54',1,'blockPusher.cpp']]],
-  ['linefollow_2',['lineFollow',['../classlineFollower.html#aaf484cb71a7c675195893d71672dc443',1,'lineFollower']]],
-  ['linefollower_3',['lineFollower',['../classlineFollower.html',1,'lineFollower'],['../classlineFollower.html#a0bc6c469ebbbdabaa657f3b6f0c704f9',1,'lineFollower::lineFollower()'],['../lineFollower_8cpp.html#ac0623a3112447592a77414c7b861e708',1,'lineFollower():&#160;lineFollower.cpp']]],
-  ['linefollower_2ecpp_4',['lineFollower.cpp',['../lineFollower_8cpp.html',1,'']]],
-  ['linefollower_2eh_5',['lineFollower.h',['../lineFollower_8h.html',1,'']]],
-  ['linesensorbrown_6',['lineSensorBrown',['../lineFollower_8cpp.html#a247a209fc6b5c556df47da4473bb10b8',1,'lineFollower.cpp']]],
-  ['linesensorgray_7',['lineSensorGray',['../lineFollower_8cpp.html#a7c82e5b611c316d63b6d9fea5ead0445',1,'lineFollower.cpp']]],
-  ['linesensorgreen_8',['lineSensorGreen',['../lineFollower_8cpp.html#aac1b3826dbf074d6c81f32dacde3a9e1',1,'lineFollower.cpp']]],
-  ['linesensors_9',['lineSensors',['../lineFollower_8cpp.html#a4d10fd6c8a668e3ec604cfc1a14be6c5',1,'lineFollower.cpp']]],
-  ['linesensorsinitfivesensors_10',['lineSensorsInitFiveSensors',['../classlineFollower.html#adcc0fa21bcd5de7fcc67f01a518ddc2b',1,'lineFollower']]],
-  ['linesensorvalues_11',['lineSensorValues',['../lineFollower_8cpp.html#a858ddb5e76f83a5459ee613671d7525e',1,'lineFollower.cpp']]],
-  ['lowervolume_12',['lowerVolume',['../classbuzzerStuff.html#a7e9c3d5f4059e5ddc15d24c1ffed4cbb',1,'buzzerStuff']]]
+  ['i_0',['i',['../classblockPusher.html#a816f61de254271473701777796e342c1',1,'blockPusher']]],
+  ['ibne_1',['ibne',['../classblockPusher.html#a74c987becb8ba4986335754b6591ecf0',1,'blockPusher']]],
+  ['increasevolume_2',['increaseVolume',['../classbuzzerStuff.html#a5d670669fc5306a8f351fd36fe09c6a5',1,'buzzerStuff']]],
+  ['inertial_3',['inertial',['../classinertial.html#a5e9cc88c24a16b17278e59819d23e3f8',1,'inertial::inertial()'],['../classinertial.html#ae00f034444b31895c72a05c4b51633a3',1,'inertial::inertial(const inertial &amp;)'],['../classinertial.html',1,'inertial']]],
+  ['inertial_2ecpp_4',['inertial.cpp',['../inertial_8cpp.html',1,'']]],
+  ['inertial_2eh_5',['inertial.h',['../inertial_8h.html',1,'']]],
+  ['inputreceivedautonomous_6',['inputReceivedAutonomous',['../classxBee.html#aff8006483949cdb6b9443d88b61f1c80',1,'xBee']]],
+  ['inputreceivedmanual_7',['inputReceivedManual',['../classxBee.html#a245a0c542263c94be1bffd97c99f016d',1,'xBee']]],
+  ['isallowdrive_8',['isAllowDrive',['../classmotorsManual.html#a053cdc27a9751da8b287810016332de1',1,'motorsManual']]],
+  ['isblack_9',['isBlack',['../classlineFollower.html#a6185f6f821940aff534da4cd845cd044',1,'lineFollower']]],
+  ['isbrown_10',['isBrown',['../classlineFollower.html#a52446300472ee3f01dddc8ed6ec2b7cd',1,'lineFollower']]],
+  ['isgray_11',['isGray',['../classlineFollower.html#a28c09a8be8be2f652e3f98753128cd34',1,'lineFollower']]],
+  ['isgreen_12',['isGreen',['../classlineFollower.html#a74ef70bd8a6d79732f534f871c503b18',1,'lineFollower']]],
+  ['isline_13',['isLine',['../classlineFollower.html#aa36f1b23e9349f02d87ab97945ff69b2',1,'lineFollower']]],
+  ['isstandingstill_14',['isStandingStill',['../classmotorsManual.html#a636a260e2c2e4cfed174d6f3860fe8b5',1,'motorsManual']]],
+  ['iswhite_15',['isWhite',['../classlineFollower.html#a09c0ee2600d31677815db97d274c17ed',1,'lineFollower']]]
 ];

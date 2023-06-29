@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['increasevolume_0',['increaseVolume',['../classbuzzerStuff.html#a5d670669fc5306a8f351fd36fe09c6a5',1,'buzzerStuff']]],
-  ['inertial_1',['inertial',['../classinertial.html#a5e9cc88c24a16b17278e59819d23e3f8',1,'inertial::inertial()'],['../classinertial.html#ae00f034444b31895c72a05c4b51633a3',1,'inertial::inertial(const inertial &amp;)']]],
-  ['inputreceivedautonomous_2',['inputReceivedAutonomous',['../classxBee.html#aff8006483949cdb6b9443d88b61f1c80',1,'xBee']]],
-  ['inputreceivedmanual_3',['inputReceivedManual',['../classxBee.html#a245a0c542263c94be1bffd97c99f016d',1,'xBee']]],
-  ['isallowdrive_4',['isAllowDrive',['../classmotorsManual.html#a053cdc27a9751da8b287810016332de1',1,'motorsManual']]],
-  ['isblack_5',['isBlack',['../classlineFollower.html#a6185f6f821940aff534da4cd845cd044',1,'lineFollower']]],
-  ['isbrown_6',['isBrown',['../classlineFollower.html#a52446300472ee3f01dddc8ed6ec2b7cd',1,'lineFollower']]],
-  ['isgray_7',['isGray',['../classlineFollower.html#a28c09a8be8be2f652e3f98753128cd34',1,'lineFollower']]],
-  ['isgreen_8',['isGreen',['../classlineFollower.html#a74ef70bd8a6d79732f534f871c503b18',1,'lineFollower']]],
-  ['isline_9',['isLine',['../classlineFollower.html#aa36f1b23e9349f02d87ab97945ff69b2',1,'lineFollower']]],
-  ['isstandingstill_10',['isStandingStill',['../classmotorsManual.html#a636a260e2c2e4cfed174d6f3860fe8b5',1,'motorsManual']]],
-  ['iswhite_11',['isWhite',['../classlineFollower.html#a09c0ee2600d31677815db97d274c17ed',1,'lineFollower']]]
+  ['getaccdata_0',['getaccData',['../classinertial.html#a931e6bdf87a1e2e3e8b99a1aefc90bc1',1,'inertial']]],
+  ['getcalibratedcount_1',['getCalibratedCount',['../classlineFollower.html#accc736c493164ded9c5faa7c61a4886e',1,'lineFollower']]],
+  ['getcorrectleft_2',['getCorrectLeft',['../classencoderStuff.html#a396be707a6987fd7931207c7bca2dcff',1,'encoderStuff']]],
+  ['getcorrectright_3',['getCorrectRight',['../classencoderStuff.html#ae77e52e4e2fab722dcf0d0ea0c08ffcd',1,'encoderStuff']]],
+  ['getgyroposs_4',['getGyroPoss',['../classinertial.html#a89fec09645a53e11f4afe086fcd8c8a5',1,'inertial']]],
+  ['getmegdata_5',['getMegData',['../classinertial.html#aaec845d80d4d5213edcfbdbb6a5914bd',1,'inertial']]],
+  ['getspeedleft_6',['getSpeedLeft',['../classmotorsManual.html#aedf92a084c29f813bd0d78775dd4bc5a',1,'motorsManual']]],
+  ['getspeedright_7',['getSpeedRight',['../classmotorsManual.html#af7073abbd298c67b5ef82bce25c6ac5b',1,'motorsManual']]],
+  ['getstoredcolors_8',['getStoredColors',['../classlineFollower.html#a36f1791ba10c400186c597016044020c',1,'lineFollower']]],
+  ['getvolume_9',['getVolume',['../classbuzzerStuff.html#ad6ac2d0f29df260c42c41928cc1d1f7e',1,'buzzerStuff']]]
 ];

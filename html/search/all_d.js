@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['turningleft_0',['turningLeft',['../blockPusher_8cpp.html#ad3e6e1e6f45cc2ad24e963e4033abf1f',1,'blockPusher.cpp']]],
-  ['turningright_1',['turningRight',['../blockPusher_8cpp.html#a8f61d8ca3c17108f417f14fe07b482cb',1,'blockPusher.cpp']]],
-  ['turnleft_2',['turnLeft',['../classblockPusher.html#aaad88af573447885f2b3d0780a695d64',1,'blockPusher']]],
-  ['turnright_3',['turnRight',['../classblockPusher.html#a86dfe0cdf5f45b7250f5b2b88149b0e9',1,'blockPusher']]],
-  ['turnspeed_4',['turnSpeed',['../blockPusher_8cpp.html#a0d079cf6ab50598d632650380b372eb6',1,'blockPusher.cpp']]],
-  ['turnspeedmax_5',['turnSpeedMax',['../blockPusher_8cpp.html#a7ee4ddda6a3238ad2c298b9c6ee8af41',1,'blockPusher.cpp']]],
-  ['turnspeedmin_6',['turnSpeedMin',['../blockPusher_8cpp.html#ab5b3bd0eb880ca3cd6fc6b4dbe0e25b3',1,'blockPusher.cpp']]],
-  ['twin_7',['twin',['../classblockPusher.html#a78636af5e2a5c09bdd69f9688ee1e477',1,'blockPusher']]]
+  ['readcalibrated_0',['readCalibrated',['../classlineFollower.html#a61d073e9efe1c0a7a9e9a1a8996e18bc',1,'lineFollower']]],
+  ['readline_1',['readLine',['../classlineFollower.html#a96aad476df4e9f2ac5a40f08b43ee6ab',1,'lineFollower']]],
+  ['readme_2emd_2',['README.md',['../README_8md.html',1,'']]],
+  ['resetencodercounts_3',['resetEncoderCounts',['../classencoderStuff.html#a95a681de9413b3fb09c454bf0dc69acd',1,'encoderStuff']]],
+  ['resetrotationalmovement_4',['resetRotationalMovement',['../classmotorsManual.html#a9b2982633cc0cc13e7cf0728a4fa9286',1,'motorsManual']]],
+  ['resetspeed_5',['resetSpeed',['../classmotorsManual.html#a2db01a1c77576449d2681a168a499948',1,'motorsManual']]],
+  ['right_6',['RIGHT',['../blockPusher_8cpp.html#a80fb826a684cf3f0d306b22aa100ddac',1,'blockPusher.cpp']]],
+  ['rotatedeg_7',['rotateDeg',['../classmotorsManual.html#a620816f7cc3acc418fe152ffb63e29bf',1,'motorsManual']]]
 ];
