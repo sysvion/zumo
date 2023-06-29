@@ -64,7 +64,6 @@ void manualMode() {
   } else {
     ledGreen(1);
   }
-  encoder.correctOffset();
   m.applyMotorValues();
   encoder.printCorrectionValues();
 }
@@ -76,10 +75,6 @@ void blockMode() {
 
 void autonomousMode() {
   lineFollowerObj.lineFollow();
-  if (lineFollowerObj.getCalibratedCount() != 5) {
-    m.resetSpeed();
-  }
-  m.applyMotorValues();
   xBees.inputReceivedAutonomous();
 }
 void loop() {

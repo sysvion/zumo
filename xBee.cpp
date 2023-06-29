@@ -90,6 +90,10 @@ bool xBee::inputReceivedManual() {
     return true;
   }
   return false;
+    m.setAndNormalizeMotorValues();
+}
+void xBee::manualLoop() {
+  m.applyMotorValues();
 }
 
 void xBee::inputReceivedAutonomous() {
