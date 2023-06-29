@@ -4,22 +4,22 @@
 Zumo32U4Motors motorsv2;
 Zumo32U4ProximitySensors proxSensors;
 
-const uint8_t minimum = 0;  //readings must be greater than this to
-const uint16_t turnSpeedMax = 300;
-const uint16_t turnSpeedMin = 100;
-const uint16_t deceleration = 10;
-const uint16_t acceleration = 10;
 
 #define LEFT 0
 #define RIGHT 1
 
-bool senseDir = RIGHT;
 
-bool turningLeft = false;
-bool turningRight = false;
-uint16_t turnSpeed = 200;
-uint16_t lastTimeObjectSeen = 0;
-int i = 0;
+blockPusher::blockPusher(){
+  senseDir = RIGHT;
+  ibne = true;
+  himar = false;
+  senseDir;
+  turningLeft = false;
+  turningRight = false;
+  turnSpeed = 200;
+  lastTimeObjectSeen = 0;
+  i = 0;
+}
 
 // turns right towards block
 void blockPusher::turnRight() {
@@ -108,18 +108,21 @@ void blockPusher::duwBlock() {
         // make it more even.
         turnRight();
         senseDir = RIGHT;
-      } else {
-        stop();
-      }
-    } else if (leftValue > rightValue) {
+      } 
+      // else {
+      //   stop();
+      // }
+    } 
+    else if (leftValue > rightValue) {
       if (leftValue - rightValue > minimum) {  // minimum was 1 first
 
         // The left value is greater, so turn to the left.
         turnLeft();
         senseDir = LEFT;
       }
-    } else {
-      // The values are equal, so stop the motors.
+    } 
+    else if (leftValue == rightValue){
+      // The values are equal, so go forward
       // stop();
       attack();
     }
