@@ -5,28 +5,7 @@
 Zumo32U4Motors motors;
 encoderStuff encoderObj;
 
-///starting speed (no movement)
-double speed = 1;
-double speedRight;
-double speedLeft;
-const int MIN_SPEED = -400;
-const int MAX_SPEED = 400;
 
-/// determines if the robot should move or pause
-bool allowDrive = true;
-
-/// the minimum is 1 because we are going to multiplied
-const int minimumTuriningValue = 1;
-const int maximumTurningValue = 6;
-
-//default steer value. Value is later on multiplied with so the default is 1
-double steerRight = minimumTuriningValue;
-
-//default steer value. Value is later on multiplied with so the default is 1
-double steerLeft = minimumTuriningValue;
-
-//intensity of steering changes
-const double steerIntensity = 1.3;
 
 motorsManual::motorsManual() {
 }
@@ -137,6 +116,8 @@ void motorsManual::setAndNormalizeMotorValues() {
 
 /// set the pins of the motor so it changes the speed
 void motorsManual::applyMotorValues() {
+  encoderObj.correctOffset(getSpeedLeft(), getSpeedRight());
+  //encoderObj.printCorrectionValues();
   motors.setLeftSpeed(speedLeft + encoderObj.getCorrectLeft());
   motors.setRightSpeed(speedRight + encoderObj.getCorrectRight());
 }

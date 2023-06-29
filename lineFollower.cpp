@@ -312,4 +312,9 @@ void lineFollower::lineFollow() {
 
   m.setSpeedLeft(speedLeft);
   m.setSpeedRight(speedRight);
+  
+  if (getCalibratedCount() != 5) {
+    m.resetSpeed();
+  }
+  m.applyMotorValues();
 }

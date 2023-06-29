@@ -7,6 +7,7 @@ class xBee {
 public:
   bool inputReceivedManual();
   void inputReceivedAutonomous();
+  void manualLoop();
 private:
   buzzerStuff buzzer;
   motorsManual m;

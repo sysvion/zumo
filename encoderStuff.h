@@ -7,7 +7,7 @@ class encoderStuff {
   public:
     void resetEncoderCounts();
 
-    void correctOffset();
+    void correctOffset(int, int );
 
     /// for movement turning amount of degrees
     void setExpectedLeftEncoderCount(int);
