@@ -186,7 +186,7 @@ void lineFollower::lineFollow() {
 
   // Get motor speedLineFollower difference using proportional and derivative PID terms (the integral term is generally not very
   // useful for line following).  Here we are using a proportional constant of 1/4 and a derivative constant of 6.
-  int speedDifference = error / 4 + (0 * (error - lastError));
+  int speedDifference = error / 5;
 
   lastError = error;
 
